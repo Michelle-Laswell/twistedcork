@@ -1,0 +1,239 @@
+*{
+    margin: 0;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: "Inconsolata", sans-serif;
+}
+
+body {
+    background-color:  rgb(182, 125, 173);
+}
+
+html {
+    box-sizing: border-box;
+}
+
+h2 {
+    background-color: #000;
+    color: #fff;    
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 4px;
+    margin: 20px 10px;
+    padding: 5px 3px;
+    width: auto;
+    max-width: 700px;
+}
+
+h3 {
+    background-color: #000;
+    color: #fff;    
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 4px;
+    margin: 20px 10px;
+    padding: 5px 3px;
+    width: 10%;    
+}
+
+h4 {
+    background-color: #000;
+    color: #fff;    
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 4px;
+    margin: 20px 10px;
+    padding: 5px 3px;
+    width: fit-content;
+}
+
+.menu {
+    display: none;
+}
+
+/*STYLING THE NAVIGATION BAR */
+
+.navbar {
+    background-color: black;
+    position:fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  .navbar ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px 20px;
+    overflow: hidden;   
+    color: white;
+    width: 100%;
+}
+  
+.navbar li {
+    display: inline;
+    list-style-type: none; 
+    padding: 0px;    
+}
+  
+.navbar li a {
+    display: inline;
+    color:white;
+    font-family: "Inconsolata", sans-serif;
+    font-size: 25px;
+    letter-spacing: 4px;    
+    padding: 15px 25px;
+    margin: 20px;
+    text-decoration: none;   
+}
+
+.navbar li a:hover {
+    background-color: white;
+    color: black;    
+}
+
+/*STYLING THE HEADER(S)*/
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 120px;
+    color: rgb(104, 31, 92);
+    text-shadow: 2px 2px rgb(182, 125, 173);
+    margin: 10%;
+}
+
+.bgimg {
+    background-position: center;
+    background-size: cover;
+    background-image: url("images/tchome1.JPG");
+    min-height: 75%;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; 
+    position: relative;   
+}
+
+.hours,
+.location {
+   background-color: white;
+   color: black;
+   font-size: 18px;
+   font-weight: bold;
+   margin: auto;
+   padding: 5px 10px;
+   width: fit-content;
+   position: absolute;
+   bottom: 5px;
+}
+
+.hours {
+   left: 20px;    
+}
+
+.location {
+   right: 20px;    
+}
+
+/*STYLING THE ABOUT CONTAINER & CONTENT*/
+
+.about-container,
+.where-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container,
+.where-container,
+.menu-container,
+.food-container,
+.drink-container,
+.contact-container {
+    padding: 0.01em 16px;
+}
+
+.about-container:after,
+.about-container:before,
+.where-container:after,
+.where-container:before,
+.menu-container:after,
+.menu-container:before
+.food-container:after,
+.food-container:before,
+.drink-container:after,
+.drink-container:before,
+.contact-container:after,
+.contact-container:before {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.about-container p {
+    font-size: 18px;
+    text-align: justify;
+    padding-bottom: 15px;
+}
+
+.about-container img {    
+    margin: 10px;
+    width:100%;
+    max-width:1000px;
+}
+
+.about-content {
+    font-size: 18px;
+    text-align: justify;
+    padding-bottom: 15px;    
+    max-width: 700px;        
+}
+
+.about-content ul,
+.about-content li {
+    text-decoration: dashed;
+}
+
+/*STYLING THE ASIDE CONTENT*/
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: rgb(215, 178, 209);
+    border: 4px double #000;
+    margin-bottom: 20px;
+    padding: 10px 50px;
+}
+
+.info { 
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    background-color: rgb(215, 178, 209);
+    border: 4px double #000;
+    text-align: center;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    width: 65%;    
+}
+
+.icon-bar {
+    width: 50%;
+}
+
+
+
+
+   
+  
