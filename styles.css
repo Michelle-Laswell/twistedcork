@@ -48,6 +48,10 @@ h4 {
     width: fit-content;
 }
 
+a {
+    text-decoration: none;
+}
+
 .menu {
     display: none;
 }
@@ -122,11 +126,11 @@ h1 {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    min-height: 85%;
 }
 
 .bgimg {
-    background-image: url("images/tchome1.JPG");
-    min-height: 75%;
+    background-image: url("images/tchome1.JPG");    
 }
 
 .hours,
@@ -174,7 +178,10 @@ h1 {
 .where-container:after,
 .where-container:before,
 .menu-container:after,
-.menu-container:before .food-container:after,
+.menu-container:before,
+.menu-card:after,
+.menu-card:before,
+.food-container:after,
 .food-container:before,
 .drink-container:after,
 .drink-container:before,
@@ -369,39 +376,61 @@ footer {
 }
 
 /*STYLING THE MENU PAGE*/
-.bgimg-menu {
-    background-position: center;
-    background-size: cover;
-    opacity: 0.8;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
 
 .bgimg-menu {
-    background-image: url(images/tcmenu1.JPG);
-    min-height: 75%;
+    background-image: url(images/tcmenu1.JPG);   
 }
 
 .menu-content {
     margin-left: auto;
     margin-right: auto;
-    max-width: 980px;
+    max-width: 980px;    
+}
+
+.menu-card {
+    display: flex;
+    justify-content: space-evenly;          
+    background-color: rgb(215, 178, 209);
+    font-size: 20px;    
+    box-shadow: 0 4px 7px 0 rgba(104, 31, 92, 0.17), 0 2px 10px 0 rgba(104, 31, 92, 0.12);
+    padding: 8px 16px;
+}
+
+.menu-card:hover {
+    background-color: rgb(182, 125, 173);    
+}
+
+.menu-col {  
+    text-align: center;    
+    color: rgb(104, 31, 92);       
+    padding: 8px 16px;
+    font-size: 20px;
+    font-weight: bolder;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.tabcolor {
+    background-color: rgb(104, 31, 92);
+    color: rgb(215, 178, 209); 
+    padding: 5px 100px;
+}
+
+.food-container,
+.drink-container {
+    background-color: rgb(215, 178, 209);     
+    box-shadow: 0 4px 7px 0 rgba(104, 31, 92, 0.17), 0 2px 10px 0 rgba(104, 31, 92, 0.12);
+    padding: 48px 0;
+}
+
+.food-item,
+.drink-item {    
+    height: 100%;
+    font-family: "Inconsolata", sans-serif;
 }
 
 
 /*STYLING THE EVENTS PAGE*/
 .bgimg-events {
-    background-position: center;
-    background-size: cover;
-    background-image: url(images/tcstage6.jpg);
-    min-height: 85%;
-    opacity: 0.8;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+    background-image: url(images/tcstage6.jpg);       
 }

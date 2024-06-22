@@ -39,7 +39,6 @@
         <div class="menu-container" id="menu">
             <div class="menu-content">
                 <h2>THE MENU</h2>
-
                 <aside class="specials">
                     <h3>Weekly Specials</h3>
                     <ul>
@@ -49,47 +48,49 @@
                     </ul>
                 </aside>
 
-                <div class="w3-row w3-center w3-card w3-padding">
+            
+
+                <div class="menu-card">
                     <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
-                        <div class="w3-col s6 tablink">Eat</div>
+                        <div class="menu-col tablink">EAT</div>
                     </a>
                     <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
-                        <div class="w3-col s6 tablink">Drink</div>
+                        <div class="menu-col tablink">DRINK</div>
                     </a>
                 </div>
 
-                <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+                <div id="Eat" class="food-container menu">
                     <h5>Bread Basket</h5>
-                    <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
+                    <p class="food-item">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
 
                     <h5>Honey Almond Granola with Fruits</h5>
-                    <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
+                    <p class="food-item">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
 
                     <h5>Belgian Waffle</h5>
-                    <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
+                    <p class="food-item">Vanilla flavored batter with malted flour 7.50</p><br>
 
                     <h5>Scrambled eggs</h5>
-                    <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
+                    <p class="food-item">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
 
                     <h5>Blueberry Pancakes</h5>
-                    <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>
+                    <p class="food-item">With syrup, butter and lots of berries 8.50</p>
                 </div>
 
-                <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+                <div id="Drinks" class="drink-container menu">
                     <h5>Coffee</h5>
-                    <p class="w3-text-grey">Regular coffee 2.50</p><br>
+                    <p class="drink-item">Regular coffee 2.50</p><br>
 
                     <h5>Chocolato</h5>
-                    <p class="w3-text-grey">Chocolate espresso with milk 4.50</p><br>
+                    <p class="drink-item">Chocolate espresso with milk 4.50</p><br>
 
                     <h5>Corretto</h5>
-                    <p class="w3-text-grey">Whiskey and coffee 5.00</p><br>
+                    <p class="drink-item">Whiskey and coffee 5.00</p><br>
 
                     <h5>Iced tea</h5>
-                    <p class="w3-text-grey">Hot tea, except not hot 3.00</p><br>
+                    <p class="drink-item">Hot tea, except not hot 3.00</p><br>
 
                     <h5>Soda</h5>
-                    <p class="w3-text-grey">Coke, Sprite, Fanta, etc. 2.50</p>
+                    <p class="drink-item">Coke, Sprite, Fanta, etc. 2.50</p>
                 </div>
                 <img src="images/tcmenu2.JPG">
             </div>
@@ -100,8 +101,10 @@
         <h3>CONTACT US</h3>
         <p>859.275.0027</p>
         <aside class="icon-bar">
-            <ion-icon class="icon" name="logo-facebook">https://www.facebook.com/twistedcorklex</ion-icon>
-            <ion-icon class="icon" name="mail">TwistedCorkLex@gmail.com</ion-icon>
+            <a href="https://www.facebook.com/twistedcorklex" target="_blank">
+            <ion-icon class="icon" name="logo-facebook"></ion-icon></a>
+            <a href="mailto:TwistedCorkLex@gmail.com">
+            <ion-icon class="icon" name="mail"></ion-icon></a>
         </aside>
         <p><a href="#home">Back to the Top</a></p>
     </footer>
@@ -119,13 +122,12 @@
             }
             tablinks = document.getElementsByClassName("tablink");
             for (i = 0; i < x.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+                tablinks[i].className = tablinks[i].className.replace(" tabcolor", "");
             }
             document.getElementById(menuName).style.display = "block";
-            evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+            evt.currentTarget.firstElementChild.className += " tabcolor";
         }
         document.getElementById("myLink").click();
-
     </script>
 
 </body>
