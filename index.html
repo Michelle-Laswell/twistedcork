@@ -103,36 +103,43 @@
         <p><a href="#home">Back to the Top</a></p>
     </footer>
 
+    //Adding Facebook and Email icons in the Contact footer
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <script>
-        window.onload = function() {
-            var now = new Date();
-            var year = now.getFullYear();
-            var month = ('0' + (now.getMonth() + 1)).slice(-2);
-            var day = ('0' + now.getDate()).slice(-2);
-            var hours = ('0' + now.getHours()).slice(-2);
-            var minutes = ('0' + now.getMinutes()).slice(-2);
+    //Putting the Current Date in the Placeholder
+        
+    window.onload = function() {
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = ('0' + (now.getMonth() + 1)).slice(-2);
+    var day = ('0' + now.getDate()).slice(-2);
+    var hours = ('0' + now.getHours()).slice(-2);
+    var minutes = ('0' + now.getMinutes()).slice(-2);
 
-            var formattedDate = `${year}-${month}-${day}T${hours}:${minutes}`;
+    var formattedDate = `${year}-${month}-${day}T${hours}:${minutes}`;
 
-            document.getElementById('reservation-date').value = formattedDate;
-        };
+    document.getElementById('reservation-date').value = formattedDate;
+};
 
-    </script>
+   //Shows active page in the navbar
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var links = document.querySelectorAll('.navbar a');
-            links.forEach(function(link) {
-                if (link.href === window.location.href) {
-                    link.classList.add('active');
-                }
-            });
-        });
+   document.addEventListener('DOMContentLoaded', function() {
+    var links = document.querySelectorAll('.navbar a');
+    links.forEach(function(link) {
+        if (link.href === window.location.href) {
+            link.classList.add('active');
+        }
+    });
+});
 
-    </script>
+</script>   
+    
+    
+   <!-- The external javascript is not working
+    <script src="script.js"></script>  -->     
+   
 
 </body>
 
