@@ -115,7 +115,7 @@ h1 {
     text-align: center;
     font-size: 120px;
     color: rgb(104, 31, 92);
-    text-shadow: 2px 2px 4px #000, 4px 4px rgb(182, 125, 173), 1px 1px 6px #fff;
+    text-shadow: 3px 3px 4px #000, 4px 4px rgb(182, 125, 173), 5px 5px 6px #fff;
     margin: 10%;
 }
 
@@ -334,7 +334,7 @@ h1 {
 }
 
 
-/*STYLING THE FORM*/
+/*STYLING THE RESERVATION FORM*/
 
 .reservation {
     width: 100%;
@@ -400,6 +400,58 @@ footer {
     margin: 0;
 }
 
+
+/* STYLING THE SIGN UP AND SIGN IN BUTTONS */
+
+.signup,
+.signin {
+    background-color: rgb(215, 178, 209);    
+    color: black;
+    font-size: 15px;    
+    margin: auto;
+    padding: 10px 15px;
+    width: fit-content;
+    position: absolute;
+    bottom: 5px;
+    border: 3px inset rgb(104, 31, 92);
+}
+
+.signup {
+    left: 20px;
+}
+
+.signin {
+   right: 20px;
+}
+
+.signup button,
+.signin button {
+    display: flex;
+    justify-content: center;    
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 30px;
+    padding: 4px 20px;
+    width: max-content;
+}
+
+/* STYLING THE SIGN UP FORM AND THE SIGN IN FORM */
+#signupForm {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    width: 300px;
+}
+
+#signinForm {
+    display: none;
+     border: 1px solid #ccc;
+     padding: 20px;
+    margin-top: 20px;
+    width: 300px;
+}
+
 .menu-content {
     margin-left: auto;
     margin-right: auto;
@@ -444,6 +496,14 @@ footer {
     padding: 48px 0;
 }
 
+.food-container h4,
+.drink-container h4 {
+    display: flex;
+    flex-direction: column;
+    flex-flow: center;
+    align-items: center;
+}
+
 .food-item,
 .drink-item {    
     height: 100%;
@@ -455,3 +515,34 @@ footer {
 .bgimg-events {
     background-image: url(images/tcstage6.jpg);       
 }
+
+table {
+    width: 700px;
+    max-width: 900px;
+}
+
+table, th, tr, td {
+    border: 1px solid black;
+}
+
+th {
+    align-content: center;
+    width: fit-content;
+}
+
+th, tr {
+    padding: 20px 6px;
+}
+
+td {
+    padding-left: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(215, 178, 209);
+} 
+
+tr:nth-child(odd) {
+    background-color: rgb(104, 31, 92, 0.4);
+}
+
