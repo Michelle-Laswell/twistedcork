@@ -31,141 +31,184 @@
         <div class="location">
             <p>145 Burt Road</p>
         </div>
-    </header>
+    </header>    
 
+        <!-- SIGN-IN SECTION 
+        <section class="signup">
+            <p>Don't have an account? <br>
+                <button type="button" onclick="showForm()">Sign Up</button></p>
+        </section>
+        -->
+        <form class="signin" method="post" <!--action="OPEN SIGN-IN PAGE"-->
+            <label>Sign In to Order</label>
+                <input type="button" value="Sign In" onclick="showsignInForm()"/>
+        </form>          
+         
     <main>
 
         <!-- MENU CONTAINER -->
-        <div class="signup">
-            <p>Don't have an account? <br>
-                <button type="button" onclick="showForm()">Sign Up</button></p>
-        </div>
-
-        <div class="signin">
-            <p>Already have an account? <br>
-                <button type="button" onclick="showsignInForm()">Sign In</button></p>
-        </div>          
-         
-
         <div class="menu-container" id="menu">
-
-                <div class="menu-content">
-
+            <section class="menu-content">
                 <h2>THE MENU</h2>             
 
-                <div class="menu-card">
+                <section class="menu-card">
                     <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
                         <div class="menu-col tablink">EAT</div>
                     </a>
                     <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
                         <div class="menu-col tablink">DRINK</div>
                     </a>
-                </div>
+                </section>
 
                 <section id="Eat" class="food-container menu">
 
                     <aside class="specials">
-                        <h3>Weekly Specials</h3>
+                        <h3>WEEKLY SPECIALS</h3>
                         <ul>
                             <li>Steak & Cheese w/Loaded Fries <span class="price">12.00</span></li>
                             <li>Deluxe Burger w/Bacon <span class="price">10.00</span></li>
-                            <li> 6 piece Wings <span class="price">8.00</span>
-                            <li>12 piece Wings <span class="price">15.00</span> w/your choice of sauces: <br></li>
-                            <li>Orange Bourbon, Pineapple Teriyaki, or Honey BBQ</li>                            
+                            <li>6 piece Wings <span class="price">8.00</span></li>
+                            <li>12 piece Wings <span class="price">15.00</span></li>
+                            <li>Served with your choice of sauces:</li>
                         </ul>
+                        <ul class="sauce">                            
+                            <li>Orange Bourbon</li>
+                            <li>Pineapple Teriyaki</li>
+                            <li>Honey BBQ</li>  
+                        </ul>                          
                     </aside>
 
-                    <h4>APPETIZERS</h4>
+                    <section class="apps">
+                        <h4>APPETIZERS</h4>
 
-                    <h5>Mozzarella Sticks</h5>
-                    <p class="food-item">Custom made crispy, golden-brown mozzarella sticks<br>
-                        served with our Marinara dipping sauce. <span class="price">8.00</span>
-                    </p><br>
+                        <article class="food-item">
+                            <h5>Mozzarella Sticks</h5>
+                            <p>Custom made crispy, golden-brown mozzarella sticks served with our Marinara dipping sauce.</p>
+                            <p class="price">8.00</p>                        
+                        </article>                
 
-                    <h5>Pepperjack Cheese Poppers</h5>
-                    <p class="food-item">Handbreaded crispy, golden-brown pepperjack cheese poppers<br>
-                        served with our Diablo sauce <span class="price">7.00</span>
-                    </p><br>
+                        <article class="food-item">
+                            <h5>Pepperjack Cheese Poppers</h5>
+                            <p>Handbreaded crispy, golden-brown pepperjack cheese poppers served with our 
+                                Diablo sauce.</p>
+                            <p class="price">7.00</p>                            
+                        </article>
 
-                    <h5>Beer Cheese</h5>
-                    <p class="food-item">Homemade creamy beer cheese <br>
-                        served with celery, pretzels and crackers <span class="price">8.00</span>
-                    </p><br>
+                        <article class="food-item">
+                            <h5>Beer Cheese</h5>
+                            <p>Homemade creamy beer cheese served with celery, pretzels and 
+                                crackers.</p>
+                            <p class="price">8.00</p>                            
+                        </article>
+                    </section>
+
+                    <section class="fries">
+                        <h4>LOADED FRIES</h4>
+
+                        <article class="food-item">
+                            <h5>Classic Loaded</h5>
+                            <p>Handcut French Fries topped with bacon, cheese, green onions
+                                served with ranch sauce.</p>
+                            <p class="price">8.00</p>                            
+                        </article>
+
+                        <article class="food-item">
+                            <h5>Spicy Loaded</h5>
+                            <p>Handcut French Fries topped with all the classic toppings plus jalapenos 
+                                served with our diablo sauce.</p>
+                            <p class="price">9.00</p>                            
+                        </article>
+
+                        <article class="food-item">
+                            <h5>BBW Chicken Loaded</h5>
+                            <p>Handcut French Fries topped with BBQ chicken tenders, onion, cheese 
+                                served with ranch sauce.</p>
+                                <p class="price">10.00</p>
+                        </article>
+                    </section>
+
+                    <section class="entree">
+                        <h4>ENTREES</h4>
                     
-                    <h4>LOADED FRIES</h4>
+                        <article class="food-item">
+                            <h5>Fried Chicken Salad</h5>
+                            <p>Large salad made with fresh lettuce topped with fresh tomatoes, 
+                                onion, cheese, egg, bacon bits and crispy fried chicken tenders served with your choice of 
+                                Ranch, Italian, Bleu Cheese or Honey Mustard</p>
+                                <p class="price">10.00</p>                           
+                        </article>
 
-                    <h5>Classic Loaded</h5>
-                    <p class="food-item">Handcut French Fries topped with bacon, cheese, green onions<br> 
-                        served with ranch sauce <span class="price">8.00</span>
-                    </p><br>
-
-                    <h5>Spicy Loaded</h5>
-                    <p class="food-item">Handcut French Fries topped with all the classic toppings plus jalapenos <br>
-                        served with our diablo sauce <span class="price">9.00</span>
-                    </p><br>
-
-                    <h5>BBW Chicken Loaded</h5>
-                    <p class="food-item">Handcut French Fries topped with BBQ chicken tenders, onion, cheese<br>
-                        served with ranch sauce <span class="price">10.00</span>
-                    </p><br>
+                        <article class="food-item">
+                            <h5>The Cork Club</h5>
+                            <p>Classic Club Sandwich made with toasted white bread, packed with layers of 
+                                succulant ham and tender turkey topped with melted American and Swiss cheese juicy tomato, 
+                                fresh lettuce, tangy onion and crispy bacon bits served with your choice of fries or 
+                                side salad</p>
+                                <p class="price">9.00</p>                           
+                        </article>
                     
-                    <h4>ENTREES</h4>
+                        <article class="food-item">
+                            <h5>Buffalo Chicken Quesadilla</h5>
+                            <p>Tangy Buffalo Chicken in a quesadilla with shredded cheese and onion
+                                served with your choice of fries or side salad</p>
+                                <p class="price">12.00</p>                            
+                        </article>
+                    </section>
+
+                    <section class="burger">
+                        <h4>BURGERS</h4>
+
+                        <article class="food-item">
+                            <h5>Cheeseburger</h5>
+                            <p>A classic cheeseburger on a toasted bun with fresh toppings of lettuce, tomato,
+                                onion and pickles served with your choice of fries or side salad</p>
+                                <p class="price">11.00</p>                            
+                        </article>
                     
-                    <h5>Fried Chicken Salad</h5>
-                    <p class="food-item">Large salad made with fresh lettuce topped with <br>
-                        fresh tomatoes, onion, cheese, egg, bacon bits and crispy fried chicken tenders<br>
-                        and served with your choice of Ranch, Italian, Bleu Cheese or Honey Mustard <span class="price">10.00</span>
-                    </p><br>
+                        <article class="food-item">
+                            <h5>Bourbon Burger</h5>
+                            <p>A juicy beef patty with a sweet and savory sauce made with bourbon, bacon and 
+                                carmelized onions topped with melted American Cheese and deep fried onion crisps on a toasted 
+                                bun served with your choice of fries or side salad.</p>
+                                <p class="price">13.00</p>                            
+                        </article>
 
-                    <h5>The Cork Club</h5>
-                    <p class="food-item">Classic Club Sandwich made with toasted white bread, packed with layers of <br>
-                        succulant ham and tender turkey topped with melted American and Swiss cheese <br>
-                        juicy tomato, fresh lettuce, tangy onion and crispy bacon bits and served <br>
-                        with your choice of fries or side salad <span class="price">9.00</span>
-                    </p><br>
-                    
-                    <h5>Buffalo Chicken Quesadilla</h5>
-                    <p class="food-item">Tangy Buffalo Chicken in a quesadilla with shredded cheese and onion <br>
-                        served with your choice of fries or side salad <span class="price">12.00</span>
-                    </p><br>
-                    
-                    <h4>BURGERS</h4>
+                        <article class="food-item">
+                            <h5>Sweet Slaw Burger</h5>
+                            <p>A perfectly seasoned grilled beef patty topped with Swiss Cheese and a generous 
+                                serving of crispy, spice chili mayo coleslaw and crispy fried onion on a toasted bun served with 
+                                your choice of fries or side salad.</p>
+                            <p class="price">13.00</p>
+                                              
+                        </article>
+                    </section>
 
-                    <h5>Cheeseburger</h5>
-                    <p class="food-item">A classic cheeseburger on a toasted bun with fresh toppings of lettuce, tomato,<br>
-                        onion and pickles served with your choice of fries or side salad <span class="price">11.00</span>
-                    </p><br>
-                    
-                    <h5>Bourbon Burger</h5>
-                    <p class="food-item">A juicy beef patty with a sweet and savory sauce made with bourbon, bacon and <br>
-                        carmelized onions topped with melted American Cheese and deep fried onion crisps<br>
-                        on a toasted bun served with your choice of fries or side salad <span class="price">13.00</span>
-                    </p><br>
+                    <section class="dessert">
+                        <h4>DESSERTS</h4>
 
-                    <h5>Sweet Slaw Burger</h5>
-                    <p class="food-item">A perfectly seasoned grilled beef patty topped with Swiss Cheese and a <br>
-                        generous serving of crispy, spice chili mayo coleslaw and crispy fried onion <br>
-                        on a toasted bun served with your choice of fries or side salad <span class="price">13.00</span>
-                    </p><br>
+                        <article class="food-item">
+                            <h5>Mini Fried Apple Pies</h5>
+                            <p> 3 bite-sized treats filled with a sweet and spicy apple filling 
+                                served warm and sprinkled with brown sugar.</p>
+                            <p class="price">7.00</p>
+                            
+                        </article>
 
-                    <h4>DESSERTS</h4>
-
-                    <h5>Mini Fried Apple Pies</h5>
-                    <p class="food-item"> 3 bite-sized treats filled with a sweet and spicy apple filling <br>
-                        served warm and sprinkled with brown sugar <span class="price">7.00</span>
-                    </p><br>
-
-                    <h5>Mini Fried Oreo Pies</h5>
-                    <p class="food-item">Crunchy and creamy Oreo pies drizzled with chocolate <br>
-                        served warm and sprinkled with powdered sugar <span class="price">7.00</span>
-                    </p>
+                        <article class="food-item">
+                            <h5>Mini Fried Oreo Pies</h5>
+                            <p>Crunchy and creamy Oreo pies drizzled with chocolate 
+                                served warm and sprinkled with powdered sugar.</p>
+                            <p class="price">7.00</p>
+                            
+                        </article>
+                    </section>
 
                 </section>
 
                 <section id="Drinks" class="drink-container menu">
 
                     <aside class="specials">
-                        <h3>Happy Hour</h3>
+                        <h3>HAPPY HOUR</h3>
                         <p class="happyhr">Daily from 4:00 p.m. to 7:00 p.m.</p>
                         <ul>                            
                             <li>Draft Beer <span class="price">3.50</span></li>
@@ -173,46 +216,74 @@
                         </ul>
                     </aside>
 
-                    <h4>TO-GO AND IN-HOUSE DRINKS</h4>
+                    <section class="togo">
+
+                        <h4>TO-GO AND IN-HOUSE DRINKS</h4>
                     
-                    <h5>Water</h5>
-                    <p class="drink-item">Bottled Water <span class="price">1.25</span></p><br>
+                        <article class="drink-item">
+                            <h5>Water</h5>
+                            <p>Bottled Water <span class="price">1.25</span></p><br>
+                        </article>
                     
-                    <h5>Canned Drinks</h5>
-                    <p class="drink-item">Coke, Diet Coke and Sprite <span class="price">1.25</span></p><br>
+                        <article class="drink-item">
+                            <h5>Canned Drinks</h5>
+                            <p>Coke, Diet Coke and Sprite <span class="price">1.25</span></p><br>
+                        </article>
 
-                    <h5>Cutwater Can Cocktails</h5>
-                    <p class="drink-item">Award Winning Cocktails made with real Spirits <span class="price">5.00</span></p><br>
+                        <article class="drink-item">
+                            <h5>Cutwater Can Cocktails</h5>
+                            <p>Award Winning Cocktails made with real Spirits <span class="price">5.00</span></p><br>
+                        </article>
 
-                    <h5>Domestic Can Beer Singles</h5>
-                    <p class="drink-item">Budweiser, Bud Light, Miller Light and Coors span class="price">3.50</span></p><br>
+                        <article class="drink-item">
+                            <h5>Domestic Can Beer Singles</h5>
+                            <p>Budweiser, Bud Light, Miller Light and Coors <span class="price">3.50</span></p><br>
+                        </article>
 
-                    <h5>Rhinegeist Can Beer Singles</h5>
-                    <p class="drink-item">Craft beers and ciders <span class="price">5.00</span></p><br>
+                        <article class="drink-item">
+                            <h5>Rhinegeist Can Beer Singles</h5>
+                            <p>Craft beers and ciders <span class="price">5.00</span></p><br>
+                        </article>                        
+                    </section>
+
+                    <section class="beer">
                                     
-                    <h4>CRAFT BEER</h4>
-                    
-                    <h5>Yuenling</h5>
-                    <p class="drink-item">Bottled or On-Tap <span class="price">5.00</span></p><br>
+                        <h4>CRAFT BEER</h4>
+                        
+                        <article class="drink-item">
+                            <h5>Yuenling</h5>
+                            <p>Bottled or On-Tap <span class="price">5.00</span></p><br>
+                        </article>
+                    </section>
 
-                    <h4>WINE</h4>
+                    <section class="wine">
+                        <h4>WINE</h4>
 
-                    <h5 class="drink-item">Fat Cat Pinot Noir</h5>
-                    <p class="bottle">Bottle <span class="price">18.00</span></p>
-                    <p class="glass">Glass <span class="price">6.00</span></p><br>
+                        <article class="drink-item">
+                            <h5>Fat Cat Pinot Noir</h5>
+                            <p class="bottle">Bottle <span class="price">18.00</span></p>
+                            <p class="glass">Glass <span class="price">6.00</span></p><br>
+                        </article>
 
-                    <h5 class="drink-item">Fat Cat Chardonay</h5>
-                    <p class="bottle">Bottle <span class="price">18.00</span></p>
-                    <p class="glass">Glass <span class="price">6.00</span></p><br>
+                        <article class="drink-item">
+                            <h5>Fat Cat Chardonay</h5>
+                            <p class="bottle">Bottle <span class="price">18.00</span></p>
+                            <p class="glass">Glass <span class="price">6.00</span></p><br>
+                        </article>
+                    </section>
 
-                    <h4>COCKTAILS</h4>
+                    <section class="cocktails">
+                        <h4>COCKTAILS</h4>
 
-                    <h5 class="drink-item">Margaritas</h5>
-                    <p>Glass <span class="price">5.00</span>
-
+                        <article class="drink-item">
+                            <h5>Margaritas</h5>
+                            <p>Glass <span class="price">5.00</span>
+                        </article>
+                    </section>
                 </section>
-                <img src="images/tcmenu2.JPG">
-            </div>
+                <img src="images/tcmenu4.JPG">
+                <img src="images/tcmenu2.JPG">                
+            </section>
         </div>
     </main>
 
@@ -225,6 +296,7 @@
             <a href="mailto:TwistedCorkLex@gmail.com">
             <ion-icon class="icon" name="mail"></ion-icon></a>
         </aside>
+        <p>Website Designed by: Michelle Laswell</p><br>
         <p><a href="#home">Back to the Top</a></p>
     </footer>
 

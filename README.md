@@ -39,9 +39,12 @@ This page consists of three subsections:
  - Drink
  - Contact
 
-The "Eat" section will contain weekly specials and the food menu for ordering food items.
+The "Eat" section will contain weekly specials and the food menu for ordering food items with a button to add that item to your cart.
 
-The "Drink" section will contain happy hour times, drink specials, and drinks for to-go orders and drinks for in-house ordering.
+The "Drink" section will contain happy hour times, drink specials, and drinks for to-go orders and drinks for in-house ordering along with a button to add that item to your cart.  Only drinks that can ben ordered to-go will have an "add" button.
+
+There will be a sign-in button on the menu page which will open up a sign-in form.  The sign-in form will allow you
+to log into your account with your email address and a password.  If you don't currently have an account there will be a link to allow you to open an account.  When this link is clicked a sign-up form will appear so you can enter the necessary information needed to open your account.
 
 You will also be able to find information to contact the establishment via phone number, email address, or Facebook page.
 
@@ -54,7 +57,7 @@ At this time the event page will consist two subsections:
  - Events
  - Contact
 
-The Events section will contain all the events happening that month along with the times those events start.
+The Events section will contain all the events happening that week or month along with the times those events start.
 
 You will also be able to find information to contact the establishment via phone number, email address, or Facebook page.
 

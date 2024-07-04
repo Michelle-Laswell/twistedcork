@@ -24,6 +24,7 @@ h2 {
     letter-spacing: 4px;
     margin: 2rem 10px;
     padding: 8px 100px;
+    width: 75%;
     max-width: 700px;
 }
 
@@ -31,19 +32,19 @@ h3 {
     background-color: #000;
     color: #fff;
     text-align: center;
-    font-size: 18px;
+    font-size: 22px;
     letter-spacing: 4px;
     margin: 20px 10px;
-    padding: 5px 3px;
+    padding: 5px 8px;
 }
 
 h4 {
     background-color: #000;
     color: #fff;
     text-align: center;
-    font-size: 14px;
+    font-size: 20px;
     letter-spacing: 4px;
-    margin: 20px 10px;
+    margin: 0 auto;
     padding: 5px 3px;
     width: fit-content;
 }
@@ -162,11 +163,12 @@ h1 {
 
 .about-container,
 .where-container,
+.reservation-container,
 .menu-container,
 .event-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
 }
 
 .about-container,
@@ -202,36 +204,42 @@ h1 {
 
 .about-container p,
 .where-container p,
-.event-container {
+.event-container p{
     font-size: 21px;
     text-align: justify;
     padding-bottom: 24px;
 }
 
-.about-container ul {
+.owners h4 {
+    font-size: 16px;
+}
+
+.owners p {
+    font-size: 14px;
+}
+
+.owners ul {
     list-style: square inside;
+    text-align: left;
     font-size: 21px;
 }
 
 .about-container img {
-    width: 700px;
-    margin: 2rem 0;
-}
-
-.about-content {
-    font-size: 18px;
-    text-align: justify;
-    padding-bottom: 15px;
     max-width: 700px;
+    margin: 2rem 0;
 }
 
 /*STYLING THE WHERE CONTAINER/CONTENT*/
 
-.where-content {
+.about-content,
+.where-content,
+.menu-content,
+.event-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
 }
 
 .msg-btn {
@@ -257,6 +265,7 @@ h1 {
 
 .map {
     align-items: center;
+    width: 100%;
     max-width: 700px;
     height: 350px;
     margin: 30px 0;
@@ -303,25 +312,31 @@ h1 {
 
 .specials {
     display: flex;
+    justify-content: center;
     flex-direction: column;
     flex-flow: center;
     align-items: center;
     background-color: rgb(182, 125, 173);
-    border: 4px double #000;
+    border: 4px double #000;    
     text-align: left;
-    padding: 15px 20px;
+    padding: 10px 15px;
     margin: 10px 25px;
-    max-width: 600px;
+    width: 75%;
+    max-width: 500px;
 }
 
-.specials h3 {
-    width: fit-content;
+.specials ul,
+.specials dl {
+    list-style: none;    
+    font-size: 19px;
 }
 
-.specials ul {
-    list-style: none;
-    ;
-    font-size: 21px;
+.specials dd {
+    list-style: disc;
+}
+
+.sauce li {
+    list-style: square;
 }
 
 .price {
@@ -329,16 +344,20 @@ h1 {
 }
 
 .happyhr {
-    font-size: 24px;
+    font-size: 20px;
     padding-bottom: 6px;
 }
 
 
 /*STYLING THE RESERVATION FORM*/
 
-.reservation {
-    width: 100%;
-    max-width: 700px;
+.reservation-container {
+    padding-bottom: 3%;
+}
+
+.reserve {
+    width: 75%;
+    max-width: 600px;
 }
 
 .input {
@@ -367,11 +386,13 @@ footer {
     align-items: center;
 }
 
-
-
 .contact-container p {
     font-size: 18px;
     margin-bottom: 15px;
+}
+
+.contact-container a {
+    text-decoration: underline;
 }
 
 .icon-bar {
@@ -395,67 +416,26 @@ footer {
     background-image: url(images/tcmenu1.JPG);   
 }
 
+.menu-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
 .menu-container img {
-    width: 700px;
-    margin: 0;
+    width: 100%;
+    max-width: 700px;    
 }
 
-
-/* STYLING THE SIGN UP AND SIGN IN BUTTONS */
-
-.signup,
-.signin {
-    background-color: rgb(215, 178, 209);    
-    color: black;
-    font-size: 15px;    
-    margin: auto;
-    padding: 10px 15px;
-    width: fit-content;
-    position: absolute;
-    bottom: 5px;
-    border: 3px inset rgb(104, 31, 92);
-}
-
-.signup {
-    left: 20px;
-}
-
-.signin {
-   right: 20px;
-}
-
-.signup button,
-.signin button {
-    display: flex;
-    justify-content: center;    
-    font-size: 15px;
-    margin-top: 10px;
-    margin-left: 30px;
-    padding: 4px 20px;
-    width: max-content;
-}
-
-/* STYLING THE SIGN UP FORM AND THE SIGN IN FORM */
-#signupForm {
-    display: none;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-top: 20px;
-    width: 300px;
-}
-
-#signinForm {
-    display: none;
-     border: 1px solid #ccc;
-     padding: 20px;
-    margin-top: 20px;
-    width: 300px;
-}
-
-.menu-content {
+.menu-content {    
     margin-left: auto;
     margin-right: auto;
-    max-width: 980px;    
+    width: 100%;
+    max-width: 700px;    
+}
+
+.menu-content h4 {
+    align-content: center;
 }
 
 .menu-card {
@@ -465,6 +445,8 @@ footer {
     font-size: 20px;    
     box-shadow: 0 4px 7px 0 rgba(104, 31, 92, 0.17), 0 2px 10px 0 rgba(104, 31, 92, 0.12);
     padding: 8px 16px;
+    width: 95.3%;
+    max-width: 700px;    
 }
 
 .menu-card:hover {
@@ -486,29 +468,122 @@ footer {
 .tabcolor {
     background-color: rgb(104, 31, 92);
     color: rgb(215, 178, 209); 
-    padding: 5px 100px;
+    padding: 10px 150px;
 }
 
 .food-container,
 .drink-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center; 
     background-color: rgb(215, 178, 209);     
-    box-shadow: 0 4px 7px 0 rgba(104, 31, 92, 0.17), 0 2px 10px 0 rgba(104, 31, 92, 0.12);
-    padding: 48px 0;
+    box-shadow: 5px 14px 17px 0 rgba(78, 23, 68, 0.17), 0 2px 10px 0 rgba(104, 31, 92, 0.12);
+    padding: 38px 0;
+    margin: auto;
+    width: 100%;
+    max-width: 700px;
+}
+
+.food-container aside,
+.drink-container aside {
+    display: flex;
+    justify-content: center;
+    margin: .5em auto;
 }
 
 .food-container h4,
 .drink-container h4 {
-    display: flex;
-    flex-direction: column;
-    flex-flow: center;
-    align-items: center;
+    text-align: center;
+    margin: 2em auto;
 }
 
 .food-item,
-.drink-item {    
+.drink-item {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start; 
+    font-size: 17px;  
+    width: 75%;
+    max-width: 500px;    
     height: 100%;
     font-family: "Inconsolata", sans-serif;
+    margin: 0 auto;
+    padding-bottom: 25px;
 }
+
+.food-item h5,
+.drink-item h5 {    
+    font-size: 18px;
+    padding-bottom: 8px;   
+    margin: 0;
+}
+
+.price {
+    font-size: 17px;    
+}
+
+/* STYLING THE SIGN UP AND SIGN IN BUTTONS */
+
+.signin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(215, 178, 209);    
+    color: black;
+    font-size: 15px;    
+    margin: -6.5% auto;
+    padding: 12px 18px;
+    width: 10%;
+    position: absolute;
+    bottom: 5px;
+    border: 3px inset rgb(104, 31, 92);
+}
+
+.signin label,
+.signin input[type="button"] {
+    margin-bottom: 10px;
+}
+/*
+.signup {
+    left: 20px;
+}
+*/
+.signin {
+    left: 5%;
+}
+
+.signup button,
+.signin button {
+    display: flex;
+    justify-content: center;    
+    font-size: 15px;
+    margin-top: 10px;
+    margin-left: 30px;
+    padding: 4px 20px;
+    width: max-content;
+}
+
+/* STYLING THE SIGN UP FORM AND THE SIGN IN FORM */
+#signupForm {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+#signinForm {
+    display: none;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
 
 
 /*STYLING THE EVENTS PAGE*/
@@ -517,7 +592,7 @@ footer {
 }
 
 table {
-    width: 700px;
+    width: 100%;
     max-width: 900px;
 }
 
@@ -544,5 +619,6 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
     background-color: rgb(104, 31, 92, 0.4);
+    font-weight: 400;
 }
 
