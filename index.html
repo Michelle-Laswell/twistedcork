@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -12,23 +12,21 @@
 <body>
 
     <!-- Navigation Bar w/Links (sits on top) -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="#home" target="_self" class="active">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#where">WHERE</a></li>
-            <li><a href="menu.html" target="_self">MENU</a></li>
-            <li><a href="events.html" target="_self">EVENTS</a></li>
-        </ul>
+    <nav class="navbar" role="navigation">
+        <a href="#home" target="_self" class="active">HOME</a>
+        <a href="#about" target="_self">ABOUT</a>
+        <a href="#where" target="_self">WHERE</a>
+        <a href="menu.html" target="_self">MENU</a>
+        <a href="events.html" target="_self">EVENTS</a>
     </nav>
 
     <!-- Header with image -->
     <header class="bgimg" id="home">
         <div class="hours">
-            <p>Open from 3pm to 12am</p>
+            <p>Open from 3pm to 12am</p>       
         </div>
         <h1>The <br />Twisted Cork</h1>
-        <div class="location">
+        <div class="address">
             <p>145 Burt Road</p>
         </div>
     </header>
@@ -45,8 +43,8 @@
                 <p>Not only do they serve good food and drinks, but there is some form of entertainment every day. If you like music, then this is the place to be!</p>
 
                 <aside class="panel">
-                    <p><cite>"Some kind of quote or saying goes here. It will be something
-                            they say a lot."</cite></p><br />
+                    <p><blockquote>"Some kind of quote or saying goes here. It will be something
+                            they say a lot."</blockquote></p><br />
                     <p>--Prentice Slone or "Momma" Sue Slone</p>
                 </aside>                
 
@@ -66,7 +64,7 @@
                     <ul>
                         <li>Riley Acke</li>
                     </ul>                
-                    <img src="images/tchome3.JPG">
+                    <img src="images/tchome3.JPG" alt="Picture of the outside of The Twisted Cork.">
                 </section>
             </div>           
         </section>        
@@ -78,19 +76,23 @@
                     <p><strong>Opening hours:</strong> everyday from 3pm to 12am.</p>
                     <p><strong>Address:</strong> 145 Burt Road, Lexington, KY 40503</p>
                 </aside>
-                <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.6799911355406!2d-84.52132074427895!3d38.00792408014984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88425ceb8c39172b%3A0x57666c49372dfa95!2sTwisted%20Cork%20Cafe%20Bar%20%26%20Grill!5e0!3m2!1sen!2sus!4v1717358904241!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe class="map" title="map of location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3143.6799911355406!2d-84.52132074427895!3d38.00792408014984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88425ceb8c39172b%3A0x57666c49372dfa95!2sTwisted%20Cork%20Cafe%20Bar%20%26%20Grill!5e0!3m2!1sen!2sus!4v1717358904241!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 <p><span class="tag">FYI!</span> We offer fresh food at affordable prices. We understand your needs
                     and we will cater the food to satisfy the biggerst criteria of them all, both look and taste.</p> <br />
                 <p><strong>Reserve</strong> a table, ask for today's special or just send us a message:</p>
 
                 <!--NEED TO CREATE A PLACE FOR THE INFORMATION IN THE FORM FOR ACTION-->
                 <form class="reserve" action="/action_page.php" target="_blank">
-                    <p><input class="input padding-16 border" type="text" placeholder="Name" required name="Name"></p>
-                    <p><input class="input padding-16 border" type="number" placeholder="How many people" required name="People"></p>
-                    <p><input class="input padding-16 border" type="datetime-local" placeholder="Date and time" required name="date" id="reservation-date"></p>
+                    <label for="name">Name: </label>
+                    <input class="input padding-16 border name" type="text" placeholder="Name" required name="Name"><br>
+                    <label for="people">Number your Party: </label>
+                    <input class="input padding-16 border people" type="number" placeholder="How many people" required name="People"><br>
+                    <label for="date">Reservation Date: </label>
+                    <input class="input padding-16 border date" type="datetime-local" placeholder="Date and time" required name="date" id="reservation-date"><br>
                     <!--value="2020-11-16T20:00"-->
-                    <p><input class="input padding-16 border" type="text" placeholder="Message \ Special requirements" required name="Message"></p><br>
-                    <p><button class="msg-btn" type="submit">SEND MESSAGE</button></p>
+                    <label for="message">Message or Comment: </label>
+                    <input class="input padding-16 border message" type="text" placeholder="Message \ Special requirements" required name="Message"><br>
+                    <button class="msg-btn" type="submit">SEND MESSAGE</button></p>
                 </form> 
             </div>
         </section>             
@@ -106,47 +108,52 @@
             <a href="mailto:TwistedCorkLex@gmail.com">
             <ion-icon class="icon" name="mail"></ion-icon></a>
         </aside>
-        <p>Website Designed by: Michelle Laswell</p><br>
-        <p><a href="#home">Back to the Top</a></p>
+        <p>Website Designed by: Michelle Laswell</p><br>        
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Back to The Top</button>
     </footer>
-
-    //Adding Facebook and Email icons in the Contact footer
+    
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+    
     <script>
-    //Putting the Current Date in the Placeholder
+
+        //Putting the Current Date in the Placeholder
         
-    window.onload = function() {
-    var now = new Date();
-    var year = now.getFullYear();
-    var month = ('0' + (now.getMonth() + 1)).slice(-2);
-    var day = ('0' + now.getDate()).slice(-2);
-    var hours = ('0' + now.getHours()).slice(-2);
-    var minutes = ('0' + now.getMinutes()).slice(-2);
+        window.onload = function() {
+            var now = new Date();
+            var year = now.getFullYear();
+            var month = ('0' + (now.getMonth() + 1)).slice(-2);
+            var day = ('0' + now.getDate()).slice(-2);
+            var hours = ('0' + now.getHours()).slice(-2);
+            var minutes = ('0' + now.getMinutes()).slice(-2);
 
-    var formattedDate = `${year}-${month}-${day}T${hours}:${minutes}`;
+            var formattedDate = `${year}-${month}-${day}T${hours}:${minutes}`;
 
-    document.getElementById('reservation-date').value = formattedDate;
-};
+            document.getElementById('reservation-date').value = formattedDate;
+        };
 
-   //Shows active page in the navbar
-
-   document.addEventListener('DOMContentLoaded', function() {
-    var links = document.querySelectorAll('.navbar a');
-    links.forEach(function(link) {
-        if (link.href === window.location.href) {
-            link.classList.add('active');
+        // Get the button
+        let mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
         }
-    });
-});
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
 
-</script>   
-    
-    
-   <!-- The external javascript is not working
-    <script src="script.js"></script>  -->     
-   
+<!--<script src="script.js"></script> -->
 
 </body>
 

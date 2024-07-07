@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>The Twisted Cork</title>
 </head>
 
 <body>
 
     <!-- Navigation Bar w/Links (sits on top) -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html" target="_self">HOME</a></li>
-            <li><a href="index.html#about">ABOUT</a></li>
-            <li><a href="index.html#where">WHERE</a></li>
-            <li><a href="#menu" target="_self" class="active">MENU</a></li>
-            <li><a href="events.html" target="_self">EVENTS</a></li>
-        </ul>
-    </nav>
+    <nav class="navbar" role="navigation">
+        <a href="index.html" target="_self">HOME</a>
+        <a href="index.html#about">ABOUT</a>
+        <a href="index.html#where">WHERE</a>
+        <a href="#menu" target="_self" class="active">MENU</a>
+        <a href="events.html" target="_self">EVENTS</a>
+    </nav>    
 
     <!-- Header with image -->
     <header class="bgimg-menu" id="home">
@@ -28,22 +27,21 @@
             <p>Open from 3pm to 12am</p>
         </div>
         <h1>The <br />Twisted Cork</h1>
-        <div class="location">
+        <div class="address">
             <p>145 Burt Road</p>
         </div>
     </header>    
 
-        <!-- SIGN-IN SECTION 
+        <!-- LOG-IN SECTION 
         <section class="signup">
             <p>Don't have an account? <br>
                 <button type="button" onclick="showForm()">Sign Up</button></p>
         </section>
         -->
-        <form class="signin" method="post" <!--action="OPEN SIGN-IN PAGE"-->
-            <label>Sign In to Order</label>
-                <input type="button" value="Sign In" onclick="showsignInForm()"/>
-        </form>          
-         
+        <section class="order">       
+            <button onclick="document.getElementById('loginForm').style.display='block'" class="loginbtn">Login</button>            
+            <ion-icon name="cart-outline" class="cart icon"></ion-icon>       
+        </section>
     <main>
 
         <!-- MENU CONTAINER -->
@@ -59,7 +57,7 @@
                         <div class="menu-col tablink">DRINK</div>
                     </a>
                 </section>
-
+                
                 <section id="Eat" class="food-container menu">
 
                     <aside class="specials">
@@ -83,20 +81,20 @@
 
                         <article class="food-item">
                             <h5>Mozzarella Sticks</h5>
-                            <p>Custom made crispy, golden-brown mozzarella sticks served with our Marinara dipping sauce.</p>
+                            <p class="description">Custom made crispy, golden-brown mozzarella sticks served with our Marinara dipping sauce.</p>
                             <p class="price">8.00</p>                        
                         </article>                
 
                         <article class="food-item">
                             <h5>Pepperjack Cheese Poppers</h5>
-                            <p>Handbreaded crispy, golden-brown pepperjack cheese poppers served with our 
+                            <p class="description">Handbreaded crispy, golden-brown pepperjack cheese poppers served with our 
                                 Diablo sauce.</p>
                             <p class="price">7.00</p>                            
                         </article>
 
                         <article class="food-item">
                             <h5>Beer Cheese</h5>
-                            <p>Homemade creamy beer cheese served with celery, pretzels and 
+                            <p class="description">Homemade creamy beer cheese served with celery, pretzels and 
                                 crackers.</p>
                             <p class="price">8.00</p>                            
                         </article>
@@ -107,21 +105,21 @@
 
                         <article class="food-item">
                             <h5>Classic Loaded</h5>
-                            <p>Handcut French Fries topped with bacon, cheese, green onions
+                            <p class="description">Handcut French Fries topped with bacon, cheese, green onions
                                 served with ranch sauce.</p>
                             <p class="price">8.00</p>                            
                         </article>
 
                         <article class="food-item">
                             <h5>Spicy Loaded</h5>
-                            <p>Handcut French Fries topped with all the classic toppings plus jalapenos 
+                            <p class="description">Handcut French Fries topped with all the classic toppings plus jalapenos 
                                 served with our diablo sauce.</p>
                             <p class="price">9.00</p>                            
                         </article>
 
                         <article class="food-item">
                             <h5>BBW Chicken Loaded</h5>
-                            <p>Handcut French Fries topped with BBQ chicken tenders, onion, cheese 
+                            <p class="description">Handcut French Fries topped with BBQ chicken tenders, onion, cheese 
                                 served with ranch sauce.</p>
                                 <p class="price">10.00</p>
                         </article>
@@ -132,7 +130,7 @@
                     
                         <article class="food-item">
                             <h5>Fried Chicken Salad</h5>
-                            <p>Large salad made with fresh lettuce topped with fresh tomatoes, 
+                            <p class="description">Large salad made with fresh lettuce topped with fresh tomatoes, 
                                 onion, cheese, egg, bacon bits and crispy fried chicken tenders served with your choice of 
                                 Ranch, Italian, Bleu Cheese or Honey Mustard</p>
                                 <p class="price">10.00</p>                           
@@ -140,7 +138,7 @@
 
                         <article class="food-item">
                             <h5>The Cork Club</h5>
-                            <p>Classic Club Sandwich made with toasted white bread, packed with layers of 
+                            <p class="description">Classic Club Sandwich made with toasted white bread, packed with layers of 
                                 succulant ham and tender turkey topped with melted American and Swiss cheese juicy tomato, 
                                 fresh lettuce, tangy onion and crispy bacon bits served with your choice of fries or 
                                 side salad</p>
@@ -149,7 +147,7 @@
                     
                         <article class="food-item">
                             <h5>Buffalo Chicken Quesadilla</h5>
-                            <p>Tangy Buffalo Chicken in a quesadilla with shredded cheese and onion
+                            <p class="description">Tangy Buffalo Chicken in a quesadilla with shredded cheese and onion
                                 served with your choice of fries or side salad</p>
                                 <p class="price">12.00</p>                            
                         </article>
@@ -160,14 +158,14 @@
 
                         <article class="food-item">
                             <h5>Cheeseburger</h5>
-                            <p>A classic cheeseburger on a toasted bun with fresh toppings of lettuce, tomato,
+                            <p class="description">A classic cheeseburger on a toasted bun with fresh toppings of lettuce, tomato,
                                 onion and pickles served with your choice of fries or side salad</p>
                                 <p class="price">11.00</p>                            
                         </article>
                     
                         <article class="food-item">
                             <h5>Bourbon Burger</h5>
-                            <p>A juicy beef patty with a sweet and savory sauce made with bourbon, bacon and 
+                            <p class="description">A juicy beef patty with a sweet and savory sauce made with bourbon, bacon and 
                                 carmelized onions topped with melted American Cheese and deep fried onion crisps on a toasted 
                                 bun served with your choice of fries or side salad.</p>
                                 <p class="price">13.00</p>                            
@@ -175,7 +173,7 @@
 
                         <article class="food-item">
                             <h5>Sweet Slaw Burger</h5>
-                            <p>A perfectly seasoned grilled beef patty topped with Swiss Cheese and a generous 
+                            <p class="description">A perfectly seasoned grilled beef patty topped with Swiss Cheese and a generous 
                                 serving of crispy, spice chili mayo coleslaw and crispy fried onion on a toasted bun served with 
                                 your choice of fries or side salad.</p>
                             <p class="price">13.00</p>
@@ -188,7 +186,7 @@
 
                         <article class="food-item">
                             <h5>Mini Fried Apple Pies</h5>
-                            <p> 3 bite-sized treats filled with a sweet and spicy apple filling 
+                            <p class="description"> 3 bite-sized treats filled with a sweet and spicy apple filling 
                                 served warm and sprinkled with brown sugar.</p>
                             <p class="price">7.00</p>
                             
@@ -196,14 +194,13 @@
 
                         <article class="food-item">
                             <h5>Mini Fried Oreo Pies</h5>
-                            <p>Crunchy and creamy Oreo pies drizzled with chocolate 
+                            <p class="description">Crunchy and creamy Oreo pies drizzled with chocolate 
                                 served warm and sprinkled with powdered sugar.</p>
                             <p class="price">7.00</p>
                             
-                        </article>
-                    </section>
-
-                </section>
+                        </article>                        
+                    </section>                    
+                </section>                
 
                 <section id="Drinks" class="drink-container menu">
 
@@ -279,10 +276,9 @@
                             <h5>Margaritas</h5>
                             <p>Glass <span class="price">5.00</span>
                         </article>
-                    </section>
+                    </section>                    
                 </section>
-                <img src="images/tcmenu4.JPG">
-                <img src="images/tcmenu2.JPG">                
+                <img src="images/tcmenu4.JPG" alt="Counter seating for dining." id="menuImage">              
             </section>
         </div>
     </main>
@@ -296,42 +292,53 @@
             <a href="mailto:TwistedCorkLex@gmail.com">
             <ion-icon class="icon" name="mail"></ion-icon></a>
         </aside>
-        <p>Website Designed by: Michelle Laswell</p><br>
-        <p><a href="#home">Back to the Top</a></p>
+        <p>Website Designed by: Michelle Laswell</p><br>        
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Back to The Top</button>
     </footer>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-    <script>
-        //SIGN UP FORM
+<script>
+        // Get the button
+        let mybutton = document.getElementById("myBtn");
         
-        function showForm() {
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+<script src="script.js"></script>
+    
+
+    <!-- <script>
+
+
+
+        //  SIGN UP FORM
+        
+        /*function showForm() {
             document.getElementById('signupForm').style.display = 'block';
             }        
         
-        // SIGN IN FORM
+        // LOG IN FORM
 
-        function showSignInForm() {
-            document.getElementById('signinForm').style.display = 'block';
+        function showLogInForm() {
+            document.getElementById('loginForm').style.display = 'block';
         }
-
-        // TABBED MENU
-        function openMenu(evt, menuName) {
-            var i, x, tablinks;
-            x = document.getElementsByClassName("menu");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-            tablinks = document.getElementsByClassName("tablink");
-            for (i = 0; i < x.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" tabcolor", "");
-            }
-            document.getElementById(menuName).style.display = "block";
-            evt.currentTarget.firstElementChild.className += " tabcolor";
-        }
-        document.getElementById("myLink").click();
-    </script>
+        */
+    </script>   -->
 
 </body>
 

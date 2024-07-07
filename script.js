@@ -1,3 +1,14 @@
+//Shows active page in the navbar
+
+document.addEventListener('DOMContentLoaded', function() {
+    var links = document.querySelectorAll('.navbar a');
+    links.forEach(function(link) {
+        if (link.href === window.location.href) {
+            link.classList.add('active');
+        }
+    });
+});
+
 //Putting the Current Date in the Placeholder
         
 window.onload = function() {
@@ -13,33 +24,54 @@ window.onload = function() {
     document.getElementById('reservation-date').value = formattedDate;
 };
 
-//Shows active page in the navbar
+// TABBED MENU ON THE MENU PAGE
 
-document.addEventListener('DOMContentLoaded', function() {
-    var links = document.querySelectorAll('.navbar a');
-    links.forEach(function(link) {
-        if (link.href === window.location.href) {
-            link.classList.add('active');
-        }
-    });
-});
-
-
-// Tabbed Menu on the menu page
 function openMenu(evt, menuName) {
     var i, x, tablinks;
     x = document.getElementsByClassName("menu");
     for (i = 0; i < x.length; i++) {
         x[i].style.display = "none";
     }
-
     tablinks = document.getElementsByClassName("tablink");
     for (i = 0; i < x.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+        tablinks[i].className = tablinks[i].className.replace(" tabcolor", "");
     }
-
     document.getElementById(menuName).style.display = "block";
-    evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+    evt.currentTarget.firstElementChild.className += " tabcolor";
+
+    // CHANGE THE IMAGE BASED ON THE TAB CLICKED
+    var menuImage = document.getElementById("menuImage");
+    if (menuName === 'Drinks') {
+        menuImage.src = "images/tcmenu2.JPG";
+    } else {
+        menuImage.src = "images/tcmenu4.JPG";
+    }
 }
 
-document.getElementById("myLink").click();
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("myLink").click();
+});
+
+/*
+// SCROLL TO TOP BUTTON
+// Get the button
+let mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+*/
+

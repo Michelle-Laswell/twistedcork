@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -12,14 +12,12 @@
 <body>
 
     <!-- Navigation Bar w/Links (sits on top) -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html" target="_self">HOME</a></li>
-            <li><a href="index.html#about">ABOUT</a></li>
-            <li><a href="index.html#where">WHERE</a></li>
-            <li><a href="menu.html" target="_self">MENU</a></li>
-            <li><a href="#events" target="_self" class="active">EVENTS</a></li>
-        </ul>
+    <nav class="navbar" role="navigation">
+        <a href="index.html" target="_self">HOME</a>
+        <a href="index.html#about">ABOUT</a>
+        <a href="index.html#where">WHERE</a>
+        <a href="menu.html" target="_self">MENU</a>
+        <a href="#events" target="_self" class="active">EVENTS</a>
     </nav>
 
     <!-- HEADER WITH IMAGE -->
@@ -28,7 +26,7 @@
             <p>Open from 3pm to 12am</p>
         </div>
         <h1>The <br />Twisted Cork</h1>
-        <div class="location">
+        <div class="address">
             <p>145 Burt Road</p>
         </div>
     </header>
@@ -102,11 +100,33 @@
             <ion-icon class="icon" name="mail"></ion-icon></a>
         </aside>
         <p>Website Designed by: Michelle Laswell</p><br>
-        <p><a href="#home">Back to the Top</a></p>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Back to The Top</button>
     </footer>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        // Get the button
+        let mybutton = document.getElementById("myBtn");
+        
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+          } else {
+            mybutton.style.display = "none";
+          }
+        }
+        
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+          document.body.scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+        </script>
+     
 
 </body>
 

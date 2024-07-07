@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="formstyles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <title>The Twisted Cork - Sign In</title>
+</head>
+
+<body>
+    <header class="header">
+        <img class="logo" src="tclogo1.jpg" alt="The Twisted Cork logo">        
+        <h1>THE<br>TWISTED CORK</h1>                
+    </header>    
+
+    <section id="loginForm">
+        <h2>Sign In to Your Account</h2>
+        <form method="post" action=""> <!--NEED TO SET UP SERVER TO RECEIVE INFORMATION-->
+            <label for="email">Email Address:</label><br>
+            <input type="text" id="email" name="email" class="inline" placeholder="Email Address" required><br><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" class="inline" placeholder="Password" required><br><br>
+            <input type="submit" value="Sign In"> <!--WOULD LIKE TO HAVE A POP MESSAGE SAYING THAT SIGN IN WAS SUCCESSFUL
+            OR GIVING AN ERROR MESSAGE IT SIGN IN WAS NOT SUCCESSFUL-->
+        </form>
+    </section>
+
+    <section class="signup">
+        <p>Don't have an account?</p>
+        <!--NEED TO SET UP A LINK TO THE SIGNUP FORM-->
+        <a href="signupForm.html">Sign Up for an Account</a>
+    </section>
+
+    
+
+</body>
+</html>
