@@ -566,6 +566,15 @@ footer {
     margin-top: 0;    
 }
 
+.note ul {
+    align-items: center;
+    font-size: 19px;
+    font-weight: 500;
+    list-style-type: none;
+    padding-left: 100px;    
+    margin: auto;
+}
+
 .description {
     text-align: justify;
     padding-bottom: .75em;

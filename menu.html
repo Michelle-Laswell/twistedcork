@@ -57,227 +57,294 @@
                         <div class="menu-col tablink">DRINK</div>
                     </a>
                 </section>
+
+                <form action="submit_order.php" method="post">
                 
-                <section id="Eat" class="food-container menu">
+                    <section id="Eat" class="food-container menu">
 
-                    <aside class="specials">
-                        <h3>WEEKLY SPECIALS</h3>
-                        <ul>
-                            <li>Steak & Cheese w/Loaded Fries <span class="price">12.00</span></li>
-                            <li>Deluxe Burger w/Bacon <span class="price">10.00</span></li>
-                            <li>6 piece Wings <span class="price">8.00</span></li>
-                            <li>12 piece Wings <span class="price">15.00</span></li>
-                            <li>Served with your choice of sauces:</li>
-                        </ul>
-                        <ul class="sauce">                            
-                            <li>Orange Bourbon</li>
-                            <li>Pineapple Teriyaki</li>
-                            <li>Honey BBQ</li>  
-                        </ul>                          
-                    </aside>
+                        <aside class="specials">
+                            <h3>WEEKLY SPECIALS</h3>
+                                <ul>
+                                    <li>Steak & Cheese w/Loaded Fries <span class="price">12.00</span></li>
+                                    <li>Deluxe Burger w/Bacon <span class="price">10.00</span></li>
+                                    <li>6 piece Wings <span class="price">8.00</span></li>
+                                    <li>12 piece Wings <span class="price">15.00</span></li>
+                                    <li>Served with your choice of sauces:</li>
+                                </ul>
+                                <ul class="sauce">                            
+                                    <li>Orange Bourbon</li>
+                                    <li>Pineapple Teriyaki</li>
+                                    <li>Honey BBQ</li>  
+                                </ul>                          
+                        </aside>
 
-                    <section class="apps">
-                        <h4>APPETIZERS</h4>
+                        <section class="apps">
+                            <h4>APPETIZERS</h4>
 
-                        <article class="food-item">
-                            <h5>Mozzarella Sticks</h5>
-                            <p class="description">Custom made crispy, golden-brown mozzarella sticks served with our Marinara dipping sauce.</p>
-                            <p class="price">8.00</p>                        
-                        </article>                
+                            <article class="food-item">
+                                <h5>Mozzarella Sticks</h5>
+                                <p class="description">Custom made crispy, golden-brown mozzarella sticks served with our Marinara dipping sauce.                                
+                                </p>
+                                <p class="price">8.00</p>
+                                <label for="quantity-ms-mozzerella">Quantity: </label>
+                                <input type="number" id="quantity-ms-mozzerella" name="quantity-ms-mozzerella" min="1" value="1">
+                            </article>                
 
-                        <article class="food-item">
-                            <h5>Pepperjack Cheese Poppers</h5>
-                            <p class="description">Handbreaded crispy, golden-brown pepperjack cheese poppers served with our 
-                                Diablo sauce.</p>
-                            <p class="price">7.00</p>                            
-                        </article>
+                            <article class="food-item">
+                                <h5>Pepperjack Cheese Poppers</h5>
+                                <p class="description">Handbreaded crispy, golden-brown pepperjack cheese poppers served with our 
+                                    Diablo sauce.
+                                </p>
+                                <p class="price">7.00</p>
+                                <label for="quantity-ms-poppers">Quantity: </label>
+                                <input type="number" id="quantity-ms-popperss" name="quantity-ms-poppers" min="1" value="1">                            
+                            </article>
 
-                        <article class="food-item">
-                            <h5>Beer Cheese</h5>
-                            <p class="description">Homemade creamy beer cheese served with celery, pretzels and 
-                                crackers.</p>
-                            <p class="price">8.00</p>                            
-                        </article>
-                    </section>
+                            <article class="food-item">
+                                <h5>Beer Cheese</h5>
+                                <p class="description">Homemade creamy beer cheese served with celery, pretzels and 
+                                    crackers.
+                                </p>
+                                <p class="price">8.00</p>
+                                <label for="quantity-ms-beercheese">Quantity: </label>
+                                <input type="number" id="quantity-ms-beercheese" name="quantity-ms-beercheese" min="1" value="1">                            
+                            </article>
+                        </section>
 
-                    <section class="fries">
-                        <h4>LOADED FRIES</h4>
+                        <section class="fries">
+                            <h4>LOADED FRIES</h4>
 
-                        <article class="food-item">
-                            <h5>Classic Loaded</h5>
-                            <p class="description">Handcut French Fries topped with bacon, cheese, green onions
-                                served with ranch sauce.</p>
-                            <p class="price">8.00</p>                            
-                        </article>
+                            <article class="food-item">
+                                <h5>Classic Loaded</h5>
+                                <p class="description">Handcut French Fries topped with bacon, cheese, green onions
+                                    served with ranch sauce.
+                                </p>
+                                <p class="price">8.00</p> 
+                                <label for="quantity-ms-loaded">Quantity: </label>
+                                <input type="number" id="quanity-ms-loaded" name="quanity-ms-loaded" min="1" value="1">                           
+                            </article>
 
-                        <article class="food-item">
-                            <h5>Spicy Loaded</h5>
-                            <p class="description">Handcut French Fries topped with all the classic toppings plus jalapenos 
-                                served with our diablo sauce.</p>
-                            <p class="price">9.00</p>                            
-                        </article>
+                            <article class="food-item">
+                                <h5>Spicy Loaded</h5>
+                                <p class="description">Handcut French Fries topped with all the classic toppings plus jalapenos 
+                                 served with our diablo sauce.
+                                </p>
+                                <p class="price">9.00</p>
+                                <label for="quantity-ms-spicy">Quantity: </label>
+                                <input type="number" id="quanity-ms-spicy" name="quanity-ms-spicy" min="1" value="1">                            
+                            </article>
 
-                        <article class="food-item">
-                            <h5>BBW Chicken Loaded</h5>
-                            <p class="description">Handcut French Fries topped with BBQ chicken tenders, onion, cheese 
-                                served with ranch sauce.</p>
+                            <article class="food-item">
+                                <h5>BBQ Chicken Loaded</h5>
+                                <p class="description">Handcut French Fries topped with BBQ chicken tenders, onion, cheese 
+                                    served with ranch sauce.
+                                </p>
                                 <p class="price">10.00</p>
-                        </article>
-                    </section>
+                                <label for="quantity-ms-bbq">Quantity: </label>
+                                <input type="number" id="quanity-ms-bbq" name="quanity-ms-bbq" min="1" value="1">
+                            </article>
+                        </section>
 
-                    <section class="entree">
-                        <h4>ENTREES</h4>
+                        <section class="entree">
+                            <h4>ENTREES</h4>
                     
-                        <article class="food-item">
-                            <h5>Fried Chicken Salad</h5>
-                            <p class="description">Large salad made with fresh lettuce topped with fresh tomatoes, 
-                                onion, cheese, egg, bacon bits and crispy fried chicken tenders served with your choice of 
-                                Ranch, Italian, Bleu Cheese or Honey Mustard</p>
-                                <p class="price">10.00</p>                           
-                        </article>
+                            <article class="food-item">
+                                <h5>Fried Chicken Salad</h5>
+                                <p class="description">Large salad made with fresh lettuce topped with fresh tomatoes, 
+                                    onion, cheese, egg, bacon bits and crispy fried chicken tenders served with your choice of 
+                                    Ranch, Italian, Bleu Cheese or Honey Mustard
+                                </p>
+                                <p class="price">10.00</p>
+                                <label for="quantity-ms-chknsal">Quantity: </label>
+                                <input type="number" id="quanity-ms-chknsal" name="quanity-ms-chknsal" min="1" value="1">                           
+                            </article>
 
-                        <article class="food-item">
-                            <h5>The Cork Club</h5>
-                            <p class="description">Classic Club Sandwich made with toasted white bread, packed with layers of 
-                                succulant ham and tender turkey topped with melted American and Swiss cheese juicy tomato, 
-                                fresh lettuce, tangy onion and crispy bacon bits served with your choice of fries or 
-                                side salad</p>
-                                <p class="price">9.00</p>                           
-                        </article>
+                            <article class="food-item">
+                                <h5>The Cork Club</h5>
+                                <p class="description">Classic Club Sandwich made with toasted white bread, packed with layers of 
+                                    succulant ham and tender turkey topped with melted American and Swiss cheese juicy tomato, 
+                                    fresh lettuce, tangy onion and crispy bacon bits served with your choice of fries or 
+                                    side salad
+                                </p>
+                                <p class="price">9.00</p>
+                                <label for="quantity-ms-club">Quantity: </label>
+                                <input type="number" id="quanity-ms-club" name="quanity-ms-club" min="1" value="1">                           
+                            </article>
                     
-                        <article class="food-item">
-                            <h5>Buffalo Chicken Quesadilla</h5>
-                            <p class="description">Tangy Buffalo Chicken in a quesadilla with shredded cheese and onion
-                                served with your choice of fries or side salad</p>
-                                <p class="price">12.00</p>                            
-                        </article>
-                    </section>
+                            <article class="food-item">
+                                <h5>Buffalo Chicken Quesadilla</h5>
+                                <p class="description">Tangy Buffalo Chicken in a quesadilla with shredded cheese and onion
+                                    served with your choice of fries or side salad
+                             </p>
+                                <p class="price">12.00</p>
+                                    <label for="quantity-ms-quesadilla">Quantity: </label>
+                            <input type="number" id="quanity-ms-quesadilla" name="quanity-ms-quesadilla" min="1" value="1">                            
+                            </article>
+                        </section>
 
-                    <section class="burger">
-                        <h4>BURGERS</h4>
+                        <section class="burger">
+                            <h4>BURGERS</h4>
 
-                        <article class="food-item">
-                            <h5>Cheeseburger</h5>
-                            <p class="description">A classic cheeseburger on a toasted bun with fresh toppings of lettuce, tomato,
-                                onion and pickles served with your choice of fries or side salad</p>
-                                <p class="price">11.00</p>                            
-                        </article>
+                            <article class="food-item">
+                                <h5>Cheeseburger</h5>
+                                <p class="description">A classic cheeseburger on a toasted bun with fresh toppings of lettuce, tomato,
+                                    onion and pickles served with your choice of fries or side salad
+                                </p>
+                                <p class="price">11.00</p>
+                                <label for="quantity-ms-deluxe">Quantity: </label>
+                                <input type="number" id="quanity-ms-deluxe" name="quanity-ms-deluxe" min="1" value="1">                           
+                            </article>
                     
-                        <article class="food-item">
-                            <h5>Bourbon Burger</h5>
-                            <p class="description">A juicy beef patty with a sweet and savory sauce made with bourbon, bacon and 
-                                carmelized onions topped with melted American Cheese and deep fried onion crisps on a toasted 
-                                bun served with your choice of fries or side salad.</p>
-                                <p class="price">13.00</p>                            
-                        </article>
+                            <article class="food-item">
+                                <h5>Bourbon Burger</h5>
+                                <p class="description">A juicy beef patty with a sweet and savory sauce made with bourbon, bacon and 
+                                    carmelized onions topped with melted American Cheese and deep fried onion crisps on a toasted 
+                                 bun served with your choice of fries or side salad.
+                                </p>
+                                <p class="price">13.00</p>
+                                <label for="quantity-ms-bourbonbrgr">Quantity: </label>
+                                <input type="number" id="quanity-msbourbonbrgr" name="quanity-msbourbonbrgr" min="1" value="1">                            
+                            </article>
 
-                        <article class="food-item">
-                            <h5>Sweet Slaw Burger</h5>
-                            <p class="description">A perfectly seasoned grilled beef patty topped with Swiss Cheese and a generous 
-                                serving of crispy, spice chili mayo coleslaw and crispy fried onion on a toasted bun served with 
-                                your choice of fries or side salad.</p>
-                            <p class="price">13.00</p>
+                            <article class="food-item">
+                                <h5>Sweet Slaw Burger</h5>
+                                <p class="description">A perfectly seasoned grilled beef patty topped with Swiss Cheese and a generous 
+                                    serving of crispy, spice chili mayo coleslaw and crispy fried onion on a toasted bun served with 
+                                    your choice of fries or side salad.
+                                </p>
+                                <p class="price">13.00</p>
+                                <label for="quantity-ms-slaw">Quantity: </label>
+                                <input type="number" id="quanity-ms-slaw" name="quanity-ms-slaw" min="1" value="1">
                                               
-                        </article>
-                    </section>
+                            </article>
+                        </section>
 
-                    <section class="dessert">
-                        <h4>DESSERTS</h4>
+                        <section class="dessert">
+                            <h4>DESSERTS</h4>
 
-                        <article class="food-item">
-                            <h5>Mini Fried Apple Pies</h5>
-                            <p class="description"> 3 bite-sized treats filled with a sweet and spicy apple filling 
-                                served warm and sprinkled with brown sugar.</p>
-                            <p class="price">7.00</p>
-                            
-                        </article>
+                            <article class="food-item">
+                                <h5>Mini Fried Apple Pies</h5>
+                                <p class="description"> 3 bite-sized treats filled with a sweet and spicy apple filling 
+                                    served warm and sprinkled with brown sugar.
+                                </p>
+                                <p class="price">7.00</p>
+                                <label for="quantity-ms-apple">Quantity: </label>
+                                <input type="number" id="quanity-ms-apple" name="quanity-ms-apple" min="1" value="1">
+                            </article>
 
-                        <article class="food-item">
-                            <h5>Mini Fried Oreo Pies</h5>
-                            <p class="description">Crunchy and creamy Oreo pies drizzled with chocolate 
-                                served warm and sprinkled with powdered sugar.</p>
-                            <p class="price">7.00</p>
-                            
-                        </article>                        
-                    </section>                    
-                </section>                
-
-                <section id="Drinks" class="drink-container menu">
-
-                    <aside class="specials">
-                        <h3>HAPPY HOUR</h3>
-                        <p class="happyhr">Daily from 4:00 p.m. to 7:00 p.m.</p>
-                        <ul>                            
-                            <li>Draft Beer <span class="price">3.50</span></li>
-                            <li>Mixed Drinks <span class="price">2.00 Off</span></li>
-                        </ul>
-                    </aside>
-
-                    <section class="togo">
-
-                        <h4>TO-GO AND IN-HOUSE DRINKS</h4>
+                            <article class="food-item">
+                                <h5>Mini Fried Oreo Pies</h5>
+                                <p class="description">Crunchy and creamy Oreo pies drizzled with chocolate 
+                                    served warm and sprinkled with powdered sugar.
+                                </p>
+                                <p class="price">7.00</p>
+                                <label for="quantity-ms-oreo">Quantity: </label>
+                                <input type="number" id="quanity-ms-oreo" name="quanity-ms-oreo" min="1" value="1">                            
+                            </article>                        
+                        </section>                  
                     
-                        <article class="drink-item">
-                            <h5>Water</h5>
-                            <p>Bottled Water <span class="price">1.25</span></p><br>
-                        </article>
+                    </section>                
+
+                    <section id="Drinks" class="drink-container menu">
+
+                        <aside class="specials">
+                            <h3>HAPPY HOUR</h3>
+                            <p class="happyhr">Daily from 4:00 p.m. to 7:00 p.m.</p>
+                            <p class="happyhr">All Day on Sunday</p>
+                            <ul>                            
+                                <li>Draft Beer <span class="price">3.50</span></li>
+                                <li>Mixed Drinks <span class="price">2.00 Off</span></li>
+                            </ul>
+                        </aside>
+
+                        <section class="togo">
+
+                            <h4>TO-GO AND IN-HOUSE DRINKS</h4>
+
+                            <div class="note">
+                                <ul>
+                                    <li>PLEASE NOTE: Only Bottles To-Go with proof of I.D.</li>
+                                    <li>PLEASE NOTE: Cocktails are Dine-In Only</li>
+                                </ul>                
+                            </div>                        
                     
-                        <article class="drink-item">
-                            <h5>Canned Drinks</h5>
-                            <p>Coke, Diet Coke and Sprite <span class="price">1.25</span></p><br>
-                        </article>
+                                <article class="drink-item">
+                                    <h5>Water</h5>
+                                    <p>Bottled Water <span class="price">1.25</span></p><br>
+                                    <label for="quantity-ms">Quantity: </label>
+                                    <input type="number" id="quanity-ms" name="quanity-ms" min="1" value="1">
+                                </article>
+                    
+                                <article class="drink-item">
+                                    <h5>Canned Drinks</h5>
+                                    <p>Coke, Diet Coke and Sprite <span class="price">1.25</span></p><br>
+                                    <label for="quantity-ms">Quantity: </label>
+                                    <input type="number" id="quanity-ms" name="quanity-ms" min="1" value="1">
+                                </article>
 
-                        <article class="drink-item">
-                            <h5>Cutwater Can Cocktails</h5>
-                            <p>Award Winning Cocktails made with real Spirits <span class="price">5.00</span></p><br>
-                        </article>
+                                <article class="drink-item">
+                                    <h5>Cutwater Can Cocktails</h5>
+                                    <p>Award Winning Cocktails made with real Spirits <span class="price">5.00</span></p><br>
+                                    <label for="quantity-ms">Quantity: </label>
+                                    <input type="number" id="quanity-ms" name="quanity-ms" min="1" value="1">
+                                </article>
 
-                        <article class="drink-item">
-                            <h5>Domestic Can Beer Singles</h5>
-                            <p>Budweiser, Bud Light, Miller Light and Coors <span class="price">3.50</span></p><br>
-                        </article>
+                                <article class="drink-item">
+                                    <h5>Domestic Can Beer Singles</h5>
+                                    <p>Budweiser, Bud Light, Miller Light and Coors <span class="price">3.50</span></p><br>
+                                    <label for="quantity-ms">Quantity: </label>
+                                    <input type="number" id="quanity-ms" name="quanity-ms" min="1" value="1">
+                                </article>
 
-                        <article class="drink-item">
-                            <h5>Rhinegeist Can Beer Singles</h5>
-                            <p>Craft beers and ciders <span class="price">5.00</span></p><br>
-                        </article>                        
-                    </section>
+                                <article class="drink-item">
+                                    <h5>Rhinegeist Can Beer Singles</h5>
+                                    <p>Craft beers and ciders <span class="price">5.00</span></p><br>
+                                    <label for="quantity-ms">Quantity: </label>
+                                    <input type="number" id="quanity-ms" name="quanity-ms" min="1" value="1">
+                                </article>                        
+                            </section>
 
-                    <section class="beer">
+                            <section class="beer">
                                     
-                        <h4>CRAFT BEER</h4>
+                                <h4>CRAFT BEER</h4>
+                                                
+                                <article class="drink-item">
+                                    <h5>Yuenling</h5>
+                                    <p>Bottled or On-Tap <span class="price">5.00</span></p><br>
+                                    <label for="quantity-ms">Quantity: </label>
+                                    <input type="number" id="quanity-ms" name="quanity-ms" min="1" value="1">
+                                </article>
+                            </section>
+
+                            <section class="wine">
+                                <h4>WINE</h4>
                         
-                        <article class="drink-item">
-                            <h5>Yuenling</h5>
-                            <p>Bottled or On-Tap <span class="price">5.00</span></p><br>
-                        </article>
+                                <article class="drink-item">
+                                    <h5>Fat Cat Pinot Noir</h5>
+                                    <p class="bottle">Bottle <span class="price">18.00</span></p>
+                                    <p class="glass">Glass <span class="price">6.00</span></p><br>
+                                </article>
+
+                                <article class="drink-item">
+                                    <h5>Fat Cat Chardonay</h5>
+                                    <p class="bottle">Bottle <span class="price">18.00</span></p>
+                                    <p class="glass">Glass <span class="price">6.00</span></p><br>
+                                </article>
+                            </section>
+
+                            <section class="cocktails">
+                                <h4>COCKTAILS</h4>                        
+
+                                <article class="drink-item">
+                                    <h5>Margaritas</h5>
+                                    <p>Glass <span class="price">5.00</span>
+                                </article>
+                            </section>                    
                     </section>
 
-                    <section class="wine">
-                        <h4>WINE</h4>
-
-                        <article class="drink-item">
-                            <h5>Fat Cat Pinot Noir</h5>
-                            <p class="bottle">Bottle <span class="price">18.00</span></p>
-                            <p class="glass">Glass <span class="price">6.00</span></p><br>
-                        </article>
-
-                        <article class="drink-item">
-                            <h5>Fat Cat Chardonay</h5>
-                            <p class="bottle">Bottle <span class="price">18.00</span></p>
-                            <p class="glass">Glass <span class="price">6.00</span></p><br>
-                        </article>
-                    </section>
-
-                    <section class="cocktails">
-                        <h4>COCKTAILS</h4>
-
-                        <article class="drink-item">
-                            <h5>Margaritas</h5>
-                            <p>Glass <span class="price">5.00</span>
-                        </article>
-                    </section>                    
-                </section>
+                    <button type="submit">Submit Order</button>
+                    
+                </form>
                 <img src="images/tcmenu4.JPG" alt="Counter seating for dining." id="menuImage">              
             </section>
         </div>
