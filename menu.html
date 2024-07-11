@@ -30,18 +30,8 @@
         <div class="address">
             <p>145 Burt Road</p>
         </div>
-    </header>    
-
-        <!-- LOG-IN SECTION 
-        <section class="signup">
-            <p>Don't have an account? <br>
-                <button type="button" onclick="showForm()">Sign Up</button></p>
-        </section>
-        -->
-        <section class="order">       
-            <button onclick="document.getElementById('loginForm').style.display='block'" class="loginbtn">Login</button>            
-            <ion-icon name="cart-outline" class="cart icon"></ion-icon>       
-        </section>
+    </header>   
+        
     <main>
 
         <!-- MENU CONTAINER -->
@@ -58,7 +48,7 @@
                     </a>
                 </section>
 
-                <form action="submit_order.php" method="post">
+                <form class="orderForm" action="submit_order.php" method="post">
                 
                     <section id="Eat" class="food-container menu">
 
@@ -252,8 +242,9 @@
                             <p class="happyhr">Daily from 4:00 p.m. to 7:00 p.m.</p>
                             <p class="happyhr">All Day on Sunday</p>
                             <ul>                            
-                                <li>Draft Beer <span class="price">3.50</span></li>
-                                <li>Mixed Drinks <span class="price">2.00 Off</span></li>
+                                <li>$1.00 off Draft Beer </li>
+                                <li>$1.00 off Mixed Drinks </li>
+                                <li>$.75 off Bottled Beer</li>
                             </ul>
                         </aside>
 
@@ -271,40 +262,70 @@
                                 <article class="drink-item">
                                     <h5>Water</h5>
                                     <p>Bottled Water <span class="price">1.25</span></p><br>
-                                    <label for="quantity-ms">Quantity: </label>
-                                    <input type="number" id="quanity-ms" name="quanity-ms" min="1" value="1">
+                                    <label for="quantity-ms-water">Quantity: </label>
+                                    <input type="number" id="quanity-mswater" name="quanity-mswater" min="1" value="1">
                                 </article>
                     
                                 <article class="drink-item">
                                     <h5>Canned Drinks</h5>
                                     <p>Coke, Diet Coke and Sprite <span class="price">1.25</span></p><br>
-                                    <label for="quantity-ms">Quantity: </label>
-                                    <input type="number" id="quanity-ms" name="quanity-ms" min="1" value="1">
+                                    <label for="quantity-ms-soda">Quantity: </label>
+                                    <input type="number" id="quanity-ms-soda" name="quanity-ms-soda" min="1" value="1">
                                 </article>
 
                                 <article class="drink-item">
                                     <h5>Cutwater Can Cocktails</h5>
                                     <p>Award Winning Cocktails made with real Spirits <span class="price">5.00</span></p><br>
-                                    <label for="quantity-ms">Quantity: </label>
-                                    <input type="number" id="quanity-ms" name="quanity-ms" min="1" value="1">
+                                    <label for="quantity-ms-cutwater">Quantity: </label>
+                                    <input type="number" id="quanity-ms-cutwater" name="quanity-ms-cutwater" min="1" value="1">
                                 </article>
 
                                 <article class="drink-item">
                                     <h5>Domestic Can Beer Singles</h5>
-                                    <p>Budweiser, Bud Light, Miller Light and Coors <span class="price">3.50</span></p><br>
-                                    <label for="quantity-ms">Quantity: </label>
-                                    <input type="number" id="quanity-ms" name="quanity-ms" min="1" value="1">
+                                    <p>Budweiser, Bud Light, Miller and Miller Light<span class="price">3.50</span></p><br>
+                                    <label for="quantity-ms-canned-beer">Quantity: </label>
+                                    <input type="number" id="quanity-ms-canned-beer" name="quanity-ms-canned-beer" min="1" value="1">
                                 </article>
 
                                 <article class="drink-item">
                                     <h5>Rhinegeist Can Beer Singles</h5>
                                     <p>Craft beers and ciders <span class="price">5.00</span></p><br>
-                                    <label for="quantity-ms">Quantity: </label>
-                                    <input type="number" id="quanity-ms" name="quanity-ms" min="1" value="1">
+                                    <label for="quantity-ms-rhinegeist">Quantity: </label>
+                                    <input type="number" id="quanity-ms-rhinegeist" name="quanity-ms-rhinegeist" min="1" value="1">
                                 </article>                        
                             </section>
 
                             <section class="beer">
+
+                                <h4>DOMESTIC BEER</h4>
+                                                
+                                <article class="drink-item">
+                                    <h5>Budweiser</h5>
+                                    <p>Bottled or On-Tap <span class="price">4.50</span></p><br>
+                                    <label for="quantity-msd-bud">Quantity: </label>
+                                    <input type="number" id="quanity-ms-bud" name="quanity-ms-bud" min="1" value="1">
+                                </article>
+
+                                <article class="drink-item">
+                                    <h5>Budweiser Light</h5>
+                                    <p>Bottled or On-Tap <span class="price">4.50</span></p><br>
+                                    <label for="quantity-msd-budlt">Quantity: </label>
+                                    <input type="number" id="quanity-ms-budlt" name="quanity-ms-budlt" min="1" value="1">
+                                </article>
+
+                                <article class="drink-item">
+                                    <h5>Miller</h5>
+                                    <p>Bottled or On-Tap <span class="price">4.50</span></p><br>
+                                    <label for="quantity-msd-miller">Quantity: </label>
+                                    <input type="number" id="quanity-ms-miller" name="quanity-ms-miller" min="1" value="1">
+                                </article>
+
+                                <article class="drink-item">
+                                    <h5>Miller Light</h5>
+                                    <p>Bottled or On-Tap <span class="price">4.50</span></p><br>
+                                    <label for="quantity-msd-millerlt">Quantity: </label>
+                                    <input type="number" id="quanity-ms-millerlt" name="quanity-ms-millerlt" min="1" value="1">
+                                </article>                            
                                     
                                 <h4>CRAFT BEER</h4>
                                                 
@@ -314,6 +335,21 @@
                                     <label for="quantity-ms">Quantity: </label>
                                     <input type="number" id="quanity-ms" name="quanity-ms" min="1" value="1">
                                 </article>
+
+                                <article class="drink-item">
+                                    <h5>Country Boy</h5>
+                                    <p>Bottled or On-Tap <span class="price">5.00</span></p><br>
+                                    <label for="quantity-ms-country-boy">Quantity: </label>
+                                    <input type="number" id="quanity-ms-country-boy" name="quanity-ms-country-boy" min="1" value="1">
+                                </article>
+
+                                <article class="drink-item">
+                                    <h5>Shop Top</h5>
+                                    <p>Bottled or On-Tap <span class="price">5.00</span></p><br>
+                                    <label for="quantity-ms-shop-top">Quantity: </label>
+                                    <input type="number" id="quanity-ms-shop-top" name="quanity-ms-shop-top" min="1" value="1">
+                                </article>                             
+                               
                             </section>
 
                             <section class="wine">
@@ -321,15 +357,36 @@
                         
                                 <article class="drink-item">
                                     <h5>Fat Cat Pinot Noir</h5>
-                                    <p class="bottle">Bottle <span class="price">18.00</span></p>
+                                    <p class="bottle">Bottle <span class="price">18.00</span></p>                                    
                                     <p class="glass">Glass <span class="price">6.00</span></p><br>
+                                    <label for="quantity-ms-fcpinot">Quantity (Bottle Only): </label>
+                                    <input type="number" id="quanity-ms-fcpinot" name="quanity-ms-fcpinot" min="1" value="1">                                    
                                 </article>
 
                                 <article class="drink-item">
                                     <h5>Fat Cat Chardonay</h5>
                                     <p class="bottle">Bottle <span class="price">18.00</span></p>
                                     <p class="glass">Glass <span class="price">6.00</span></p><br>
+                                    <label for="quantity-ms-fcchard">Quantity (Bottle Only): </label>
+                                    <input type="number" id="quanity-ms-fcchard" name="quanity-ms-fcpinot" min="1" value="1">                                    
                                 </article>
+
+                                <article class="drink-item">
+                                    <h5>Nine Fields Cabernet</h5>
+                                    <p class="bottle">Bottle <span class="price">18.00</span></p>                                    
+                                    <p class="glass">Glass <span class="price">6.00</span></p><br>
+                                    <label for="quantity-ms-nfcab">Quantity (Bottle Only): </label>
+                                    <input type="number" id="quanity-ms-nfcab" name="quanity-ms-nfcab" min="1" value="1">                                    
+                                </article>
+
+                                <article class="drink-item">
+                                    <h5>Crow Canyon Chardonay</h5>
+                                    <p class="bottle">Bottle <span class="price">18.00</span></p>
+                                    <p class="glass">Glass <span class="price">6.00</span></p><br>
+                                    <label for="quantity-ms-ccchard">Quantity (Bottle Only): </label>
+                                    <input type="number" id="quanity-ms-ccchard" name="quanity-ms-ccpinot" min="1" value="1">                                    
+                                </article>
+
                             </section>
 
                             <section class="cocktails">
@@ -342,14 +399,92 @@
                             </section>                    
                     </section>
 
-                    <button type="submit">Submit Order</button>
-                    
+                    <section class="sbmtcontainer"> 
+                        <button class="orderbtn" type="submit">Submit Order</button> 
+                    </section>                                       
                 </form>
-                <img src="images/tcmenu4.JPG" alt="Counter seating for dining." id="menuImage">              
+
+                <img src="images/tcmenu4.JPG" alt="Counter seating for dining." id="menuImage">
+
             </section>
         </div>
-    </main>
 
+        <section id="id01" class="loginForm">
+        
+            <div class="head">
+                <img class="logo" src="images/tclogo1.jpg" alt="The Twisted Cork logo">        
+                <h1>THE<br>TWISTED CORK</h1>                
+            </div>
+    
+            <form class="login-content" action="action-page.php" method="post" > <!--NEED TO SET UP SERVER TO RECEIVE INFORMATION-->
+    
+                <h2>Login to Your Account</h2>
+                
+                <div class="container">
+                    <label for="username">Username:</label><br>
+                    <input type="text" id="username" name="username" class="inline" placeholder="Enter Username" required><br><br>
+    
+                    <label for="pswd">Password:</label><br>
+                    <input type="password" id="pswd" name="pswd" class="inline" placeholder="Password" required><br><br>
+    
+                    <button class="loginbtn" type="submit" value="Login" >Login</button>
+                    <!--WOULD LIKE TO HAVE A POP MESSAGE SAYING THAT SIGN IN WAS SUCCESSFUL
+                    OR GIVING AN ERROR MESSAGE IT SIGN IN WAS NOT SUCCESSFUL-->                    
+
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                </div>
+                
+                <div class="container">
+                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>                
+                </div>
+           
+                <div class="signup">
+                    <p>Don't have an account?</p>
+                    <!--NEED TO SET UP A LINK TO THE SIGNUP FORM-->
+                    <a href="registerForm.html">Register for an Account</a>
+                </div>  
+                       
+            </form>
+    
+                  
+        </section>     
+
+        <div id="id02" class="registrationForm">
+
+            <div class="head">
+                <img class="logo" src="images/tclogo1.jpg" alt="The Twisted Cork logo">        
+                <h1>THE<br>TWISTED CORK</h1>                
+            </div>
+
+            <form>
+
+                <h2>Register for an Account</h2>
+
+                <p>Please fill out this form to create an account.</p>
+            
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" class="inline" required><br><br>
+
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="inline" required><br><br>
+
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email" class="inline" required><br><br>
+
+                <label for="pswd">Password:</label>
+                <input type="password" id="pswd" name="pswd" placeholder="Enter Password" class="inline" required><br><br>
+
+                <label for="pswd-repeat">Repeat Password:</label>
+                <input type="password" id="pswd-repeat" name="pswd-repeat placeholder="Repeat Password" class="inline" required><br><br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+    </main>
+    
     <footer class="contact-container">
         <h3>CONTACT US</h3>
         <p>859.275.0027</p>
@@ -386,26 +521,8 @@
           document.documentElement.scrollTop = 0;
         }
         </script>
-<script src="script.js"></script>
-    
 
-    <!-- <script>
-
-
-
-        //  SIGN UP FORM
-        
-        /*function showForm() {
-            document.getElementById('signupForm').style.display = 'block';
-            }        
-        
-        // LOG IN FORM
-
-        function showLogInForm() {
-            document.getElementById('loginForm').style.display = 'block';
-        }
-        */
-    </script>   -->
+<script src="script.js"></script>  
 
 </body>
 
