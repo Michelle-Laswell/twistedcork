@@ -409,6 +409,8 @@
             </section>
         </div>
 
+        <!-- STARTS THE CODE FOR THE LOGIN FORM-->
+
         <section id="id01" class="loginForm">
         
             <div class="head">
@@ -421,11 +423,12 @@
                 <h2>Login to Your Account</h2>
                 
                 <div class="container">
-                    <label for="username">Username:</label><br>
-                    <input type="text" id="username" name="username" class="inline" placeholder="Enter Username" required><br><br>
+                    <label for="email">Email:</label><br>
+                    <input type="text" id="username" name="email" class="inline" placeholder="john@example.com" required><br><br>
     
                     <label for="pswd">Password:</label><br>
-                    <input type="password" id="pswd" name="pswd" class="inline" placeholder="Password" required><br><br>
+                    <input type="password" id="pswd" name="pswd" class="inline" value="FakePSW" required><br><br>
+                    <input type="checkbox" onclick="myFunction()"> Show Password<br><br>
     
                     <button class="loginbtn" type="submit" value="Login" >Login</button>
                     <!--WOULD LIKE TO HAVE A POP MESSAGE SAYING THAT SIGN IN WAS SUCCESSFUL
@@ -437,19 +440,21 @@
                 </div>
                 
                 <div class="container">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>                
+                    <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'" >Cancel</button>
+                    <span class="psw">Forgot <a href="#">password?</a></span>                
                 </div>
            
                 <div class="signup">
                     <p>Don't have an account?</p>
                     <!--NEED TO SET UP A LINK TO THE SIGNUP FORM-->
                     <a href="registerForm.html">Register for an Account</a>
-                </div>  
+                </div> 
                        
-            </form>
-    
+            </form>    
                   
-        </section>     
+        </section>
+        
+        <!-- STARTS THE CODE FOR THE REGISTRATION FORM-->
 
         <div id="id02" class="registrationForm">
 
@@ -458,30 +463,44 @@
                 <h1>THE<br>TWISTED CORK</h1>                
             </div>
 
-            <form>
+            <form class="register-content" action="action-page.php" method="post" >
 
                 <h2>Register for an Account</h2>
 
                 <p>Please fill out this form to create an account.</p>
-            
-                <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName" placeholder="First Name" class="inline" required><br><br>
 
-                <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="inline" required><br><br>
+                <div class="container">
 
-                <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" placeholder="Enter Email" class="inline" required><br><br>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name" class="inline" required><br><br>
 
-                <label for="pswd">Password:</label>
-                <input type="password" id="pswd" name="pswd" placeholder="Enter Password" class="inline" required><br><br>
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="inline" required><br><br>
 
-                <label for="pswd-repeat">Repeat Password:</label>
-                <input type="password" id="pswd-repeat" name="pswd-repeat placeholder="Repeat Password" class="inline" required><br><br>
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com" class="inline" required><br><br>
 
-                <input type="submit" value="Submit">
+                    <label for="pswd">Password:</label>
+                    <input type="password" id="pswd" name="pswd" placeholder="Enter Password" class="inline" required><br><br>
+
+                    <label for="pswd-repeat">Repeat Password:</label>
+                    <input type="password" id="pswd-repeat" name="pswd-repeat" value="FakePSW" class="inline" required><br><br>
+                    <input type="checkbox" onclick="myFunction()">Show Password<br><br>
+
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+
+                    <input class="registerbtn" type="submit" value="Register">
+                    <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'" >Cancel</button>
+
+                </div>           
+                
             </form>
+
         </div>
+
+        <!--STARTS THE CODE FOR THE CHECKOUT FORM-->
 
     </main>
     
@@ -498,9 +517,15 @@
         <button onclick="topFunction()" id="myBtn" title="Go to top">Back to The Top</button>
     </footer>
 
+    <!--SCRIPT FOR THE SOCIAL MEDIA ICONS-->
+
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
 <script>
+
+    //SCROLL TO TOP BUTTON
         // Get the button
         let mybutton = document.getElementById("myBtn");
         
@@ -520,6 +545,19 @@
           document.body.scrollTop = 0;
           document.documentElement.scrollTop = 0;
         }
+
+    //SHOW PASSWORD WHEN CHECKED
+    function myFunction() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+    //LOGIN BUTTON
+
+        
         </script>
 
 <script src="script.js"></script>  

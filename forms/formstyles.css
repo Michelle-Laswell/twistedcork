@@ -1,205 +1,184 @@
 * {
-    margin: 0;
+  margin: 0;
 }
 
+body,
 html {
-    box-sizing: border-box;
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
 }
 
 body {
-    background-color: rgb(182, 125, 173);
-    width: 100%;
-    
-    margin: 0;
-    
-    font-size: 18px;   
+  background-color: rgb(182, 125, 173);
 }
+
+html {
+  box-sizing: border-box;
+}
+
+/* STYLING THE LOGIN FORM */
 
 .loginForm {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  font-family: "Inconsolata", sans-serif;
-  font-size: 18px;
+ /* display: none;
+   Hidden by default */
+  position: fixed;    
+  z-index: 1;    
+  left: 0;
+  top: 0;
   width: 100%;
-  max-width: 700px;
-  height: 100vh;    
-  margin: 0 auto;
-  padding-bottom: 2em;    
-}
+  height: 100%;    
+  overflow: auto;    
+  padding-top: 60px;
+}   
 
-.loginForm head {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  min-width: 700px;
-}
-
-.loginForm h1 {
-font-size: 75px;
-color:  rgb(104, 31, 92);
-text-shadow: 3px 3px 4px #000, 4px 4px rgb(182, 125, 173), 5px 5px 6px #fff;
-margin: 5% .5em;
-}
-
-.logo {
-    height: 20%;
-    width: 20%;
-    margin-left: 25%;    
-}
-
-.login h2 {
-    font-family: "Inconsolata", sans-serif;
-    font-size: 30px;
-    margin-bottom: 1em;
-}
-
-.loginForm label {
-    display: inline;
-}
-
-input [type=text],
-input [type=password] {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 10px 0;  
-  width: 100%;  
-}
-
-input[type="submit"] {
-    display: block;
-    width: 60%;
-    margin: 1em auto;
-    height: 2em;
-    font-size: 1.1rem;
-    background-color:rgb(215, 178, 209);
-    border-color:  rgb(0, 0, 0);
-    min-width: 300px;
-  }
-
-  .signup {
+.login-content {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 3em;    
-  }
+    background-color:rgb(215, 178, 209);
+    margin: 0 auto 15% auto;      
+    width: 50%;    
+}
+  
+.head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(215, 178, 209);
+    margin: 0 auto;
+    width: 50%;
+}
 
-  .signup p {
-    font-size: 20px;    
-  }
-
-  a {
-    color: rgb(104, 31, 92);
-    font-weight: 500;
-  }
-
-  a:hover {
-    background-color: rgb(215, 178, 209) ;
-    font-size: 1.2em;
-  }
-
-  a:visited {
-    color:rgb(64, 4, 54);
-    font-weight: 500;
-  }
-
-  /*STYLING MODAL/LOGIN FORM*/
+.logo {
+    height: 15%;
+    width: 15%;
+    margin-right: 10px;    
+}
+  
+.head h1 {
+  font-size: 50px;
+  color:  rgb(104, 31, 92);
+  text-shadow: 3px 3px 4px #000, 4px 4px rgb(182, 125, 173), 5px 5px 6px #fff;
+  margin: 5% .5em;
+}
+  
+.login-content h2,
+.register-content h2 {
+    font-family: "Inconsolata", sans-serif;
+    font-size: 20px;
+    width: max-content;
+    margin-bottom: 1em;
+}
+  
 .container {
-  padding: 16px;
+    padding: 12px;
+    width: 100%;
+    max-width: 300px;
 }
 
-span.psw {
-  float: right;
-  padding-top: 16px;
+.container label {
+    font-size: 18px;    
+    margin-bottom: 16px;
 }
 
-/* The Modal (background) */
-.modal {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Stay in place */
-  z-index: 1;
-  /* Sit on top */
+.container input [type=text],
+.container input [type=password] {    
+    padding: 10px;
+    margin: 10px 0; 
+    width: 100%;
+    box-sizing: border-box;  
+}
+
+.container input [type=checkbox] {
+    margin-bottom: 7px;
+}
+
+.inline {
+    padding: 10px 15px;
+    margin-top: 5px;
+    width: 100%;
+}
+
+.loginbtn {  /*WOULD LIKE THE LOGIN BUTTON TO BE SMALLER AND MAYBE CENTERED*/
+    display: block;    
+    background-color: rgb(104, 31, 92);
+    color: rgb(215, 178, 209);
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;  
+    padding: 10px 0;
+    margin-bottom: 7px;;      
+    border:  none;
+    cursor: pointer;
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: rgb(104, 31, 92);
+    color: rgb(215, 178, 209);
+    margin-bottom: 15px;
+    border: none;
+    cursor: pointer;    
+}
+
+.loginbtn:hover,
+.cancelbtn:hover {
+    opacity: 0.7;
+}
+
+.signup {
+    margin-bottom: 25px;
+}
+
+.signup p {
+    margin-bottom: 3px;
+}
+
+/*STYLING THE REGISTRATION FORM*/
+
+.registrationForm {
+  /*display: none;
+   Hidden by default */
+  position: fixed;    
+  z-index: 1;    
   left: 0;
   top: 0;
   width: 100%;
-  /* Full width */
-  height: 100%;
-  /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
-  background-color: rgb(0, 0, 0);
-  /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
-  /* Black w/ opacity */
+  height: 100%;    
+  overflow: auto;    
   padding-top: 60px;
+} 
+
+.register-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color:rgb(215, 178, 209);
+    margin: 0 auto 15% auto;      
+    width: 50%;   
+ 
 }
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto;
-  /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%;
-  /* Could be more or less, depending on screen size */
+.register-content p {
+  font-size: 16px;
+  margin: 15px 0;
 }
 
-/* The Close Button (x) */
-.close {
-  position: absolute;
-  right: 25px;
-  top: 0;
-  color: #000;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: red;
-  cursor: pointer;
-}
-
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-  from {
-      -webkit-transform: scale(0)
-  }
-
-  to {
-      -webkit-transform: scale(1)
-  }
-}
-
-@keyframes animatezoom {
-  from {
-      transform: scale(0)
-  }
-
-  to {
-      transform: scale(1)
-  }
-}
-
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-      display: block;
-      float: none;
-  }
-
-  .cancelbtn {
-      width: 100%;
-  }
+.registerbtn {
+    display: block;    
+    background-color: rgb(104, 31, 92);
+    color: rgb(215, 178, 209);
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;  
+    padding: 10px 0;
+    margin-bottom: 7px;
+    margin-right: 6px;      
+    border:  none;
+    cursor: pointer;
 }
 
 

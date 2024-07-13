@@ -9,29 +9,35 @@
     <title>The Twisted Cork - Sign In</title>
 </head>
 
-<body>       
+<body>
+
+    <main>
+        <h1>Login Form</h1>
+
+        <!-- STARTS THE CODE FOR THE LOGIN FORM-->
 
     <section id="id01" class="loginForm">
         
-        <header class="header">
+        <div class="head">
             <img class="logo" src="tclogo1.jpg" alt="The Twisted Cork logo">        
             <h1>THE<br>TWISTED CORK</h1>                
-        </header>
+        </div>
 
-        <form class="login animate" action="action-page.php" method="post" > <!--NEED TO SET UP SERVER TO RECEIVE INFORMATION-->
+        <form class="login-content" action="action-page.php" method="post" > <!--NEED TO SET UP SERVER TO RECEIVE INFORMATION-->
 
             <h2>Login to Your Account</h2>
             
             <div class="container">
-                <label for="username">Username:</label><br>
-                <input type="text" id="username" name="username" class="inline" placeholder="Enter Username" required><br><br>
+                <label for="email">Email:</label><br>
+                <input type="text" id="username" name="email" class="inline" placeholder="john@example.com" required><br><br>
 
-                <label for="password">Password:</label><br>
-                <input type="password" id="password" name="password" class="inline" placeholder="Password" required><br><br>
+                <label for="pswd">Password:</label><br>
+                <input type="password" id="pswd myInput" name="pswd" class="inline" value="FakePSW" required><br><br>
+                <input type="checkbox" onclick="myFunction()">Show Password<br><br>
 
-                <button type="submit" value="Login">Login</button>
+                <button class="loginbtn" type="submit" value="Login" >Login</button>
                 <!--WOULD LIKE TO HAVE A POP MESSAGE SAYING THAT SIGN IN WAS SUCCESSFUL
-                OR GIVING AN ERROR MESSAGE IT SIGN IN WAS NOT SUCCESSFUL-->
+                OR GIVING AN ERROR MESSAGE IT SIGN IN WAS NOT SUCCESSFUL-->                    
 
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me
@@ -39,17 +45,32 @@
             </div>
             
             <div class="container">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>                
+                <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'" >Cancel</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>                
             </div>
+       
+            <div class="signup">
+                <p>Don't have an account?</p>
+                <!--NEED TO SET UP A LINK TO THE SIGNUP FORM-->
+                <a href="registerForm.html">Register for an Account</a>
+            </div> 
                    
-        </form>
+        </form>    
+              
+    </section>    
+    
+    </main>
 
-        <section class="signup">
-            <p>Don't have an account?</p>
-            <!--NEED TO SET UP A LINK TO THE SIGNUP FORM-->
-            <a href="registerForm.html">Register for an Account</a>
-        </section>        
-    </section>     
-
+    <script>
+    //SHOW PASSWORD WHEN CHECKED
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>

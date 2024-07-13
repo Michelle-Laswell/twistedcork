@@ -236,6 +236,10 @@ h1 {
     max-width: 700px;    
 }
 
+.menu-content label {
+    margin-bottom: 4px;
+}
+
 .msg-btn {
     border: none;
     display: inline-block;
@@ -335,7 +339,7 @@ h1 {
 
 .price {
     font-weight: bold;
-    margin-bottom: .5em;
+    margin-bottom: .7em;
 }
 
 .happyhr {
@@ -431,6 +435,7 @@ footer {
   #myBtn:hover {
     background-color: rgb(215, 178, 209);
     color: rgb(104, 31, 92);
+    font-weight: 600;
   }
 
 /*STYLING THE MENU PAGE*/
@@ -601,7 +606,7 @@ footer {
 
 .description {
     text-align: justify;
-    padding-bottom: .75em;
+    padding-bottom: .4em;
 }
 
 .price {
@@ -612,8 +617,8 @@ footer {
 
   .loginForm,
   .registrationForm {
-    display: none;
-     /*Hidden by default */
+     display: none;
+    /*Hidden by default */
     position: fixed;    
     z-index: 1;    
     left: 0;
@@ -622,9 +627,10 @@ footer {
     height: 100%;    
     overflow: auto;    
     padding-top: 60px;
-  }   
+  }  
 
-  .login-content {
+  .login-content,
+  .register-content {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -632,7 +638,7 @@ footer {
     background-color:rgb(215, 178, 209);
     margin: 0 auto 15% auto;      
     width: 50%;    
-  }
+  }  
   
 .head {
     display: flex;
@@ -656,7 +662,8 @@ footer {
   margin: 5% .5em;
 }
   
-.login-content h2 {
+.login-content h2,
+.register-content h2 {
     font-family: "Inconsolata", sans-serif;
     font-size: 20px;
     width: max-content;
@@ -664,7 +671,9 @@ footer {
 }
   
 .container {
-    padding: 16px;
+    padding: 12px;
+    width: 100%;
+    max-width: 300px;
 }
 
 .container label {
@@ -680,44 +689,73 @@ footer {
     box-sizing: border-box;  
 }
 
+.container input [type=checkbox] {
+    margin-bottom: 7px;
+}
+
 .inline {
     padding: 10px 15px;
     margin-top: 5px;
     width: 100%;
 }
 
-.loginbtn {
-    display: block;
-    background-color: rgb(182, 125, 173);
-    color: rgb(104, 31, 92);
+.loginbtn, /*WOULD LIKE THE LOGIN BUTTON TO BE SMALLER AND MAYBE CENTERED ON THE LOGIN FORM*/
+.registerbtn {  
+    display: block;    
+    background-color: rgb(104, 31, 92);
+    color: rgb(215, 178, 209);
     font-size: 15px;
     font-weight: 500;
-    width: 100%;    
-    padding: 10px 10px;      
+    width: 100%;  
+    padding: 10px 0;
+    margin-bottom: 7px;;      
     border:  none;
-    min-width: 300px;
+    cursor: pointer;
 }
 
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color: rgb(182, 125, 173);
-    color: rgb(104, 31, 92);
+    background-color: rgb(104, 31, 92);
+    color: rgb(215, 178, 209);
+    margin-bottom: 15px;
     border: none;
+    cursor: pointer;    
 }
 
 .loginbtn:hover,
-.cancelbtn:hover {
+.cancelbtn:hover,
+.registerbtn:hover {
     opacity: 0.7;
 }
 
 .signup {
-    margin-bottom: 12px;
+    margin-bottom: 25px;
 }
 
+.signup p {
+    margin-bottom: 3px;
+}
+
+/*REGISTRATION*/
+.register-content p {
+    font-size: 16px;
+    margin: 10px 0;
+}
   
-
-
+.registerbtn {
+    display: block;    
+    background-color: rgb(104, 31, 92);
+    color: rgb(215, 178, 209);
+    font-size: 15px;
+    font-weight: 500;
+    width: 100%;  
+    padding: 10px 0;
+    margin-bottom: 7px;
+    margin-right: 6px;      
+    border:  none;
+    cursor: pointer;
+}
 
 /*STYLING THE EVENTS PAGE*/
 .bgimg-events {

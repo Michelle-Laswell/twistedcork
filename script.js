@@ -1,4 +1,4 @@
-//Shows active page in the navbar
+// SHOWS ACTIVE PAGE IN THE NAVBAR
 
 document.addEventListener('DOMContentLoaded', function() {
     var links = document.querySelectorAll('.navbar a');
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-//Putting the Current Date in the Placeholder
+//PUTS CURRENT DATE IN THE PLACEHOLDER OF RESERVATION FORM
         
 window.onload = function() {
     var now = new Date();
