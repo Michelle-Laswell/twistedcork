@@ -6,31 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="formstyles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>The Twisted Cork - Registration</title>
 </head>
 
 <body>
 
     <main>
-
-        <h1>Registration Form</h1>
-
         <!-- STARTS THE CODE FOR THE REGISTRATION FORM-->
+        <section id="id02" class="registrationForm">
+            <div class="registration-container">
 
-        <div id="id02" class="registrationForm">
-
-            <div class="head">
-                <img class="logo" src="tclogo1.jpg" alt="The Twisted Cork logo">        
-                <h1>THE<br>TWISTED CORK</h1>                
-            </div>
-
-            <form class="register-content" action="action-page.php" method="post" >
+                <div class="head">
+                    <img class="logo" src="tclogo1.jpg" alt="The Twisted Cork logo">        
+                    <h1>THE<br>TWISTED CORK</h1>                
+                </div>
 
                 <h2>Register for an Account</h2>
 
                 <p>Please fill out this form to create an account.</p>
 
-                <div class="container">
+                <form action="action-page.php" method="post" >                                            
             
                     <label for="firstName">First Name:</label>
                     <input type="text" id="firstName" name="firstName" placeholder="First Name" class="inline" required><br><br>
@@ -48,19 +44,13 @@
                     <input type="password" id="pswd-repeat" name="pswd-repeat" value="FakePSW" class="inline" required><br><br>
                     <input type="checkbox" onclick="myFunction()">Show Password<br><br>                    
 
-                    <input class="registerbtn" type="submit" value="Register">
+                    <input class="registerbtn" type="submit" value="Register"><br>
                     <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'" >Cancel</button>
-
-                </div>
-<!--
-                <div class="container">
-                    <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'" >Cancel</button>                                   
-                </div> -->
-
-            </form>
-        </div>
-    </main>
-    
+                                    
+                </form>
+            </div>
+        </section>
+    </main>    
 
 </body>
 </html>

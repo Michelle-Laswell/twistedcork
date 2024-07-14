@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>The Twisted Cork</title>
 </head>
@@ -410,97 +411,116 @@
         </div>
 
         <!-- STARTS THE CODE FOR THE LOGIN FORM-->
-
         <section id="id01" class="loginForm">
+            <div class="login-container">
         
-            <div class="head">
-                <img class="logo" src="images/tclogo1.jpg" alt="The Twisted Cork logo">        
-                <h1>THE<br>TWISTED CORK</h1>                
-            </div>
-    
-            <form class="login-content" action="action-page.php" method="post" > <!--NEED TO SET UP SERVER TO RECEIVE INFORMATION-->
-    
+                <div class="head">
+                    <img class="logo" src="/images/tclogo1.jpg" alt="The Twisted Cork logo">
+                    <h1>THE<br>TWISTED CORK</h1>
+                </div>
+
                 <h2>Login to Your Account</h2>
-                
-                <div class="container">
-                    <label for="email">Email:</label><br>
-                    <input type="text" id="username" name="email" class="inline" placeholder="john@example.com" required><br><br>
-    
+
+                <form action="action-page.php" method="post" > <!--NEED TO SET UP SERVER TO RECEIVE INFORMATION-->                    
+            
+                   <label for="email">Email:</label><br>
+                   <input type="text" id="username" name="email" placeholder="john@example.com" required><br><br>
+
                     <label for="pswd">Password:</label><br>
-                    <input type="password" id="pswd" name="pswd" class="inline" value="FakePSW" required><br><br>
+                    <input type="password" id="pswd myInput" name="pswd" value="FakePSW" required><br><br>
                     <input type="checkbox" onclick="myFunction()"> Show Password<br><br>
-    
+
                     <button class="loginbtn" type="submit" value="Login" >Login</button>
                     <!--WOULD LIKE TO HAVE A POP MESSAGE SAYING THAT SIGN IN WAS SUCCESSFUL
-                    OR GIVING AN ERROR MESSAGE IT SIGN IN WAS NOT SUCCESSFUL-->                    
-
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember me
-                    </label>
-                </div>
+                    OR GIVING AN ERROR MESSAGE IT SIGN IN WAS NOT SUCCESSFUL-->                  
+                    
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                    <br>             
+                            
+                    <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'" >Cancel</button><br><br>
+                    <span class="psw">Forgot <a href="#">password?</a></span> <br><br>               
                 
-                <div class="container">
-                    <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'" >Cancel</button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>                
-                </div>
-           
-                <div class="signup">
-                    <p>Don't have an account?</p>
-                    <!--NEED TO SET UP A LINK TO THE SIGNUP FORM-->
-                    <a href="registerForm.html">Register for an Account</a>
-                </div> 
-                       
-            </form>    
-                  
+       
+                    <div class="signup">
+                        <p>Don't have an account?</p>
+                        <!--NEED TO SET UP A LINK TO THE SIGNUP FORM-->
+                        <a href="registerForm.html">Register for an Account</a>
+                    </div> 
+                   
+                </form>
+            </div>    
+              
         </section>
-        
-        <!-- STARTS THE CODE FOR THE REGISTRATION FORM-->
-
-        <div id="id02" class="registrationForm">
+    
+       <!-- STARTS THE CODE FOR THE REGISTRATION FORM-->
+       <section id="id02" class="registrationForm">
+        <div class="registration-container">
 
             <div class="head">
                 <img class="logo" src="images/tclogo1.jpg" alt="The Twisted Cork logo">        
                 <h1>THE<br>TWISTED CORK</h1>                
             </div>
 
-            <form class="register-content" action="action-page.php" method="post" >
+            <h2>Register for an Account</h2>
 
-                <h2>Register for an Account</h2>
+            <p>Please fill out this form to create an account.</p>
 
-                <p>Please fill out this form to create an account.</p>
+            <form action="action-page.php" method="post" >                                            
+        
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" class="inline" required><br><br>
 
-                <div class="container">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="inline" required><br><br>
 
-                    <label for="firstName">First Name:</label>
-                    <input type="text" id="firstName" name="firstName" placeholder="First Name" class="inline" required><br><br>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" placeholder="Enter Email" class="inline" required><br><br>
 
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="inline" required><br><br>
+                <label for="pswd">Password:</label>
+                <input type="password" id="pswd" name="pswd" value="FakePSW" class="inline" required><br><br>
 
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" placeholder="john@example.com" class="inline" required><br><br>
+                <label for="pswd-repeat">Repeat Password:</label>
+                <input type="password" id="pswd-repeat" name="pswd-repeat" value="FakePSW" class="inline" required><br><br>
+                <input type="checkbox" onclick="myFunction()">Show Password<br><br>                    
 
-                    <label for="pswd">Password:</label>
-                    <input type="password" id="pswd" name="pswd" placeholder="Enter Password" class="inline" required><br><br>
-
-                    <label for="pswd-repeat">Repeat Password:</label>
-                    <input type="password" id="pswd-repeat" name="pswd-repeat" value="FakePSW" class="inline" required><br><br>
-                    <input type="checkbox" onclick="myFunction()">Show Password<br><br>
-
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                    </label>
-
-                    <input class="registerbtn" type="submit" value="Register">
-                    <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'" >Cancel</button>
-
-                </div>           
-                
+                <input class="registerbtn" type="submit" value="Register">
+                <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'" >Cancel</button>
+                                
             </form>
-
         </div>
+    </section>
 
         <!--STARTS THE CODE FOR THE CHECKOUT FORM-->
+        <section class="checkoutForm">
+            <div class="checkout-container">
+                <div class="head">
+                     <img class="logo" src="images/tclogo1.jpg" alt="The Twisted Cork logo">
+                     <h1>THE<br>TWISTED CORK</h1>
+                </div>
+                <h2>Checkout</h2>
+                <section class="order-summary">
+                    <!-- This will be populated dynamically -->
+                    <ul id="order-list">
+                        <!-- List items will be added here -->
+                    </ul>
+                    <p><strong>Total:</strong> <span id="total-price">$0.00</span></p>
+                </section>
+                <form id="payment-form">
+                    <label for="card-number">Card Number:</label>
+                    <input type="text" id="card-number" required><br><br>
+        
+                    <label for="expiry">Expiry Date:</label>
+                    <input type="text" id="expiry" placeholder="MM/YY" required><br><br>
+        
+                    <label for="cvv">CVV:</label>
+                    <input type="text" id="cvv" required><br><br>
+        
+                    <button class="pmtbutton" type="submit">Pay Now</button>
+                    <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'" >Cancel</button>
+            </form>
+                </div>
+        </section>
+
 
     </main>
     

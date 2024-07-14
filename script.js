@@ -52,6 +52,47 @@ function openMenu(evt, menuName) {
         document.getElementById("myLink").click();
 });
 
+//CODE FOR THE PAYMENT FORM
+// Example items (replace with actual logic to fetch items)
+const items = [
+    { name: "Item 1", price: 10.00 },
+    { name: "Item 2", price: 15.00 },
+    { name: "Item 3", price: 20.00 }
+];
+
+// Function to display order summary
+function displayOrderSummary() {
+    const orderList = document.getElementById('order-list');
+    const totalPriceSpan = document.getElementById('total-price');
+    let totalPrice = 0;
+
+    // Clear existing items
+    orderList.innerHTML = '';
+
+    // Add each item to the order summary
+    items.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.name}: $${item.price.toFixed(2)}`;
+        orderList.appendChild(listItem);
+        totalPrice += item.price;
+    });
+
+    // Update total price
+    totalPriceSpan.textContent = `$${totalPrice.toFixed(2)}`;
+}
+
+// Call displayOrderSummary when the page loads
+document.addEventListener('DOMContentLoaded', displayOrderSummary);
+
+// Form submit event listener (replace with actual form submission logic)
+const form = document.getElementById('payment-form');
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Replace with your form submission logic (e.g., payment processing)
+    alert('Payment processed successfully!');
+});
+
+
 /*
 // SCROLL TO TOP BUTTON
 // Get the button

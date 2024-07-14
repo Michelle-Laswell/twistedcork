@@ -1,185 +1,112 @@
-* {
-  margin: 0;
-}
-
-body,
-html {
-  height: 100%;
-  font-family: "Inconsolata", sans-serif;
-}
-
 body {
-  background-color: rgb(182, 125, 173);
+    background-color: rgb(182, 125, 173);
 }
 
 html {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* STYLING THE LOGIN FORM */
 
 .loginForm {
- /* display: none;
+    /* display: none;
    Hidden by default */
-  position: fixed;    
-  z-index: 1;    
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;    
-  overflow: auto;    
-  padding-top: 60px;
-}   
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 
-.login-content {
+}
+
+.login-container,
+.registration-container {
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color:rgb(215, 178, 209);
-    margin: 0 auto 15% auto;      
-    width: 50%;    
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: rgb(215, 178, 209);
+    box-shadow: 0 4px 7px 0 rgba(104, 31, 92, 0.17), 0 2px 10px 0 rgba(104, 31, 92, 0.12);
 }
-  
+
 .head {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:rgb(215, 178, 209);
+    background-color: rgb(215, 178, 209);
     margin: 0 auto;
-    width: 50%;
+    width: 100%;
+    max-width: 700px;
 }
 
 .logo {
     height: 15%;
     width: 15%;
-    margin-right: 10px;    
+    margin-right: 10px;
 }
-  
+
 .head h1 {
-  font-size: 50px;
-  color:  rgb(104, 31, 92);
-  text-shadow: 3px 3px 4px #000, 4px 4px rgb(182, 125, 173), 5px 5px 6px #fff;
-  margin: 5% .5em;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    color: rgb(104, 31, 92);
+    text-shadow: 3px 3px 4px #000, 4px 4px rgb(182, 125, 173), 5px 5px 6px #fff;
+    margin: 5% .5em;
 }
-  
-.login-content h2,
-.register-content h2 {
-    font-family: "Inconsolata", sans-serif;
-    font-size: 20px;
+
+.login-container h2,
+.registration-container h2 {
+    font-family: Arial, Helvetica, sans-serif;
     width: max-content;
     margin-bottom: 1em;
 }
-  
-.container {
-    padding: 12px;
-    width: 100%;
-    max-width: 300px;
-}
 
-.container label {
-    font-size: 18px;    
-    margin-bottom: 16px;
-}
-
-.container input [type=text],
-.container input [type=password] {    
-    padding: 10px;
-    margin: 10px 0; 
-    width: 100%;
-    box-sizing: border-box;  
-}
-
-.container input [type=checkbox] {
-    margin-bottom: 7px;
-}
-
-.inline {
-    padding: 10px 15px;
-    margin-top: 5px;
-    width: 100%;
-}
-
-.loginbtn {  /*WOULD LIKE THE LOGIN BUTTON TO BE SMALLER AND MAYBE CENTERED*/
-    display: block;    
+.loginbtn,
+.cancelbtn,
+.registerbtn {
     background-color: rgb(104, 31, 92);
     color: rgb(215, 178, 209);
-    font-size: 15px;
-    font-weight: 500;
-    width: 100%;  
-    padding: 10px 0;
-    margin-bottom: 7px;;      
-    border:  none;
+    border: none;
     cursor: pointer;
+    margin: 10px 0;
+}
+
+.loginbtn {
+    padding: 10px 29px;
+    margin-right: 25px;
+    ;
 }
 
 .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: rgb(104, 31, 92);
-    color: rgb(215, 178, 209);
-    margin-bottom: 15px;
-    border: none;
-    cursor: pointer;    
+    padding: 10px 25px;
+}
+
+.registerbtn {
+    padding: 10px 20px;
+    margin-right: 2em;
 }
 
 .loginbtn:hover,
-.cancelbtn:hover {
+.cancelbtn:hover,
+.registerbtn:hover {
     opacity: 0.7;
-}
-
-.signup {
-    margin-bottom: 25px;
-}
-
-.signup p {
-    margin-bottom: 3px;
 }
 
 /*STYLING THE REGISTRATION FORM*/
 
 .registrationForm {
-  /*display: none;
+    /*display: none;
    Hidden by default */
-  position: fixed;    
-  z-index: 1;    
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;    
-  overflow: auto;    
-  padding-top: 60px;
-} 
-
-.register-content {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background-color:rgb(215, 178, 209);
-    margin: 0 auto 15% auto;      
-    width: 50%;   
- 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
-
-.register-content p {
-  font-size: 16px;
-  margin: 15px 0;
-}
-
-.registerbtn {
-    display: block;    
-    background-color: rgb(104, 31, 92);
-    color: rgb(215, 178, 209);
-    font-size: 15px;
-    font-weight: 500;
-    width: 100%;  
-    padding: 10px 0;
-    margin-bottom: 7px;
-    margin-right: 6px;      
-    border:  none;
-    cursor: pointer;
-}
-
-
-

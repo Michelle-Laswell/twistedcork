@@ -1,140 +1,91 @@
-* {
-    margin: 0;
-    box-sizing: border-box;
-  }
-  
-  body,
-  html {
-    height: 100%;
-    font-family: "Inconsolata", sans-serif;
-  }
-  
-  body {
-    background-color: rgb(182, 125, 173);
-  }
-  
-  html {
-    box-sizing: border-box;
-  }
 
-  /*STYLING THE HEAD PORTION OF THE PAYMENT FORM TO MATCH THE HEAD PORTOIN OF THE LOGIN & REGISTRATION FORMS*/
+body {
+  background-color: rgb(182, 125, 173);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+/*.checkoutForm {
+
+      display: none;
+}*/
+
 .head {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color:rgb(215, 178, 209);
-    margin: 0 auto;
-    width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(215, 178, 209);
+  margin: 0 auto;
+  width: 100%;
+   max-width: 700px;
 }
 
 .logo {
-    height: 15%;
-    width: 15%;
-    margin-right: 10px;    
+  height: 15%;
+  width: 15%;
+  margin-right: 10px;
 }
-  
+
 .head h1 {
   font-size: 50px;
-  color:  rgb(104, 31, 92);
+  color: rgb(104, 31, 92);
   text-shadow: 3px 3px 4px #000, 4px 4px rgb(182, 125, 173), 5px 5px 6px #fff;
   margin: 5% .5em;
 }
 
-/*STYLING THE PAYMENT FORM*/
-
-h3, h4 {
-    margin-bottom: 5px;
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: rgb(215, 178, 209);
 }
 
-.pmt-container,
-.cart-container {
-    background-color: rgb(215, 178, 209);
-    padding: 5px 20px 15px 20px;
-    border: none;    
+.order-summary {
+  margin-bottom: 20px;
+  text-align: center;
+  /* Center text within the summary */
 }
 
-.pmt-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 700px;
+.checkout-container ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.row {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-    margin: 0 -16px;
-}
-  
-.col-25 {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
-}
-  
-.col-50 {
-    -ms-flex: 50%; /* IE10 */
-    flex: 50%;
-}
-  
-.col-75 {
-    -ms-flex: 75%; /* IE10 */
-    flex: 75%;
-}
-  
-.col-25,
-.col-50,
-.col-75 {
-    padding: 0 16px;
-}  
+.checkout-container li {
+  margin-bottom: 5px;
+ }
 
-input[type=text] {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+.checkout-container form {
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
 }
 
-label {
-    margin-bottom: 10px;
-    display: block;
+.pmtbutton,
+.cancelbtn {
+  background-color: rgb(104, 31, 92);
+  color: rgb(215, 178, 209);  
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;          
 }
 
-.icon-container {
-    margin-bottom: 20px;
-    padding: 7px 0;
-    font-size: 24px;
+.pmtbutton {
+  padding: 10px 20px;
 }
 
-.chkout-btn {
-    background-color: rgb(104, 31, 92);
-    color: rgb(215, 178, 209);
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    width: 100%;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 17px;
+.cancelbtn {
+  padding: 10px 25px;
 }
 
-.chkout-btn:hover {
-    opacity: 0.7;
-}
-
-a {
-    color: rgb(104, 31, 92);
-}
-
-hr {
-    border: 1px solid rgba(26, 25, 25, 0.253);
-}
-
-.price {
-    float: right;
-    color: rgb(0, 0, 0);
+.pmtbutton:hover,
+.cancelbtn:hover {
+  opacity: 0.7;
 }
