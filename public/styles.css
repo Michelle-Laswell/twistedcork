@@ -40,8 +40,7 @@ h3 {
 
 h4 {
     background-color: rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    text-align: center;
+    color: rgb(255, 255, 255);    
     font-size: 20px;
     letter-spacing: 4px;
     margin: 0 auto;
@@ -81,10 +80,10 @@ a {
     color: rgb(0, 0, 0);
 }
 
-.navbar a:active {
+.navbar a.active {
     background-color: rgb(104, 31, 92);
+    color: rgb(255, 255, 255);
 }
-
 
 /*STYLING THE HEADER(S)*/
 
@@ -189,35 +188,26 @@ h1 {
     padding-bottom: 24px;
 }
 
-.about-content {
-    display: flex;
-    justify-content: flex-start;
-    align-content: flex-start;
+.owners { 
+    display: block;
     text-align: left;
+    width: 100%;
+    max-width: 700px;
     margin: 0 auto;
 }
 
-.owners {    
-    margin: 1.5em auto;        
-}
-
-.owners h4 {      
+.owners h4 {
+    display: inline-block;      
     font-size: 14px;
-    text-align: left;
-    margin-bottom: .75em;
+    text-align: left;    
+    margin-bottom: 1em;
 }
 
 .owners ul {
     list-style: square inside;
     text-align: left;
     font-size: 18px;
-    margin-bottom: .75em;
-}
-
-.about-container img {
-    max-width: 700px;
-    margin-top: 3em;
-    margin-bottom: .5em; 
+    margin-bottom: 1em;    
 }
 
 /*STYLING THE WHERE CONTAINER/CONTENT*/
@@ -231,6 +221,12 @@ h1 {
     align-items: center;
     width: 100%;
     max-width: 700px;    
+}
+
+.where-content img {
+    max-width: 700px;
+    margin-top: 1em;
+    margin-bottom: .5em; 
 }
 
 .menu-content label {
@@ -614,7 +610,7 @@ footer {
   NONE OF THESE FORMS ARE VISIBLE UNTIL THE "SUBMIT ORDER" BUTTON IS CLICKED AND THEN THE LOGIN FORM
   WILL OPEN ALLOWING USER TO LOGIN FOR ORDER FOOD
 
-/* STYLING THE LOGIN FORM , REGISTRATION FORM, AND CHECKOUT FORM*/  
+/* STYLING THE LOGIN FORM , REGISTRATION FORM, AND CHECKOUT FORM*  
   
 .loginForm,
 .registrationForm,
@@ -627,7 +623,7 @@ footer {
     width: 100%;
     height: 100%;    
     overflow: auto;     
-}
+}/
 
 /* TO DISPLAY LOGIN 
 .loginForm {
@@ -652,7 +648,7 @@ footer {
     overflow: auto;     
 }*/
 
-/*  TO DISPLAY CHECKOUT FORM
+/*  TO DISPLAY CHECKOUT FORM 
 .checkoutForm {
     display: none;    
     position: fixed;    
@@ -741,6 +737,39 @@ footer {
     max-width: 700px;
     text-align: center;
 }
+
+/* STYLING THE CREDIT CARD ICONS */
+
+.icon-container {
+    font-size: 30px;
+    margin: 15px 0;
+    padding: 7px 0;
+  }
+  
+  .icon-container p {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 25%;
+    margin-bottom: 10px;
+  }
+  
+  .fa-cc-visa {
+    color:navy;
+  }
+  
+  .fa-cc-amex {
+    color:rgb(11, 79, 11);
+  }
+  
+  .fa-cc-mastercard {
+    color: rgb(195, 82, 41);
+  }
+  
+  .fa-cc-discover {
+    color: rgb(77, 74, 74);
+  }
+
+  /* STYLING THE BUTTONS ON FORMS */
    
 .loginbtn,
 .cancelbtn,

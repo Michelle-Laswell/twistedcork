@@ -47,34 +47,38 @@
                     <p><blockquote>"Some kind of quote or saying goes here. It will be something
                             they say a lot."</blockquote></p><br />
                     <p>--Prentice Slone or "Momma" Sue Slone</p>
-                </aside>                
-
-                <section class="owners">
-                    <h4>Owners:</h4>
-                    <ul>
-                        <li>Prentice Slone</li>
-                        <li>"Momma" Sue Slone</li>
-                    </ul>
-
-                    <h4>Company Officer:</h4>
-                    <ul>
-                        <li>Whitney Adams</li>
-                    </ul>
-
-                    <h4>Chef:</h4>
-                    <ul>
-                        <li>Riley Acke</li>
-                    </ul>                
-                    <img src="images/tchome3.JPG" alt="Picture of the outside of The Twisted Cork.">
-                </section>
-
+                </aside>
             </div> 
-
-        </section>        
+        </section>
         
+        <!-- About the  Owners -->
+
+        <section class="owners"> 
+            <h4>Owners:</h4>
+            <ul>
+                <li>Prentice Slone</li>
+                <li>"Momma" Sue Slone</li>
+            </ul>
+
+            <h4>Company Officer:</h4>
+            <ul>
+                <li>Whitney Adams</li>
+            </ul>
+
+            <h4>Chef:</h4>
+                <ul>
+                    <li>Riley Acke</li>
+                </ul>             
+                
+        </section> 
+             
+        <!-- WHERE CONTAINER -->
+      
         <section class="where-container" id="where">
 
             <div class="where-content">
+
+                <img src="images/tchome3.JPG" alt="Picture of the outside of The Twisted Cork.">
 
                 <h2>WHERE TO FIND US</h2>
 
@@ -93,17 +97,17 @@
                 <form class="reserve" action="/action_page.php" target="_blank">
 
                     <label for="name">Name: </label>
-                    <input class="input padding-16 border name" type="text" placeholder="Name" required name="Name"><br>
+                    <input class="input padding-16 border name" type="text" placeholder="Name" required id="name" autocomplete="name"><br>
 
                     <label for="people">Number your Party: </label>
-                    <input class="input padding-16 border people" type="number" placeholder="How many people" required name="People"><br>
+                    <input class="input padding-16 border people" type="number" placeholder="How many people" required id="people" autocomplete="off"><br>
 
-                    <label for="date">Reservation Date: </label>
-                    <input class="input padding-16 border date" type="datetime-local" placeholder="Date and time" required name="date" id="reservation-date"><br>
+                    <label for="reservation-date">Reservation Date: </label>
+                    <input class="input padding-16 border date" type="datetime-local" placeholder="Date and time" required name="date" id="reservation-date" autocomplete="off"><br>
                     <!--value="2020-11-16T20:00"-->
 
                     <label for="message">Message or Comment: </label>
-                    <input class="input padding-16 border message" type="text" placeholder="Message \ Special requirements" required name="Message"><br>
+                    <input class="input padding-16 border message" type="text" placeholder="Message \ Special requirements" required id="message" autocomplete="off"><br>
 
                     <button class="msg-btn" type="submit">SEND MESSAGE</button></p>
 
@@ -133,30 +137,12 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     
-    <!--
-    <script>
-
-        //PUTS CURRENT DATE IN THE PLACEHOLDER OF THE RESERVATION FORM       
-        window.onload = function() {
-            var now = new Date();
-            var year = now.getFullYear();
-            var month = ('0' + (now.getMonth() + 1)).slice(-2);
-            var day = ('0' + now.getDate()).slice(-2);
-            var hours = ('0' + now.getHours()).slice(-2);
-            var minutes = ('0' + now.getMinutes()).slice(-2);
-
-            var formattedDate = `${year}-${month}-${day}T${hours}:${minutes}`;
-
-            document.getElementById('reservation-date').value = formattedDate;
-        };
-        
-    </script>
-    -->
-
-    <!-- SCRIPT FOR NAVIGATION, SCROLLING, RESERVATION FORM -->
+     <!-- SCRIPT FOR NAVIGATION, SCROLLING, RESERVATION FORM -->
     <script src="script/navigation.js"></script>
     <script src="script/home.js"></script>
     <script src="script/scroll.js"></script>
+
+    
 
 </body>
 

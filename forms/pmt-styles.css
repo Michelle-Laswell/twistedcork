@@ -62,6 +62,34 @@ html {
   margin-bottom: 5px;
  }
 
+ .icon-container {
+  font-size: 30px;
+  margin-bottom: 20px;
+  padding: 7px 0;
+}
+
+.icon-container p {
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 25%;
+}
+
+.fa-cc-visa {
+  color:navy;
+}
+
+.fa-cc-amex {
+  color:rgb(11, 79, 11);
+}
+
+.fa-cc-mastercard {
+  color: rgb(195, 82, 41);
+}
+
+.fa-cc-discover {
+  color: rgb(77, 74, 74);
+}
+
 .checkout-container form {
   width: 100%;
   max-width: 700px;

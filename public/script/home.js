@@ -1,7 +1,7 @@
 // SCRIPT FOR HOME PAGE
 
-//PUTS CURRENT DATE IN THE PLACEHOLDER OF THE RESERVATION FORM        
-window.onload = function() {
+ //PUTS CURRENT DATE IN THE PLACEHOLDER OF THE RESERVATION FORM       
+ window.onload = function() {
     var now = new Date();
     var year = now.getFullYear();
     var month = ('0' + (now.getMonth() + 1)).slice(-2);
@@ -13,4 +13,3 @@ window.onload = function() {
 
     document.getElementById('reservation-date').value = formattedDate;
 };
-
