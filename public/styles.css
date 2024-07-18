@@ -573,12 +573,14 @@ footer {
 }
 
 .sbmtcontainer {
+    display: flex;
+    justify-content: center;
     background-color: rgb(215, 178, 209);
     padding: 2em 0;    
     border: none;   
 }
 
-.orderbtn {
+.orderbtn {    
     background-color: rgb(104, 31, 92);
     color: rgb(215, 178, 209);    
     font-size: 18px;    
@@ -587,7 +589,6 @@ footer {
     cursor: pointer;    
     margin: 0;     
 }
-
 .note ul {
     align-items: center;
     font-size: 19px;
@@ -610,7 +611,7 @@ footer {
   NONE OF THESE FORMS ARE VISIBLE UNTIL THE "SUBMIT ORDER" BUTTON IS CLICKED AND THEN THE LOGIN FORM
   WILL OPEN ALLOWING USER TO LOGIN FOR ORDER FOOD
 
-/* STYLING THE LOGIN FORM , REGISTRATION FORM, AND CHECKOUT FORM*  
+/* STYLING THE LOGIN FORM , REGISTRATION FORM, AND CHECKOUT FORM*/  
   
 .loginForm,
 .registrationForm,
@@ -623,7 +624,7 @@ footer {
     width: 100%;
     height: 100%;    
     overflow: auto;     
-}/
+}
 
 /* TO DISPLAY LOGIN 
 .loginForm {
