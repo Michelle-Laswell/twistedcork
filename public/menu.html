@@ -36,7 +36,7 @@
     <main>
 
         <!-- MENU CONTAINER -->
-        <div class="menu-container" id="menu">
+        <div class="menu-container menu_items" id="menu">
             <section class="menu-content">
                 <h2>THE MENU</h2>
 
@@ -123,7 +123,7 @@
                                 <p class="description">Handcut French Fries topped with all the classic toppings plus jalapenos
                                     served with our diablo sauce.
                                 </p>
-                                <p class="price">9.00</p>
+                                <p class="price">10.00</p>
                                 <label for="quantity-ms-spicy">Quantity: </label>
                                 <input type="number" id="quanity-ms-spicy" name="quanity-ms-spicy" min="1" value="1">
                             </article>
@@ -133,7 +133,7 @@
                                 <p class="description">Handcut French Fries topped with BBQ chicken tenders, onion, cheese
                                     served with ranch sauce.
                                 </p>
-                                <p class="price">10.00</p>
+                                <p class="price">9.00</p>
                                 <label for="quantity-ms-bbq">Quantity: </label>
                                 <input type="number" id="quanity-ms-bbq" name="quanity-ms-bbq" min="1" value="1">
                             </article>
@@ -258,8 +258,8 @@
 
                             <div class="note">
                                 <ul>
-                                    <li>PLEASE NOTE: Only Bottles To-Go with proof of I.D.</li>
-                                    <li>PLEASE NOTE: Cocktails are Dine-In Only</li>
+                                    <li><strong>PLEASE NOTE:</strong> Only Bottles or Cans To-Go with proof of I.D.</li>
+                                    <li><strong>PLEASE NOTE:</strong> Cocktails and On-Tap are Dine-In Only</li>
                                 </ul>
                             </div>
 
@@ -286,7 +286,7 @@
 
                             <article class="drink-item">
                                 <h5>Domestic Can Beer Singles</h5>
-                                <p>Budweiser, Bud Light, Miller and Miller Light<span class="price">3.50</span></p><br>
+                                <p>Budweiser, Bud Light, Miller and Miller Light <span class="price">3.50</span></p><br>
                                 <label for="quantity-ms-canned-beer">Quantity: </label>
                                 <input type="number" id="quanity-ms-canned-beer" name="quanity-ms-canned-beer" min="1" value="1">
                             </article>
@@ -421,7 +421,7 @@
             <div class="login-container">
 
                 <div class="head">
-                    <img class="logo" src="/images/tclogo1.jpg" alt="The Twisted Cork logo">
+                    <img class="logo" src="images/tclogo1.jpg" alt="The Twisted Cork logo">
                     <h1>THE<br>TWISTED CORK</h1>
                 </div>
 
@@ -437,7 +437,7 @@
                     <input type="password" id="pswd myInput" name="pswd" value="FakePSW" required><br><br>
                     <input type="checkbox" onclick="myFunction()"> Show Password<br><br>
 
-                    <button class="loginbtn" type="submit" value="Login">Login</button>
+                    <button class="loginbtn" id="loginButton" type="submit" value="Login">Login</button>
                     <!-- WHEN CLICKED THE CHECKOUT FORM SHOULD OPEN. WOULD LIKE TO HAVE A POP MESSAGE
                          GIVING AN ERROR MESSAGE IF LOGIN WAS NOT SUCCESSFUL -->
 
@@ -464,7 +464,7 @@
         </section>
 
         <!-- STARTS THE CODE FOR THE REGISTRATION FORM-->
-        <section id="id02" class="registrationForm">
+        <section id="id02" class="registrationForm customer">
             <div class="registration-container">
 
                 <div class="head">
