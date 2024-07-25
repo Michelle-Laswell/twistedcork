@@ -25,6 +25,46 @@ function openMenu(evt, menuName) {
         document.getElementById("myLink").click();
 });
 
+//DISPLAY LOGINFORM WHEN THE ORDER BUTTON IS CLICKED
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Select the order button by its class
+    var orderButton = document.querySelector('.orderbtn');
+    
+    // Check if the order button exists to avoid errors
+    if (orderButton) {
+        // Add click event listener to the order button
+        orderButton.addEventListener('click', function(event) {
+            // Prevent the default form submission behavior
+            event.preventDefault();
+            
+            // Select the login form by its ID and change its display style to "block"
+            var loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.style.display = 'block';
+            }
+        });
+    }
+});
+
+
+/*
+// Wait for the DOM to be fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Find the order button by its class name
+    var orderButton = document.querySelector('.orderbtn');
+    
+    // Check if the order button exists to avoid errors
+    if (orderButton) {
+        // Add click event listener to the order button
+        orderButton.addEventListener('click', function() {
+            // Display the login form by changing its style
+            document.getElementById('id01').style.display = 'block';
+        });
+    }
+});
+*/
+
 // LOGIN FORM - SHOWS PASSWORD WHEN CHECKED
 function myFunction() {
     var x = document.getElementById("myInput");

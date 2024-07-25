@@ -56,36 +56,37 @@
 
                     <section id="Eat" class="food-container menu">
 
-                        <aside class="specials">
+                        <aside class="specials" data-category="wkly-special-category">
                             <h3>WEEKLY SPECIALS</h3>                       
                             <ul>                               
-                                <li><label for="special1">Steak & Cheese w/Loaded Fries <span class="price">12.00</span><br>Add:</label>
-                                    <input type="checkbox" id="steak-cheese" name="special1" value="Steak & Cheese w/Loaded Fries"><br>
-                                    <label class="qnty" for="special1-qnty">Quantity: </label> <input type="number" id="special1-qnty" name="special1-qnty" min="1" value="1">
+                                <li><label for="special1">Steak & Cheese w/Loaded Fries <span class="price">12.00</span></label><br>
+                                    <label for="special1">Add: </label>
+                                    <input type="checkbox" id="special1" name="special1" value="Steak & Cheese w/Loaded Fries"><br>
+                                    <label class="qnty" for="special1-qnty">Quantity: </label> <input type="number" id="special1-qnty" name="special1-qnty" min="1" value=" ">
                                     <input type="hidden" name="special1-name" value="Steak & Cheese w/Loaded Fries">
                                     <input type="hidden" name="wkly-special-category" value="Weekly Specials">
                                     <input type="hidden" name="special1-price" value="12.00">
                                 </li>
                                 <li><label for="special2">Deluxe Burger w/Bacon <span class="price">10.00</span></label><br>
                                     <label for="special2">Add: </label>
-                                    <input type="checkbox" id="deluxe-brgr" name="special2" value="Deluxe Burger w/Bacon">                                    
-                                    <label class="qnty" for="special2-qty"><br>Quantity: </label> <input type="number" id="special2-qty" name="special2-qty" min="1" value="1">
+                                    <input type="checkbox" id="special2" name="special2" value="Deluxe Burger w/Bacon">                                    
+                                    <label class="qnty" for="special2-qty"><br>Quantity: </label> <input type="number" id="special2-qty" name="special2-qty" min="1" value=" ">
                                     <input type="hidden" name="special2-name" value="Deluxe Burger w/Bacon">
                                     <input type="hidden" name="wkly-special-category" value="Weekly Specials">
                                     <input type="hidden" name="special2-price" value="10.00">
                                 </li>
                                 <li><label for="special3">6 Piece Wings <span class="price">8.00</span></label><br>
                                     <label for="special3">Add: </label>
-                                    <input type="checkbox" id="6pc-wings" name="special3" value="6 Piece Wings">                                                                      
-                                    <label class="qnty" for="special3-qty"><br>Quantity: </label> <input type="number" id="special3-qty" name="special3-qty" min="1" value="1">
+                                    <input type="checkbox" id="special3" name="special3" value="6 Piece Wings">                                                                      
+                                    <label class="qnty" for="special3-qty"><br>Quantity: </label> <input type="number" id="special3-qty" name="special3-qty" min="1" value=" ">
                                     <input type="hidden" name="special3-name" value="6 Piece Wings">
                                     <input type="hidden" name="wkly-special-category" value="Weekly Specials">
                                     <input type="hidden" name="special3-price" value="8.00">
                                 </li>
                                 <li><label for="special4">12 Piece Wings <span class="price">15.00</span></label> <br>
-                                    <label for="special2">Add: </label>
-                                    <input type="checkbox" id="12pc-wings" name="special4" value="12 Piece Wings">                                                                       
-                                    <label class="qnty" for="special4-qty"><br>Quantity: </label> <input type="number" id="special4-qty" name="special4-qty" min="1" value="1">
+                                    <label for="special4">Add: </label>
+                                    <input type="checkbox" id="special4" name="special4" value="12 Piece Wings">                                                                       
+                                    <label class="qnty" for="special4-qty"><br>Quantity: </label> <input type="number" id="special4-qty" name="special4-qty" min="1" value=" ">
                                     <input type="hidden" name="special4-name" value="12 Piece Wings">
                                     <input type="hidden" name="wkly-special-category" value="Weekly Specials">
                                     <input type="hidden" name="special4-price" value="15.00">
@@ -93,15 +94,15 @@
                             </ul> 
                             <ul class="sauce">
                                 <li>Served with your choice of sauces:</li>                              
-                                <li><input type="radio" id="orange-brbn" name="sauce1" value="Orange Bourbon">
+                                <li><input type="radio" id="sauce1" name="sauce1" value="Orange Bourbon">
                                     <label for="sauce1">Orange Bourbon</label><br>
                                 </li>
                                 <li>
-                                    <input type="radio" id="pnple-teriyaki" name="sauce2" value="Pineapple Teriyaki">
+                                    <input type="radio" id="sauce2" name="sauce2" value="Pineapple Teriyaki">
                                     <label for="sauce2">Pineapple Teriyaki</label><br>
                                 </li>
                                 <li>
-                                    <input type="radio" id="honey-bbq" name="sauce3" value="Honey BBQ">                                
+                                    <input type="radio" id="sauce3" name="sauce3" value="Honey BBQ">                                
                                 <label for="sauce3">Honey BBQ</label>
                                 </li>                         
                             </ul>                            
@@ -115,10 +116,10 @@
                                 <p class="description">Custom made crispy, golden-brown mozzarella sticks served with our Marinara dipping sauce.
                                 </p>
                                 <p class="price">8.00</p>
-                                <input type="hidden" name="itemName1-name" value="Mozzarella Sticks">
-                                <label for="itemName1">ADD: <input type="checkbox" id="mozzarella" name="itemName1" value="Mozzarella Sticks"></label>
+                                <input type="hidden" name="itemName1" value="Mozzarella Sticks">
+                                <label for="itemName1">Add: <input type="checkbox" id="itemName1" name="itemName1" value="Mozzarella Sticks"></label>
                                 <label for="item1-quantity">Quantity: 
-                                <input type="number" id="item1-quantity" name="item1-quantity" min="1" value="1"></label>
+                                <input type="number" id="item1-quantity" name="item1-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="food-item" data-category="appetizers">
@@ -127,10 +128,10 @@
                                     Diablo sauce.
                                 </p>
                                 <p class="price">7.00</p>
-                                <input type="hidden" name="itemName2-name" value="Pepperjack Cheese Poppers">                                
-                                <label for="itemName2">ADD: <input type="checkbox" id="pepperjack" name="itemName2" value="Pepperjack Cheese Poppers"></label>
+                                <input type="hidden" name="itemName2" value="Pepperjack Cheese Poppers">                                
+                                <label for="itemName2">Add: <input type="checkbox" id="itemName2" name="itemName2" value="Pepperjack Cheese Poppers"></label>
                                 <label for="item2-quantity">Quantity: 
-                                <input type="number" id="item2-quantity" name="item2-quantity" min="1" value="1"></label>
+                                <input type="number" id="item2-quantity" name="item2-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="food-item" data-category="appetizers">
@@ -139,10 +140,10 @@
                                     crackers.
                                 </p>
                                 <p class="price">8.00</p>
-                                <input type="hidden" name="itemName3-name" value="Beer Cheese">
-                                <label for="itemName3">ADD: <input type="checkbox" id="beer-cheese" name="itemName3" value="Beer Cheese"></label>
+                                <input type="hidden" name="itemName3" value="Beer Cheese">
+                                <label for="itemName3">Add: <input type="checkbox" id="itemName3" name="itemName3" value="Beer Cheese"></label>
                                 <label for="item3-quantity">Quantity: 
-                                <input type="number" id="item3-quantity" name="item3-quantity" min="1" value="1"></label>
+                                <input type="number" id="item3-quantity" name="item3-quantity" min="1" value=" "></label>
                             </article>
                         </section>
 
@@ -155,10 +156,10 @@
                                     served with ranch sauce.
                                 </p>
                                 <p class="price">8.00</p>
-                                <input type="hidden" name="itemName4-name" value="Classic Loaded Fries">
-                                <label for="itemName4">ADD: <input type="checkbox" id="classic-loaded" name="itemName4" value="Classic Loaded Fries"></label>
+                                <input type="hidden" name="itemName4" value="Classic Loaded Fries">
+                                <label for="itemName4">Add: <input type="checkbox" id="itemName4" name="itemName4" value="Classic Loaded Fries"></label>
                                 <label for="item4-quantity">Quantity: 
-                                <input type="number" id="item4-quantity" name="item4-quantity" min="1" value="1"></label>
+                                <input type="number" id="item4-quantity" name="item4-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="food-item" data-category="loadedFries">
@@ -166,11 +167,11 @@
                                 <p class="description">Handcut French Fries topped with all the classic toppings plus jalapenos
                                     served with our diablo sauce.
                                 </p>
-                                <p class="price">9.00</p>
-                                <input type="hidden" name="itemName5-name" value="Spicy Loaded Fries">
-                                <label for="itemName5">ADD: <input type="checkbox" id="spicy-loaded" name="itemName5" value="Spicy Loaded Fries"></label>
+                                <p class="price">8.00</p>
+                                <input type="hidden" name="itemName5" value="Spicy Loaded Fries">
+                                <label for="itemName5">Add: <input type="checkbox" id="itemName5" name="itemName5" value="Spicy Loaded Fries"></label>
                                 <label for="item5-quantity">Quantity: 
-                                <input type="number" id="item5-quantity" name="item5-quantity" min="1" value="1"></label>
+                                <input type="number" id="item5-quantity" name="item5-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="food-item" data-category="loadedFries">
@@ -179,10 +180,10 @@
                                     served with ranch sauce.
                                 </p>
                                 <p class="price">10.00</p>
-                                <input type="hidden" name="itemName6-name" value="BBQ Chicken Loaded Fries">
-                                <label for="itemName6">ADD: <input type="checkbox" id="BBQ-chkn-loaded" name="itemName6" value="BBQ Chicken Loaded Fries"></label>
+                                <input type="hidden" name="itemName6" value="BBQ Chicken Loaded Fries">
+                                <label for="itemName6">Add: <input type="checkbox" id="itemName6" name="itemName6" value="BBQ Chicken Loaded Fries"></label>
                                 <label for="item6-quantity">Quantity: 
-                                <input type="number" id="item6-quantity" name="item6-quantity" min="1" value="1"></label>
+                                <input type="number" id="item6-quantity" name="item6-quantity" min="1" value=" "></label>
                             </article>
                         </section>
 
@@ -196,10 +197,10 @@
                                     Ranch, Italian, Bleu Cheese or Honey Mustard
                                 </p>
                                 <p class="price">10.00</p>
-                                <input type="hidden" name="itemName7-name" value="Fried Chicken Salad">                                
-                                <label for="itemName7">ADD: <input type="checkbox" id="fried-chkn-sal" name="itemName7" value="Fried Chicken Salad"></label>
+                                <input type="hidden" name="itemName7" value="Fried Chicken Salad">                                
+                                <label for="itemName7">Add: <input type="checkbox" id="itemName7" name="itemName7" value="Fried Chicken Salad"></label>
                                 <label for="item7-quantity">Quantity: 
-                                <input type="number" id="item7-quantity" name="item7-quantity" min="1" value="1"></label>
+                                <input type="number" id="item7-quantity" name="item7-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="food-item" data-category="entrees">
@@ -210,10 +211,10 @@
                                     side salad
                                 </p>
                                 <p class="price">9.00</p>
-                                <input type="hidden" name="itemName8-name" value="The Cork Club">
-                                <label for="itemName8">ADD: <input type="checkbox" id="cork-club" name="itemName8" value="The Cork Club"></label>
+                                <input type="hidden" name="itemName8" value="The Cork Club">
+                                <label for="itemName8">Add: <input type="checkbox" id="itemName8" name="itemName8" value="The Cork Club"></label>
                                 <label for="item8-quantity">Quantity: 
-                                <input type="number" id="item8-quantity" name="item8-quantity" min="1" value="1"></label>
+                                <input type="number" id="item8-quantity" name="item8-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="food-item" data-category="entrees">
@@ -222,10 +223,10 @@
                                     served with your choice of fries or side salad
                                 </p>
                                 <p class="price">12.00</p>
-                                <input type="hidden" name="itemName9-name" value="Buffalo Chicken Quesadilla">
-                                <label for="itemName9">ADD: <input type="checkbox" id="quesadilla" name="itemName9" value="Buffalo Chicken Quesadilla"></label>
+                                <input type="hidden" name="itemName9" value="Buffalo Chicken Quesadilla">
+                                <label for="itemName9">Add: <input type="checkbox" id="itemName9" name="itemName9" value="Buffalo Chicken Quesadilla"></label>
                                 <label for="item9-quantity">Quantity: 
-                                <input type="number" id="item9-quantity" name="item9-quantity" min="1" value="1"></label>
+                                <input type="number" id="item9-quantity" name="item9-quantity" min="1" value=" "></label>
                             </article>
                         </section>
 
@@ -238,10 +239,10 @@
                                     with fresh toppings of lettuce, tomato, onion and pickles served with your choice of fries or side salad.
                                 </p>
                                 <p class="price">11.00</p>
-                                <input type="hidden" name="itemName10-name" value="Classic Cheeseburger">
-                                <label for="itemName10">ADD: <input type="checkbox" id="cheeseburger" name="itemName10" value="Classic Cheeseburger"></label>
+                                <input type="hidden" name="itemName10" value="Classic Cheeseburger">
+                                <label for="itemName10">Add: <input type="checkbox" id="itemName10" name="itemName10" value="Classic Cheeseburger"></label>
                                 <label for="item10-quantity">Quantity: 
-                                <input type="number" id="item10-quantity" name="item10-quantity" min="1" value="1"></label>
+                                <input type="number" id="item10-quantity" name="item10-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="food-item" data-category="burgers">
@@ -251,10 +252,10 @@
                                     bun served with your choice of fries or side salad.
                                 </p>
                                 <p class="price">13.00</p>
-                                <input type="hidden" name="itemName11-name" value="Bourbon Burger">
-                                <label for="itemName11">ADD: <input type="checkbox" id="brbn-burger" name="itemName11" value="Bourbon Burger"></label>
+                                <input type="hidden" name="itemName11" value="Bourbon Burger">
+                                <label for="itemName11">Add: <input type="checkbox" id="itemName11" name="itemName11" value="Bourbon Burger"></label>
                                 <label for="item11-quantity">Quantity: 
-                                <input type="number" id="item11-quantity" name="item11-quantity" min="1" value="1"></label>
+                                <input type="number" id="item11-quantity" name="item11-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="food-item" data-category="burgers">
@@ -264,10 +265,10 @@
                                     your choice of fries or side salad.
                                 </p>
                                 <p class="price">13.00</p>
-                                <input type="hidden" name="itemName12-name" value="Sweet Slaw Burger">
-                                <label for="itemName12">ADD: <input type="checkbox" id="slaw-burger" name="itemName12" value="Sweet Slaw Burger"></label>
+                                <input type="hidden" name="itemName12" value="Sweet Slaw Burger">
+                                <label for="itemName12">Add: <input type="checkbox" id="itemName12" name="itemName12" value="Sweet Slaw Burger"></label>
                                 <label for="item12-quantity">Quantity: 
-                                <input type="number" id="item12-quantity" name="item12-quantity" min="1" value="1"></label>
+                                <input type="number" id="item12-quantity" name="item12-quantity" min="1" value=" "></label>
 
                             </article>
                         </section>
@@ -281,10 +282,10 @@
                                     served warm and sprinkled with brown sugar.
                                 </p>
                                 <p class="price">7.00</p>
-                                <input type="hidden" name="itemName13-name" value="Mini Fried Apple Pies">
-                                <label for="itemName13">ADD: <input type="checkbox" id="apple-pies" name="itemName13" value="Mini Fried Apple Pies"></label>
+                                <input type="hidden" name="itemName13" value="Mini Fried Apple Pies">
+                                <label for="itemName13">Add: <input type="checkbox" id="itemName13" name="itemName13" value="Mini Fried Apple Pies"></label>
                                 <label for="item13-quantity">Quantity: 
-                                <input type="number" id="item13-quantity" name="item13-quantity" min="1" value="1"></label>
+                                <input type="number" id="item13-quantity" name="item13-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="food-item" data-category="desserts">
@@ -293,10 +294,10 @@
                                     served warm and sprinkled with powdered sugar.
                                 </p>
                                 <p class="price">7.00</p>
-                                <input type="hidden" name="itemName14-name" value="Mini Fried Oreo Pies"> 
-                                <label for="itemName14">ADD: <input type="checkbox" id="oreo-pies" name="itemName14" value="Mini Fried Oreo Pies"></label>                               
+                                <input type="hidden" name="itemName14" value="Mini Fried Oreo Pies"> 
+                                <label for="itemName14">Add: <input type="checkbox" id="itemName14" name="itemName14" value="Mini Fried Oreo Pies"></label>                               
                                 <label for="item14-quantity">Quantity: 
-                                <input type="number" id="item14-quantity" name="item14-quantity" min="1" value="1"></label>
+                                <input type="number" id="item14-quantity" name="item14-quantity" min="1" value=" "></label>
                             </article>
                         </section>
 
@@ -329,42 +330,46 @@
                             <article class="drink-item" data-category="togoDrinks">
                                 <h5>Water</h5>
                                 <p>Bottled Water <span class="price">1.25</span></p><br>
-                                <input type="hidden" name="itemName14" value="Bottled Water">
-                                <label for="itemName15">ADD: <input type="checkbox" id="water" name="itemName15" value="Bottled Water"></label>
+                                <input type="hidden" name="itemName15" value="Bottled Water">
+                                <label for="itemName15">Add: <input type="checkbox" id="itemName15" name="itemName15" value="Bottled Water"></label>
                                 <label for="item15-quantity">Quantity: 
-                                <input type="number" id="item15-quantityr" name="quantity-ms-water" min="1" value="1"></label>
+                                <input type="number" id="item15-quantityr" name="item15-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="drink-item" data-category="togoDrinks">
                                 <h5>Canned Drinks</h5>
                                 <p>Coke, Diet Coke and Sprite <span class="price">1.25</span></p><br>
-                                <input type="hidden" name="itemName" value="Canned Soda">
-                                <label for="quantity-ms-soda">Quantity: 
-                                <input type="number" id="quantity-ms-soda" name="quantity-ms-soda" min="1" value="1"></label>
+                                <input type="hidden" name="itemName16" value="Canned Soda">
+                                <label for="itemName16">Add: <input type="checkbox" id="itemName16" name="itemName16" value="Canned Soda"></label>
+                                <label for="item16-quantity">Quantity: 
+                                <input type="number" id="item16-quantity" name="item16-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="drink-item" data-category="togoDrinks">
                                 <h5>Cutwater Can Cocktails</h5>
                                 <p>Award Winning Cocktails made with real Spirits <span class="price">5.00</span></p><br>
-                                <input type="hidden" name="itemName" value="Cutwater Can Cocktails">
-                                <label for="quantity-ms-cutwater">Quantity: 
-                                <input type="number" id="quantity-ms-cutwater" name="quantity-ms-cutwater" min="1" value="1"></label>
+                                <input type="hidden" name="itemName17" value="Cutwater Can Cocktails">
+                                <label for="itemName17">Add: <input type="checkbox" id="itemName17" name="itemName17" value="Cutwater Can Cocktails"></label>
+                                <label for="item17-quantity">Quantity: 
+                                <input type="number" id="item17-quantity" name="item17-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="drink-item" data-category="togoDrinks">
                                 <h5>Domestic Can Beer Singles</h5>
                                 <p>Budweiser, Bud Light, Miller and Miller Light <span class="price">3.50</span></p><br>
-                                <input type="hidden" name="itemName" value="Domestic Can Beer Singles">
-                                <label for="quantity-ms-canned-beer">Quantity: 
-                                <input type="number" id="quantity-ms-canned-beer" name="quantity-ms-canned-beer" min="1" value="1"></label>
+                                <input type="hidden" name="itemName18" value="Domestic Can Beer Singles">
+                                <label for="itemName18">Add: <input type="checkbox" id="itemName18" name="itemName18" value="Bottled Water"></label>
+                                <label for="item18-quantity">Quantity: 
+                                <input type="number" id="item18-quantity" name="item18-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="drink-item" data-category="togoDrinks">
                                 <h5>Rhinegeist Can Beer Singles</h5>
                                 <p>Craft beers and ciders <span class="price">5.00</span></p><br>
-                                <input type="hidden" name="itemName" value="Rhinegeist Can Beer Singles">
-                                <label for="quantity-ms-rhinegeist">Quantity: 
-                                <input type="number" id="quantity-ms-rhinegeist" name="quantity-ms-rhinegeist" min="1" value="1"></label>
+                                <input type="hidden" name="itemName19" value="Rhinegeist Can Beer Singles">
+                                <label for="itemName19">Add: <input type="checkbox" id="itemName19" name="itemName19" value="Rhinegeist Can Beer Singles"></label>
+                                <label for="item19-quantity">Quantity: 
+                                <input type="number" id="item19-quantity" name="item19-quantity" min="1" value=" "></label>
                             </article>
                         </section>
 
@@ -375,59 +380,66 @@
                             <article class="drink-item" data-category="domesticBeer">
                                 <h5>Budweiser</h5>
                                 <p>Bottled or On-Tap <span class="price">4.50</span></p><br>
-                                <input type="hidden" name="itemName" value="Budweiser">
-                                <label for="quantity-msd-bud">Quantity: 
-                                <input type="number" id="quantity-ms-bud" name="quantity-ms-bud" min="1" value="1"></label>
+                                <input type="hidden" name="itemName20" value="Budweiser">
+                                <label for="itemName20">Add: <input type="checkbox" id="itemName20" name="itemName20" value="Budweiser"></label>
+                                <label for="item20-quantity">Quantity: 
+                                <input type="number" id="item20-quantity" name="item20-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="drink-item" data-category="domesticBeer">
-                                <h5>Budweiser Light</h5>
+                                <h5>Bud Light</h5>
                                 <p>Bottled or On-Tap <span class="price">4.50</span></p><br>
-                                <input type="hidden" name="itemName" value="Budweiser Light">
-                                <label for="quantity-msd-budlt">Quantity: 
-                                <input type="number" id="quantity-ms-budlt" name="quantity-ms-budlt" min="1" value="1"></label>
+                                <input type="hidden" name="itemName21" value="Bud Light">
+                                <label for="itemName21">Add: <input type="checkbox" id="itemName21" name="itemName21" value="Bud Light"></label>
+                                <label for="item21-quantity">Quantity: 
+                                <input type="number" id="item21-quantity" name="item21-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="drink-item" data-category="domesticBeer">
                                 <h5>Miller</h5>
                                 <p>Bottled or On-Tap <span class="price">4.50</span></p><br>
-                                <input type="hidden" name="itemName" value="Miller">
-                                <label for="quantity-msd-miller">Quantity: 
-                                <input type="number" id="quantity-ms-miller" name="quantity-ms-miller" min="1" value="1"></label>
+                                <input type="hidden" name="itemName22" value="Miller">
+                                <label for="itemName22">Add: <input type="checkbox" id="itemName22" name="itemName25" value="Miller"></label>
+                                <label for="item21-quantity">Quantity: 
+                                <input type="number" id="item21-quantity" name="item21-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="drink-item" data-category="domesticBeer">
                                 <h5>Miller Light</h5>
                                 <p>Bottled or On-Tap <span class="price">4.50</span></p><br>
-                                <input type="hidden" name="itemName" value="Miller Light">
-                                <label for="quantity-msd-millerlt">Quantity: 
-                                <input type="number" id="quantity-ms-millerlt" name="quantity-ms-millerlt" min="1" value="1"></label>
+                                <input type="hidden" name="itemName23" value="Miller Light">
+                                <label for="itemName23">Add: <input type="checkbox" id="itemName23" name="itemName23" value="Miller Light"></label>
+                                <label for="item23-quantity">Quantity: 
+                                <input type="number" id="item23-quantity" name="item23-quantity" min="1" value=" "></label>
                             </article>
 
                             <h4>CRAFT BEER</h4>
 
                             <article class="drink-item" data-category="craftBeer">
                                 <h5>Yuenling</h5>
-                                <p>Bottled or On-Tap <span class="price">5.00</span></p><br>
-                                <input type="hidden" name="itemName" value="Yuenling">
-                                <label for="quantity-ms-yuenling">Quantity: 
-                                <input type="number" id="quantity-ms-yuenling" name="quantity-ms-yuenling" min="1" value="1"></label>
+                                <p>Bottled or On-Tap <span class="price">6.00</span></p><br>
+                                <input type="hidden" name="itemName24" value="Yuenling">
+                                <label for="itemName24">Add: <input type="checkbox" id="itemName24" name="itemName24" value="Yuenling"></label>
+                                <label for="item24-quantity">Quantity: 
+                                <input type="number" id="item24-quantity" name="item24-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="drink-item" data-category="craftBeer">
                                 <h5>Country Boy</h5>
-                                <p>Bottled or On-Tap <span class="price">5.00</span></p><br>
-                                <input type="hidden" name="itemName" value="Country Boy">                               
-                                <label for="quantity-ms-country-boy">Quantity: 
-                                <input type="number" id="quantity-ms-country-boy" name="quantity-ms-country-boy" min="1" value="1"></label>
+                                <p>Bottled or On-Tap <span class="price">6.00</span></p><br>
+                                <input type="hidden" name="itemName25" value="Country Boy">
+                                <label for="itemName25">Add: <input type="checkbox" id="itemName25" name="itemName25" value="Country Boy"></label>                               
+                                <label for="item25-quantity">Quantity: 
+                                <input type="number" id="item25-quantity" name="item25-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="drink-item" data-category="craftBeer">
                                 <h5>Shop Top</h5>
-                                <p>Bottled or On-Tap <span class="price">5.00</span></p><br>
-                                <input type="hidden" name="itemName" value="Shop Top">
-                                <label for="quantity-ms-shop-top">Quantity: 
-                                <input type="number" id="quantity-ms-shop-top" name="quantity-ms-shop-top" min="1" value="1"></label>
+                                <p>Bottled or On-Tap <span class="price">6.00</span></p><br>
+                                <input type="hidden" name="itemName26" value="Shop Top">
+                                <label for="itemName26">Add: <input type="checkbox" id="itemName26" name="itemName26" value="Shop Top"></label>
+                                <label for="item26-quantity">Quantity: 
+                                <input type="number" id="item67-quantity" name="item26-quantity" min="1" value=" "></label>
                             </article>
 
                         </section>
@@ -439,36 +451,40 @@
                                 <h5>Fat Cat Pinot Noir</h5>
                                 <p class="bottle">Bottle <span class="price">18.00</span></p>
                                 <p class="glass">Glass <span class="price">6.00</span></p><br>
-                                <input type="hidden" name="itemName" value="Fat Cat Pinot Noir">
-                                <label for="quantity-ms-fcpinot">Quantity (Bottle Only): 
-                                <input type="number" id="quantity-ms-fcpinot" name="quantity-ms-fcpinot" min="1" value="1"></label>
+                                <input type="hidden" name="itemName27" value="Fat Cat Pinot Noir">
+                                <label for="itemName27">Add: <input type="checkbox" id="itemName27" name="itemName27" value="Fat Cat Pinot Noir"></label>
+                                <label for="item27-quantity">Quantity (Bottle Only): 
+                                <input type="number" id="item27-quantity" name="item27-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="drink-item" data-category="bottledWine">
                                 <h5>Fat Cat Chardonay</h5>
                                 <p class="bottle">Bottle <span class="price">18.00</span></p>
                                 <p class="glass">Glass <span class="price">6.00</span></p><br>
-                                <input type="hidden" name="itemName" value="Fat Cat Chardonay">
-                                <label for="quantity-ms-fcchard">Quantity (Bottle Only): 
-                                <input type="number" id="quantity-ms-fcchard" name="quantity-ms-fcpinot" min="1" value="1"></label>
+                                <input type="hidden" name="itemName28" value="Fat Cat Chardonay">
+                                <label for="itemName28">Add: <input type="checkbox" id="itemName28" name="itemName28" value="Fat Cat Chardonay"></label>
+                                <label for="item28-quantity">Quantity (Bottle Only): 
+                                <input type="number" id="item28-quantity" name="item28-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="drink-item" data-category="bottledWine">
                                 <h5>Nine Fields Cabernet</h5>
                                 <p class="bottle">Bottle <span class="price">18.00</span></p>
                                 <p class="glass">Glass <span class="price">6.00</span></p><br>
-                                <input type="hidden" name="itemName" value="Nine Fields Cabernet">
-                                <label for="quantity-ms-nfcab">Quantity (Bottle Only): 
-                                <input type="number" id="quantity-ms-nfcab" name="quantity-ms-nfcab" min="1" value="1"></label>
+                                <input type="hidden" name="itemName29" value="Nine Fields Cabernet">
+                                <label for="itemName29">Add: <input type="checkbox" id="itemName29" name="itemName29" value="Nine Fields Cabernet"></label>
+                                <label for="item29-quantity">Quantity (Bottle Only): 
+                                <input type="number" id="item29-quantity" name="item29-quantity" min="1" value=" "></label>
                             </article>
 
                             <article class="drink-item" data-category="bottledWine">
                                 <h5>Crow Canyon Chardonay</h5>
                                 <p class="bottle">Bottle <span class="price">18.00</span></p>
                                 <p class="glass">Glass <span class="price">6.00</span></p><br>
-                                <input type="hidden" name="itemName" value="Crow Canyon Chardonay">
-                                <label for="quantity-ms-ccchard">Quantity (Bottle Only): 
-                                <input type="number" id="quantity-ms-ccchard" name="quantity-ms-ccpinot" min="1" value="1"></label>
+                                <input type="hidden" name="itemName30" value="Crow Canyon Chardonay">
+                                <label for="itemName30">Add: <input type="checkbox" id="itemName30" name="itemName30" value="Crow Canyon Chardonay"></label>
+                                <label for="item30-quantity">Quantity (Bottle Only): 
+                                <input type="number" id="item30-quantity" name="item30-quantity" min="1" value=" "></label>
                             </article>
 
                         </section>
@@ -487,7 +503,8 @@
                          TO LOG INTO ACCOUNT -->
 
                     <section class="sbmtcontainer">
-                        <button class="orderbtn" type="submit">Submit Order</button>
+                        <input type="submit" class="orderbtn" value="Order">
+                        <input type="reset" class="resetbtn" value="Reset">
                     </section>
                 </form>
 
@@ -496,52 +513,7 @@
             </section>
         </div>
 
-        <!-- STARTS THE CODE FOR THE LOGIN FORM-->
-        <section id="id01" class="loginForm">
-            <div class="login-container">
-
-                <div class="head">
-                    <img class="logo" src="images/tclogo1.jpg" alt="The Twisted Cork logo">
-                    <h1>THE<br>TWISTED CORK</h1>
-                </div>
-
-                <h2>Login to Your Account</h2>
-
-                <form action="action-page.php" method="post">
-                    <!--NEED TO SET UP SERVER TO RECEIVE INFORMATION-->
-
-                    <label for="email">Email:</label><br>
-                    <input type="text" id="username" name="email" placeholder="john@example.com" required><br><br>
-
-                    <label for="pswd">Password:</label><br>
-                    <input type="password" id="pswd myInput" name="pswd" value="FakePSW" required><br><br>
-                    <input type="checkbox" onclick="myFunction()"> Show Password<br><br>
-
-                    <button class="loginbtn" id="loginButton" type="submit" value="Login">Login</button>
-                    <!-- WHEN CLICKED THE CHECKOUT FORM SHOULD OPEN. WOULD LIKE TO HAVE A POP MESSAGE
-                         GIVING AN ERROR MESSAGE IF LOGIN WAS NOT SUCCESSFUL -->
-
-                    <input type="checkbox" checked="checked" name="remember"> Remember me <br>
-                    <!--STORES INFORMATION IN USER'S BROWSER -->
-
-                    <!-- CANCELS LOGIN -->
-                    <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'">Cancel</button><br><br>
-                    <span class="psw">Forgot <a href="#">password?</a></span> <br><br>
-
-                    <!-- ALLOWS USER TO REGISTER AN ACCOUNT SO THEY CAN LOGIN AND SUBMIT AN ORDER.
-                         CLICKING THE LINK OPENS THE REGISTRATION FORM -->
-                    <div class="signup">
-                        <p>Don't have an account?</p>
-                        <a href="registrationForm.html">Register for an Account</a>
-                        <!--NEED TO SET UP A LINK TO THE LOGIN FORM.
-                                IF LOGIN FORM OPENS THEN REGISTRATION WAS SUCCESSFUL OTHERWISE NEED A POP UP MESSAGE THAT
-                                THAT REGISTRATION WAS NOT SUCCESSFUL -->
-                    </div>
-
-                </form>
-
-            </div>
-        </section>
+       
 
         <!-- STARTS THE CODE FOR THE REGISTRATION FORM-->
         <section id="id02" class="registrationForm customer">

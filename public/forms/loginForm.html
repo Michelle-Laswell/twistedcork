@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="formstyles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>The Twisted Cork - Sign In</title>
+</head>
+
+<body>
+
+    <main>       
+         <!-- STARTS THE CODE FOR THE LOGIN FORM-->
+         <section id="id01" class="loginForm">
+            <div class="login-container">
+
+                <div class="head">
+                    <img class="logo" src="form-images/tclogo1.jpg" alt="The Twisted Cork logo">
+                    <h1>THE<br>TWISTED CORK</h1>
+                </div>
+
+                <h2>Login to Your Account</h2>
+
+                <form action="action-page.php" method="post">
+                    <!--NEED TO SET UP SERVER TO RECEIVE INFORMATION-->
+
+                    <label for="email">Email:</label><br>
+                    <input type="text" id="username" name="email" placeholder="john@example.com" required><br><br>
+
+                    <label for="pswd">Password:</label><br>
+                    <input type="password" id="pswd myInput" name="pswd" value="FakePSW" required><br><br>
+                    <input type="checkbox" onclick="myFunction()"> Show Password<br><br>
+
+                    <button class="loginbtn" id="loginButton" type="submit" value="Login">Login</button>
+                    <!-- WHEN CLICKED THE CHECKOUT FORM SHOULD OPEN. WOULD LIKE TO HAVE A POP MESSAGE
+                         GIVING AN ERROR MESSAGE IF LOGIN WAS NOT SUCCESSFUL -->
+
+                    <input type="checkbox" checked="checked" name="remember"> Remember me <br>
+                    <!--STORES INFORMATION IN USER'S BROWSER -->
+
+                    <!-- CANCELS LOGIN -->
+                    <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'">Cancel</button><br><br>
+                    <span class="psw">Forgot <a href="#">password?</a></span> <br><br>
+
+                    <!-- ALLOWS USER TO REGISTER AN ACCOUNT SO THEY CAN LOGIN AND SUBMIT AN ORDER.
+                         CLICKING THE LINK OPENS THE REGISTRATION FORM -->
+                    <div class="signup">
+                        <p>Don't have an account?</p>
+                        <a href="registrationForm.html">Register for an Account</a>
+                        <!--NEED TO SET UP A LINK TO THE LOGIN FORM.
+                                IF LOGIN FORM OPENS THEN REGISTRATION WAS SUCCESSFUL OTHERWISE NEED A POP UP MESSAGE THAT
+                                THAT REGISTRATION WAS NOT SUCCESSFUL -->
+                    </div>
+
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+    //SHOW PASSWORD WHEN CHECKED
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
