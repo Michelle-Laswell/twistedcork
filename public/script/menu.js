@@ -6,7 +6,7 @@ function openMenu(evt, menuName) {
         x[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < x.length; i++) {
+    for (i = 0; i < tablinks.length; i++) { // Fix the loop to iterate over tablinks
         tablinks[i].className = tablinks[i].className.replace(" tabcolor", "");
     }
     document.getElementById(menuName).style.display = "block";
@@ -21,51 +21,89 @@ function openMenu(evt, menuName) {
     }
 }
 
-    document.addEventListener("DOMContentLoaded", function() {
-        document.getElementById("myLink").click();
-});
-
-//DISPLAY LOGINFORM WHEN THE ORDER BUTTON IS CLICKED
-
 document.addEventListener("DOMContentLoaded", function() {
-    // Select the order button by its class
-    var orderButton = document.querySelector('.orderbtn');
-    
-    // Check if the order button exists to avoid errors
-    if (orderButton) {
-        // Add click event listener to the order button
-        orderButton.addEventListener('click', function(event) {
-            // Prevent the default form submission behavior
-            event.preventDefault();
-            
-            // Select the login form by its ID and change its display style to "block"
-            var loginForm = document.getElementById('loginForm');
-            if (loginForm) {
-                loginForm.style.display = 'block';
-            }
-        });
-    }
+    document.getElementById("myLink").click();
+
+    var orderBtn = document.getElementById("orderbtn");
+    var loginModal = document.getElementById("loginModal");
+    var loginFormContainer = document.getElementById("loginFormContainer");
+    var closeModal = document.getElementsByClassName("close")[0];
+
+    orderBtn.addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        // Load the login form dynamically
+        fetch('loginForm.html')
+            .then(response => response.text())
+            .then(data => {
+                loginFormContainer.innerHTML = data;
+                loginModal.style.display = "block"; // Show the login modal
+
+                // Add event listener for the login form submission
+                document.getElementById("login").addEventListener("submit", function(event) {
+                    event.preventDefault(); // Prevent the default form submission
+
+                    // Perform login validation here
+                    var username = document.getElementById("username").value;
+                    var password = document.getElementById("password").value;
+
+                    if (username === "yourUsername" && password === "yourPassword") {
+                        loginModal.style.display = "none"; // Hide the login modal
+
+                        // Gather selected items and their quantities
+                        let selectedItems = [];
+                        let checkboxes = document.querySelectorAll("input[type='checkbox']:checked");
+                        checkboxes.forEach(function(checkbox) {
+                            let item = checkbox.value;
+                            let quantityInput = checkbox.parentElement.querySelector("input[type='number']");
+                            let quantity = quantityInput ? quantityInput.value : 1;
+                            selectedItems.push({ item: item, quantity: quantity });
+                        });
+
+                        // Process or display the collected data
+                        console.log("Selected Items:", selectedItems);
+
+                        // Optionally, you can send this data to the server or display it on the page
+                        // Example: Displaying the data in an alert
+                        alert("Order Summary:\n" + selectedItems.map(item => `${item.quantity} x ${item.item}`).join("\n"));
+                    } else {
+                        alert("Invalid login credentials. Please register.");
+                    }
+                });
+
+                // Add event listener for the "Register for an Account" link
+                document.querySelector(".signup a").addEventListener("click", function(event) {
+                    event.preventDefault(); // Prevent the default link behavior
+
+                    // Load the registration form dynamically
+                    fetch('forms/registrationForm.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            loginFormContainer.innerHTML = data;
+                        })
+                        .catch(error => console.error('Error loading registration form:', error));
+                });
+
+                // Add event listener for the "Cancel" button
+                document.querySelector(".cancelbtn").addEventListener("click", function() {
+                    loginModal.style.display = "none"; // Hide the login modal
+                });
+            })
+            .catch(error => console.error('Error loading login form:', error));
+    });
+
+    closeModal.addEventListener("click", function() {
+        loginModal.style.display = "none"; // Hide the login modal
+    });
+
+    window.addEventListener("click", function(event) {
+        if (event.target == loginModal) {
+            loginModal.style.display = "none"; // Hide the login modal if clicked outside
+        }
+    });
 });
 
-
-/*
-// Wait for the DOM to be fully loaded
-document.addEventListener("DOMContentLoaded", function() {
-    // Find the order button by its class name
-    var orderButton = document.querySelector('.orderbtn');
-    
-    // Check if the order button exists to avoid errors
-    if (orderButton) {
-        // Add click event listener to the order button
-        orderButton.addEventListener('click', function() {
-            // Display the login form by changing its style
-            document.getElementById('id01').style.display = 'block';
-        });
-    }
-});
-*/
-
-// LOGIN FORM - SHOWS PASSWORD WHEN CHECKED
+// SHOW PASSWORD WHEN CHECKED
 function myFunction() {
     var x = document.getElementById("myInput");
     if (x.type === "password") {
@@ -74,43 +112,3 @@ function myFunction() {
         x.type = "password";
     }
 }
-
-//CODE FOR THE PAYMENT FORM
-// Example items (replace with actual logic to fetch items)
-const items = [
-    { name: "Item 1", price: 10.00 },
-    { name: "Item 2", price: 15.00 },
-    { name: "Item 3", price: 20.00 }
-];
-
-// Function to display order summary
-function displayOrderSummary() {
-    const orderList = document.getElementById('order-list');
-    const totalPriceSpan = document.getElementById('total-price');
-    let totalPrice = 0;
-
-    // Clear existing items
-    orderList.innerHTML = '';
-
-    // Add each item to the order summary
-    items.forEach(item => {
-        const listItem = document.createElement('li');
-        listItem.textContent = `${item.name}: $${item.price.toFixed(2)}`;
-        orderList.appendChild(listItem);
-        totalPrice += item.price;
-    });
-
-    // Update total price
-    totalPriceSpan.textContent = `$${totalPrice.toFixed(2)}`;
-}
-
-// Call displayOrderSummary when the page loads
-document.addEventListener('DOMContentLoaded', displayOrderSummary);
-
-// Form submit event listener (replace with actual form submission logic)
-const form = document.getElementById('payment-form');
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
-    // Replace with your form submission logic (e.g., payment processing)
-    alert('Payment processed successfully!');
-});

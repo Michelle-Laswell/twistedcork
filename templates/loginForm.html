@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/styles/formstyles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <title>The Twisted Cork - Login</title>
+</head>
+
+<body>
+
+    <main>
+        <!-- STARTS THE CODE FOR THE LOGIN FORM-->
+        <section id="login" class="loginForm">
+            <div class="login-container">
+                <div class="head">
+                    <img class="logo" src="/static/images/tclogo1.jpg" alt="The Twisted Cork logo">
+                    <h1>THE<br>TWISTED CORK</h1>
+                </div>
+                <h2>Login to Your Account</h2>
+                <p>Please fill out this form to login.</p>
+                <form action="/login" method="post">
+                    <label for="username">Email Address:</label><br>
+                    <input type="text" id="username" name="email" placeholder="john@example.com" required><br><br>
+                    <label for="pswd">Password:</label><br>
+                    <input type="password" id="myInput" name="password" required><br><br>
+                    <input type="checkbox" onclick="toggleLoginPasswordVisibility()"> Show Password <br><br>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me <br>
+                    <button class="loginbtn" id="loginButton" type="submit" value="Login">Login</button>
+                    <input type="reset" class="cancelbtn" value="Cancel"><br><br>
+                    <p class="psw">Forgot <a href="#">password?</a></p> <br>
+                    <div class="signup">
+                        <p>Don't have an account?</p>
+                        <a href="{{ url_for('register') }}" id="registrationLink">Register for an Account</a>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="script/menu.js"></script>
+    <script src="static/script/forms.js"></script>
+    
+</body>
+</html>
