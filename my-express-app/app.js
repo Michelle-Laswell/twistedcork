@@ -8,7 +8,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Connect to SQLite database
-const db = new sqlite3.Database('./customers.db');
+const db = new sqlite3.Database(path.join(__dirname, '..', 'data', 'twistedcork.db'), (err) => {
+  if (err) {
+    console.error('Could not connect to database', err);
+  } else {
+    console.log('Connected to SQLite database');
+  }
+});
 
 app.post('/login', (req, res) => {
   const email = req.body.email;
@@ -33,8 +39,8 @@ app.post('/login', (req, res) => {
     }
 
     const hashedPassword = row.pswd_hash;
-    console.log('Received password:', password);
-    console.log('Hashed password from database:', hashedPassword);
+    console.log('Received password');
+    console.log('Hashed password from:', hashedPassword);
 
     bcrypt.compare(password, hashedPassword, (err, result) => {
       if (err) {

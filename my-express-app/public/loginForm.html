@@ -30,7 +30,7 @@
                     <input type="checkbox" onclick="toggleLoginPasswordVisibility()"> Show Password <br><br>
                     <input type="checkbox" checked="checked" name="remember"> Remember me <br>
                     <button class="loginbtn" id="loginButton" type="submit" value="Login">Login</button>
-                    <input type="reset" class="cancelbtn" value="Cancel"><br><br>
+                    <button class="cancelbtn" type="button" onclick="document.getElementById('login').style.display='none'" >Cancel</button><br><br>
                     <p class="psw">Forgot <a href="#">password?</a></p> <br>
                     <div class="signup">
                         <p>Don't have an account?</p>
@@ -41,8 +41,8 @@
         </section>
     </main>
 
-    <script src="script/menu.js"></script>
-    <script src="script/forms.js"></script>
+    <script src="/script/menu.js"></script>
+    <script src="/script/forms.js"></script>
     
 </body>
 </html>

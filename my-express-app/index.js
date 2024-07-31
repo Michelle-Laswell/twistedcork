@@ -40,7 +40,7 @@ app.post('/login', (req, res) => {
       res.status(500).send('Internal server error');
     } else if (row) {
       // Compare the hashed password
-      bcrypt.compare(password, row.password_hash, (err, result) => {
+      bcrypt.compare(password, row.pswd_hash, (err, result) => {
         if (result) {
           // Credentials are valid, serve the payment form
           res.sendFile(path.join(__dirname, 'public', 'paymentForm.html'));
@@ -50,10 +50,15 @@ app.post('/login', (req, res) => {
         }
       });
     } else {
-      // Invalid credentials
-      res.status(401).send('Invalid email or password');
+      // User not found, redirect to registration form
+      res.redirect('/registrationForm');
     }
   });
+});
+
+// Route to serve the registration form
+app.get('/registrationForm', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'registrationForm.html'));
 });
 
 // Example route to register a new user (hashing the password)
@@ -66,7 +71,7 @@ app.post('/register', (req, res) => {
       console.error('Error hashing password', err);
       res.status(500).send('Internal server error');
     } else {
-      const query = 'INSERT INTO customer (first_name, last_name, email, password_hash) VALUES (?, ?, ?, ?)';
+      const query = 'INSERT INTO customer (first_name, last_name, email, pswd_hash) VALUES (?, ?, ?, ?)';
       db.run(query, [first_name, last_name, email, hash], (err) => {
         if (err) {
           console.error('Error inserting into database', err);
