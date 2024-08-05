@@ -20,3 +20,20 @@ function toggleRegistrationPasswordVisibility() {
         y.type = "password";
     }
 }
+
+// SHOW PASSWORD WHEN CHECKED
+function myFunction() {
+    var x = document.getElementById("myInput");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
+    if (showPasswordCheckbox) {
+        showPasswordCheckbox.addEventListener("change", toggleLoginPasswordVisibility);
+    }
+});

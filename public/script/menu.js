@@ -1,12 +1,12 @@
-// TABBED MENU ON THE MENU PAGE
+// Function to open the menu tab
 function openMenu(evt, menuName) {
-    var i, x, tablinks;
-    x = document.getElementsByClassName("menu");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
     }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) { // Fix the loop to iterate over tablinks
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" tabcolor", "");
     }
     document.getElementById(menuName).style.display = "block";
@@ -21,6 +21,86 @@ function openMenu(evt, menuName) {
     }
 }
 
+// Shopping Cart Functions
+let cart = [];
+
+function addToCart(item, price, quantity) {
+    const existingItem = cart.find(cartItem => cartItem.item === item);
+    if (existingItem) {
+        existingItem.quantity += quantity;
+    } else {
+        cart.push({ item, price, quantity });
+        console.log(`Added new item to cart: ${item}`);
+    }
+    displayCartItems();
+    updateTotalPrice();
+}
+
+function updateCartItemQuantity(item, quantity) {
+    const existingItem = cart.find(cartItem => cartItem.item === item);
+    if (existingItem) {
+        existingItem.quantity = quantity;
+    }
+    displayCartItems();
+    updateTotalPrice();
+}
+
+// Function to display cart items
+function displayCartItems() {
+    const cartItemsContainer = document.getElementById("cartItems");
+    cartItemsContainer.innerHTML = '';
+    cart.forEach(cartItem => {
+        const cartItemElement = document.createElement('div');
+        cartItemElement.className = 'cart-item';
+        cartItemElement.innerHTML = `
+            <span>${cartItem.item} - $${cartItem.price} x ${cartItem.quantity}</span>
+            <button class="remove-btn" data-item="${cartItem.item}">Remove</button>
+        `;
+        cartItemsContainer.appendChild(cartItemElement);
+    });
+
+    // Add event listeners to remove buttons
+    document.querySelectorAll('.remove-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const item = this.getAttribute('data-item');
+            removeFromCart(item);
+        });
+    });
+}
+
+// Function to remove item from cart
+function removeFromCart(item) {
+    cart = cart.filter(cartItem => cartItem.item !== item);
+    displayCartItems();
+    updateTotalPrice();
+}
+
+// Function to update total price
+function updateTotalPrice() {
+    const totalPriceElement = document.getElementById("totalPrice");
+    const subtotal = cart.reduce((total, cartItem) => total + (cartItem.price * cartItem.quantity), 0);
+    const tax = subtotal * 0.06;
+    const totalPrice = subtotal + tax;
+    totalPriceElement.textContent = `$${totalPrice.toFixed(2)} (including 6% tax)`;
+}
+
+// Function to clear form inputs and checkboxes
+function clearForm() {
+    const checkboxes = document.querySelectorAll(".food-item input[type='checkbox'], .drink-item input[type='checkbox']");
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    const quantityInputs = document.querySelectorAll(".food-item input[type='number'], .drink-item input[type='number']");
+    quantityInputs.forEach(input => {
+        input.value = 1; // Reset quantity to 1 or any default value
+    });
+
+    cart = [];
+    displayCartItems();
+    updateTotalPrice();
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("myLink").click();
 
@@ -30,52 +110,42 @@ document.addEventListener("DOMContentLoaded", function() {
     var closeModal = document.getElementsByClassName("close")[0];
 
     orderBtn.addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
 
-        // Load the login form dynamically
         fetch('loginForm.html')
             .then(response => response.text())
             .then(data => {
                 loginFormContainer.innerHTML = data;
-                loginModal.style.display = "block"; // Show the login modal
+                loginModal.style.display = "block";
 
-                // Add event listener for the login form submission
                 document.getElementById("login").addEventListener("submit", function(event) {
-                    event.preventDefault(); // Prevent the default form submission
+                    event.preventDefault();
 
-                    // Perform login validation here
                     var username = document.getElementById("username").value;
                     var password = document.getElementById("password").value;
 
                     if (username === "yourUsername" && password === "yourPassword") {
-                        loginModal.style.display = "none"; // Hide the login modal
+                        loginModal.style.display = "none";
 
-                        // Gather selected items and their quantities
                         let selectedItems = [];
                         let checkboxes = document.querySelectorAll("input[type='checkbox']:checked");
                         checkboxes.forEach(function(checkbox) {
                             let item = checkbox.value;
                             let quantityInput = checkbox.parentElement.querySelector("input[type='number']");
-                            let quantity = quantityInput ? quantityInput.value : 1;
+                            let quantity = quantityInput ? parseInt(quantityInput.value) : 1;
                             selectedItems.push({ item: item, quantity: quantity });
                         });
 
-                        // Process or display the collected data
                         console.log("Selected Items:", selectedItems);
-
-                        // Optionally, you can send this data to the server or display it on the page
-                        // Example: Displaying the data in an alert
                         alert("Order Summary:\n" + selectedItems.map(item => `${item.quantity} x ${item.item}`).join("\n"));
                     } else {
                         alert("Invalid login credentials. Please register.");
                     }
                 });
 
-                // Add event listener for the "Register for an Account" link
                 document.querySelector(".signup a").addEventListener("click", function(event) {
-                    event.preventDefault(); // Prevent the default link behavior
+                    event.preventDefault();
 
-                    // Load the registration form dynamically
                     fetch('forms/registrationForm.html')
                         .then(response => response.text())
                         .then(data => {
@@ -84,31 +154,53 @@ document.addEventListener("DOMContentLoaded", function() {
                         .catch(error => console.error('Error loading registration form:', error));
                 });
 
-                // Add event listener for the "Cancel" button
                 document.querySelector(".cancelbtn").addEventListener("click", function() {
-                    loginModal.style.display = "none"; // Hide the login modal
+                    loginModal.style.display = "none";
+                    clearForm(); // Clear form inputs and checkboxes when cancel button is clicked
                 });
             })
             .catch(error => console.error('Error loading login form:', error));
     });
 
     closeModal.addEventListener("click", function() {
-        loginModal.style.display = "none"; // Hide the login modal
+        loginModal.style.display = "none";
     });
 
     window.addEventListener("click", function(event) {
         if (event.target == loginModal) {
-            loginModal.style.display = "none"; // Hide the login modal if clicked outside
+            loginModal.style.display = "none";
         }
     });
-});
 
-// SHOW PASSWORD WHEN CHECKED
-function myFunction() {
-    var x = document.getElementById("myInput");
-    if (x.type === "password") {
-        x.type = "text";
-    } else {
-        x.type = "password";
-    }
-}
+    const clearBtn = document.getElementById("clear");
+    clearBtn.addEventListener("click", function() {
+        cart = [];
+        displayCartItems();
+        updateTotalPrice();
+    });
+
+    // Attach event listeners to all items (both food and drink items)
+    document.querySelectorAll('.food-item, .drink-item').forEach(item => {
+        const checkbox = item.querySelector('input[type="checkbox"]');
+        const quantityInput = item.querySelector('input[type="number"]');
+
+        checkbox.addEventListener('change', function() {
+            const itemName = this.value;
+            const itemPrice = parseFloat(this.getAttribute('data-price'));
+            const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
+            if (this.checked) {
+                addToCart(itemName, itemPrice, quantity);
+            } else {
+                removeFromCart(itemName);
+            }
+        });
+
+        quantityInput.addEventListener('change', function() {
+            const itemName = checkbox.value;
+            const quantity = parseInt(this.value);
+            if (checkbox.checked) {
+                updateCartItemQuantity(itemName, quantity);
+            }
+        });
+    });
+});

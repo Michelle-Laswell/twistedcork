@@ -8,6 +8,7 @@ const port = 3000;
 // Use the cors middleware
 app.use(cors());
 
+// Use body-parser middleware
 app.use(bodyParser.json());
 
 let menuItems = [
@@ -36,22 +37,22 @@ let menuItems = [
 	{ id: 13, name: 'Mini Fried Apple Pies', description: '3 bite-sized treats filled with a sweet and spicy apple filling served warm and sprinkled with brown sugar.', price: 7.00 },
 	{ id: 14, name: 'Mini Fried Oreo Pies', description: 'Crunchy and creamy Oreo pies drizzled with chocolate served warm and sprinkled with powdered sugar.', price: 7.00 },
 	// Drinks
-    { id: 15, name: 'Bottled Water', description: 'Bottled Water', price: 1.25, category: "togoDrinks" },
-    { id: 16, name: "Canned Soda", description: "Coke, Diet Coke and Sprite", price: 1.25, category: "togoDrinks" },
-    { id: 17, name: "Cutwater Can Cocktails", description: "Award Winning Cocktails made with real Spirits", price: 5.00, category: "togoDrinks" },
-    { id: 18, name: "Domestic Can Beer Singles", description: "Budweiser, Bud Light, Miller and Miller Light", price: 3.50, category: "togoDrinks" },
-    { id: 19, name: "Rhinegeist Can Beer Singles", description: "Craft beers and ciders", price: 5.00, category: "togoDrinks" },
-    { id: 20, name: "Budweiser", description: "Bottled or On-Tap", price: 4.50, category: "domesticBeer" },
-    { id: 21, name: "Bud Light", description: "Bottled or On-Tap", price: 4.50, category: "domesticBeer" },
-    { id: 22, name: "Miller", description: "Bottled or On-Tap", price: 4.50, category: "domesticBeer" },
-    { id: 23, name: "Miller Light", description: "Bottled or On-Tap", price: 4.50, category: "domesticBeer" },
-    { id: 24, name: "Yuenling", description: "Bottled or On-Tap", price: 6.00, category: "craftBeer" },
-    { id: 25, name: "Country Boy", description: "Bottled or On-Tap", price: 6.00, category: "craftBeer" },
-    { id: 26, name: "Shop Top", description: "Bottled or On-Tap", price: 6.00, category: "craftBeer" },
-    { id: 27, name: "Fat Cat Pinot Noir", description: "Bottle", price: 18.00, glassPrice: 6.00, category: "bottledWine" },
-    { id: 28, name: "Fat Cat Chardonay", description: "Bottle", price: 18.00, glassPrice: 6.00, category: "bottledWine" },
-    { id: 29, name: "Nine Fields Cabernet", description: "Bottle", price: 18.00, glassPrice: 6.00, category: "bottledWine" },
-    { id: 30, name: "Crow Canyon Chardonay", description: "Bottle", price: 18.00, glassPrice: 6.00, category: "bottledWine" }
+	{ id: 15, name: 'Bottled Water', description: 'Bottled Water', price: 1.25, category: "togoDrinks" },
+	{ id: 16, name: "Canned Soda", description: "Coke, Diet Coke and Sprite", price: 1.25, category: "togoDrinks" },
+	{ id: 17, name: "Cutwater Can Cocktails", description: "Award Winning Cocktails made with real Spirits", price: 5.00, category: "togoDrinks" },
+	{ id: 18, name: "Domestic Can Beer Singles", description: "Budweiser, Bud Light, Miller and Miller Light", price: 3.50, category: "togoDrinks" },
+	{ id: 19, name: "Rhinegeist Can Beer Singles", description: "Craft beers and ciders", price: 5.00, category: "togoDrinks" },
+	{ id: 20, name: "Budweiser", description: "Bottled or On-Tap", price: 4.50, category: "domesticBeer" },
+	{ id: 21, name: "Bud Light", description: "Bottled or On-Tap", price: 4.50, category: "domesticBeer" },
+	{ id: 22, name: "Miller", description: "Bottled or On-Tap", price: 4.50, category: "domesticBeer" },
+	{ id: 23, name: "Miller Light", description: "Bottled or On-Tap", price: 4.50, category: "domesticBeer" },
+	{ id: 24, name: "Yuenling", description: "Bottled or On-Tap", price: 6.00, category: "craftBeer" },
+	{ id: 25, name: "Country Boy", description: "Bottled or On-Tap", price: 6.00, category: "craftBeer" },
+	{ id: 26, name: "Shop Top", description: "Bottled or On-Tap", price: 6.00, category: "craftBeer" },
+	{ id: 27, name: "Fat Cat Pinot Noir", description: "Bottle", price: 18.00, glassPrice: 6.00, category: "bottledWine" },
+	{ id: 28, name: "Fat Cat Chardonay", description: "Bottle", price: 18.00, glassPrice: 6.00, category: "bottledWine" },
+	{ id: 29, name: "Nine Fields Cabernet", description: "Bottle", price: 18.00, glassPrice: 6.00, category: "bottledWine" },
+	{ id: 30, name: "Crow Canyon Chardonay", description: "Bottle", price: 18.00, glassPrice: 6.00, category: "bottledWine" }
 ];
 
 app.get('/api/menu', (req, res) => {
@@ -75,4 +76,33 @@ app.post('/api/menu', (req, res) => {
 
 app.listen(port, () => {
 	console.log(`Server is running on http://localhost:${port}`);
+});
+
+const Database = require('better-sqlite3');
+const db = new Database('data/twistedcork.db');
+
+// Handle login form and open payment form
+app.post('/api/login', (req, res) => {
+	console.log('POST /api/login');
+	const { email, password } = req.body;
+
+	if (!email || !password) {
+		return res.status(400).send({ message: 'Email and password are required' });
+	}
+
+	try {
+		const query = 'SELECT * FROM customers WHERE email = ? AND password = ?';
+		const customer = db.prepare(query).get(email, password);
+
+		if (customer) {
+			// Credentials are valid
+			res.status(200).send({ message: 'Login successful, open payment form' });
+		} else {
+			// Invalid credentials
+			res.status(401).send({ message: 'Invalid email or password' });
+		}
+	} catch (err) {
+		console.error('Database error:', err);
+		res.status(500).send({ message: 'Internal server error' });
+	}
 });
