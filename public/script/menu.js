@@ -1,12 +1,12 @@
-// Function to open the menu tab
+// TABBED MENU ON THE MENU PAGE
 function openMenu(evt, menuName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+    var i, x, tablinks;
+    x = document.getElementsByClassName("menu");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
     }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
+    tablinks = document.getElementsByClassName("tablink");
+    for (i = 0; i < tablinks.length; i++) { // Fix the loop to iterate over tablinks
         tablinks[i].className = tablinks[i].className.replace(" tabcolor", "");
     }
     document.getElementById(menuName).style.display = "block";

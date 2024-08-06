@@ -1,10 +1,10 @@
 {
   "name": "twistedcork",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "menu-api/server.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node menu-api/server.js",
+    "test": "node testEndpoints.js"
   },
   "keywords": [],
   "author": "",
@@ -19,3 +19,6 @@
     "nodemon": "^3.1.4"
   }
 }
+
+
+

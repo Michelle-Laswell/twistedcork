@@ -1,15 +1,36 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors'); // Import the cors package
+const cors = require('cors');
+const path = require('path');
+const Database = require('better-sqlite3');
 
 const app = express();
 const port = 3000;
+
+// Path to your SQLite database
+const dbPath = path.join(__dirname, 'data', 'twistedcork.db');
+const db = new Database(dbPath);
 
 // Use the cors middleware
 app.use(cors());
 
 // Use body-parser middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Serve static files (e.g., HTML, CSS, JS)
+app.use(express.static(path.join(__dirname, '../public')));
+
+// Import routes
+const menuRoutes = require('./routes/menu');
+
+// Use routes
+app.use('/api', menuRoutes);
+
+// Start the server
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
 
 let menuItems = [
 	// Weekly Specials
@@ -56,53 +77,46 @@ let menuItems = [
 ];
 
 app.get('/api/menu', (req, res) => {
-	console.log('GET /api/menu');
-	res.json(menuItems);
+    console.log('GET /api/menu');
+    res.json(menuItems);
 });
 
 app.post('/api/menu', (req, res) => {
-	console.log('POST /api/menu');
-	console.log('Request body:', req.body);
-	const newItem = req.body;
-	if (!newItem || !newItem.name || !newItem.description || !newItem.price) {
-		console.error('Invalid item data:', newItem);
-		return res.status(400).send({ message: 'Invalid item data' });
-	}
-	newItem.id = menuItems.length ? menuItems[menuItems.length - 1].id + 1 : 1; // Ensure unique ID
-	menuItems.push(newItem);
-	console.log('New item added:', newItem);
-	res.status(201).json(newItem);
+    console.log('POST /api/menu');
+    console.log('Request body:', req.body);
+    const newItem = req.body;
+    if (!newItem || !newItem.name || !newItem.description || !newItem.price) {
+        console.error('Invalid item data:', newItem);
+        return res.status(400).send({ message: 'Invalid item data' });
+    }
+    newItem.id = menuItems.length ? menuItems[menuItems.length - 1].id + 1 : 1; // Ensure unique ID
+    menuItems.push(newItem);
+    console.log('New item added:', newItem);
+    res.status(201).json(newItem);
 });
-
-app.listen(port, () => {
-	console.log(`Server is running on http://localhost:${port}`);
-});
-
-const Database = require('better-sqlite3');
-const db = new Database('data/twistedcork.db');
 
 // Handle login form and open payment form
 app.post('/api/login', (req, res) => {
-	console.log('POST /api/login');
-	const { email, password } = req.body;
+    console.log('POST /api/login');
+    const { email, password } = req.body;
 
-	if (!email || !password) {
-		return res.status(400).send({ message: 'Email and password are required' });
-	}
+    if (!email || !password) {
+        return res.status(400).send({ message: 'Email and password are required' });
+    }
 
-	try {
-		const query = 'SELECT * FROM customers WHERE email = ? AND password = ?';
-		const customer = db.prepare(query).get(email, password);
+    try {
+        const query = 'SELECT * FROM customers WHERE email = ? AND pswd = ?';
+        const customer = db.prepare(query).get(email, password);
 
-		if (customer) {
-			// Credentials are valid
-			res.status(200).send({ message: 'Login successful, open payment form' });
-		} else {
-			// Invalid credentials
-			res.status(401).send({ message: 'Invalid email or password' });
-		}
-	} catch (err) {
-		console.error('Database error:', err);
-		res.status(500).send({ message: 'Internal server error' });
-	}
+        if (customer) {
+            // Credentials are valid
+            res.status(200).send({ message: 'Login successful, open payment form' });
+        } else {
+            // Invalid credentials
+            res.status(401).send({ message: 'Invalid email or password' });
+        }
+    } catch (err) {
+        console.error('Database error:', err);
+        res.status(500).send({ message: 'Internal server error' });
+    }
 });
