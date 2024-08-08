@@ -74,13 +74,11 @@ app.post('/api/login', (req, res) => {
         const customer = db.prepare(query).get(email, pswd);
 
         if (customer) {
-            // Credentials are valid
-            console.log('Login successful for email:', email);
-            res.status(200).json({ customerId: customer.id });
+            // Credentials are valid, redirect to payment form
+            res.redirect('/paymentForm.html');
         } else {
-            // Invalid credentials
-            console.log('Invalid credentials for email:', email);
-            res.status(401).json({ error: 'Invalid credentials' });
+            // Invalid credentials, redirect to registration form
+            res.redirect('/registrationForm.html');
         }
     } catch (err) {
         console.error('Database error:', err);

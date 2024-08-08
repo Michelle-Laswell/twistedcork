@@ -10,7 +10,7 @@ The website consists of three web pages.  Two of those pages are divided into su
 
 ### REQUIREMENTS
 
-There are no special requirements for this web site.  You just need a computer, phone, or tablet with a web browser.
+You just need to install node.js, express.
 
 ### PAGES
 
