@@ -37,3 +37,31 @@ document.addEventListener("DOMContentLoaded", function() {
         showPasswordCheckbox.addEventListener("change", toggleLoginPasswordVisibility);
     }
 });
+
+/*
+
+// Add event listener for form submission
+document.getElementById('loginForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const pswd = document.getElementById('pswd').value;
+
+    const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, pswd })
+    });
+
+    if (response.ok) {
+        // Redirect to payment form on successful login
+        window.location.href = '/paymentForm.html';
+    } else {
+        // Handle login failure
+        const result = await response.json();
+        alert(result.message);
+    }
+});
+*/

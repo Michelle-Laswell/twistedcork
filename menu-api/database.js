@@ -1,8 +1,8 @@
 const Database = require('better-sqlite3');
 const path = require('path');
 
-// Path to your SQLite database
-const dbPath = path.join(__dirname, '..', 'data', 'twistedcork.db');
+// Absolute path to your SQLite database
+const dbPath = path.join('C:', 'Users', 'mlasw', 'OneDrive', 'Documents', '03_Web Design', 'twistedcork', 'menu-api', 'data', 'twistedcork.db');
 const db = new Database(dbPath);
 
 // Example: Query all rows from the 'menu_items' table

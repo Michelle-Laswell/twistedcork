@@ -91,6 +91,9 @@ function clearForm() {
         checkbox.checked = false;
     });
 
+
+    
+
     const quantityInputs = document.querySelectorAll(".food-item input[type='number'], .drink-item input[type='number']");
     quantityInputs.forEach(input => {
         input.value = 1; // Reset quantity to 1 or any default value

@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const Database = require('better-sqlite3');
-
 const app = express();
 const port = 3000;
 
@@ -18,8 +17,8 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files (e.g., HTML, CSS, JS)
-app.use(express.static(path.join(__dirname, '../public')));
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 // Import routes
 const menuRoutes = require('./routes/menu');
@@ -33,31 +32,20 @@ app.listen(port, () => {
 });
 
 let menuItems = [
-	// Weekly Specials
-	{ id: 3, name: "Steak & Cheese w/Loaded Fries", description: "Weekly Specials", price: 12.00 },
-	{ id: 4, name: "Deluxe Burger w/Bacon", description: "Weekly Specials", price: 10.00 },
-	{ id: 5, name: "6 Piece Wings", description: "Weekly Specials", price: 8.00 },
-	{ id: 6, name: "12 Piece Wings", description: "Weekly Specials", price: 15.00 },
-	// Appetizers
 	{ id: 1, name: 'Mozzarella Sticks', description: 'Custom made crispy, golden-brown mozzarella sticks served with our Marinara dipping sauce.', price: 8.00 },
 	{ id: 2, name: 'Pepperjack Cheese Poppers', description: 'Handbreaded crispy, golden-brown pepperjack cheese poppers served with our Diablo sauce.', price: 7.00 },
 	{ id: 3, name: 'Beer Cheese', description: 'Homemade creamy beer cheese served with celery, pretzels and crackers.', price: 8.00 },
-	// Loaded Fries
 	{ id: 4, name: 'Classic Loaded Fries', description: 'Handcut French Fries topped with all the classic toppings.', price: 8.00 },
 	{ id: 5, name: 'Spicy Loaded Fries', description: 'Handcut French Fries topped with all the classic toppings plus jalapenos served with our diablo sauce.', price: 8.00 },
 	{ id: 6, name: 'BBQ Chicken Loaded Fries', description: 'Handcut French Fries topped with BBQ chicken tenders, onion, cheese served with ranch sauce.', price: 10.00 },
-	// Entrees
 	{ id: 7, name: 'Fried Chicken Salad', description: 'Large salad made with fresh lettuce topped with fresh tomatoes, onion, cheese, egg, bacon bits and crispy fried chicken tenders served with your choice of Ranch, Italian, Bleu Cheese or Honey Mustard.', price: 10.00 },
 	{ id: 8, name: 'The Cork Club', description: 'Classic Club Sandwich made with toasted white bread, packed with layers of succulent ham and tender turkey topped with melted American and Swiss cheese, juicy tomato, fresh lettuce, tangy onion and crispy bacon bits served with your choice of fries or side salad.', price: 9.00 },
 	{ id: 9, name: 'Buffalo Chicken Quesadilla', description: 'Tangy Buffalo Chicken in a quesadilla with shredded cheese and onion served with your choice of fries or side salad.', price: 12.00 },
-	// Burgers
 	{ id: 10, name: 'Classic Cheeseburger', description: 'A classic cheeseburger on a toasted bun with your choice of American, Cheddar, or Swiss Cheese with fresh toppings of lettuce, tomato, onion and pickles served with your choice of fries or side salad.', price: 11.00 },
 	{ id: 11, name: 'Bourbon Burger', description: 'A juicy beef patty with a sweet and savory sauce made with bourbon, bacon and caramelized onions topped with melted American Cheese and deep fried onion crisps on a toasted bun served with your choice of fries or side salad.', price: 13.00 },
 	{ id: 12, name: 'Sweet Slaw Burger', description: 'A perfectly seasoned grilled beef patty topped with Swiss Cheese and a generous serving of crispy, spicy chili mayo coleslaw and crispy fried onion on a toasted bun served with your choice of fries or side salad.', price: 13.00 },
-	// Desserts
 	{ id: 13, name: 'Mini Fried Apple Pies', description: '3 bite-sized treats filled with a sweet and spicy apple filling served warm and sprinkled with brown sugar.', price: 7.00 },
 	{ id: 14, name: 'Mini Fried Oreo Pies', description: 'Crunchy and creamy Oreo pies drizzled with chocolate served warm and sprinkled with powdered sugar.', price: 7.00 },
-	// Drinks
 	{ id: 15, name: 'Bottled Water', description: 'Bottled Water', price: 1.25, category: "togoDrinks" },
 	{ id: 16, name: "Canned Soda", description: "Coke, Diet Coke and Sprite", price: 1.25, category: "togoDrinks" },
 	{ id: 17, name: "Cutwater Can Cocktails", description: "Award Winning Cocktails made with real Spirits", price: 5.00, category: "togoDrinks" },
@@ -98,23 +86,48 @@ app.post('/api/menu', (req, res) => {
 // Handle login form and open payment form
 app.post('/api/login', (req, res) => {
     console.log('POST /api/login');
-    const { email, password } = req.body;
+    const { email, pswd } = req.body;
 
-    if (!email || !password) {
+    if (!email || !pswd) {
+        console.log('Email or password missing');
         return res.status(400).send({ message: 'Email and password are required' });
     }
 
     try {
         const query = 'SELECT * FROM customers WHERE email = ? AND pswd = ?';
-        const customer = db.prepare(query).get(email, password);
+        const customer = db.prepare(query).get(email, pswd);
 
         if (customer) {
             // Credentials are valid
-            res.status(200).send({ message: 'Login successful, open payment form' });
+            console.log('Login successful for email:', email);
+            res.redirect('/paymentForm.html');
         } else {
             // Invalid credentials
-            res.status(401).send({ message: 'Invalid email or password' });
+            console.log('Invalid credentials for email:', email);
+            res.redirect('/registrationForm.html');
         }
+    } catch (err) {
+        console.error('Database error:', err);
+        res.status(500).send({ message: 'Internal server error' });
+    }
+});
+
+// Handle registration form submission
+app.post('/api/register', (req, res) => {
+    console.log('POST /api/register');
+    const { firstName, lastName, email, pswd } = req.body;
+
+    if (!firstName || !lastName || !email || !pswd) {
+        console.log('All fields are required');
+        return res.status(400).send({ message: 'All fields are required' });
+    }
+
+    try {
+        const query = 'INSERT INTO customers (firstName, lastName, email, pswd) VALUES (?, ?, ?, ?)';
+        const stmt = db.prepare(query);
+        stmt.run(firstName, lastName, email, pswd);
+        console.log('New customer registered:', { firstName, lastName, email });
+        res.redirect('/loginForm.html');
     } catch (err) {
         console.error('Database error:', err);
         res.status(500).send({ message: 'Internal server error' });
