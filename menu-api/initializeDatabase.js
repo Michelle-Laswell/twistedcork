@@ -27,26 +27,29 @@ if (!fs.existsSync(dbPath)) {
 		)
 	`);
 
-	// Create the orders table
-	db.exec(`
-		CREATE TABLE IF NOT EXISTS orders (
-			orderId INTEGER PRIMARY KEY,
-			customerId INTEGER NOT NULL,
-			menuItemId INTEGER NOT NULL,
-			menuItemName TEXT NOT NULL,
-			quantity INTEGER NOT NULL,
-			orderDate TEXT NOT NULL,
-			FOREIGN KEY (customerId) REFERENCES customers(id),
-			FOREIGN KEY (menuItemId) REFERENCES menu_items(id)
-		)
-	`);
-
 	console.log('Database initialized and tables created successfully.');
 } else {
 	// Open the existing database
 	db = new Database(dbPath);
 	console.log('Database file already exists.');
 }
+
+// Drop the orders table if it exists
+db.exec(`DROP TABLE IF EXISTS orders`);
+
+// Create the orders table
+db.exec(`
+	CREATE TABLE IF NOT EXISTS orders (
+		orderId INTEGER PRIMARY KEY,
+		customerId INTEGER NOT NULL,
+		menuItemId INTEGER NOT NULL,
+		menuItemName TEXT NOT NULL,
+		quantity INTEGER NOT NULL,
+		orderDate TEXT NOT NULL,
+		FOREIGN KEY (customerId) REFERENCES customers(id),
+		FOREIGN KEY (menuItemId) REFERENCES menu_items(id)
+	)
+`);
 
 // Drop the menu_items table if it exists
 db.exec(`DROP TABLE IF EXISTS menu_items`);
@@ -62,6 +65,9 @@ db.exec(`
 		glassPrice REAL
 	)
 `);
+
+// Remove any items in the wkly-special-category
+db.exec(`DELETE FROM menu_items WHERE category = 'wkly-special-category'`);
 
 // Sample data for menu_items
 const menuItems = [
@@ -108,5 +114,24 @@ menuItems.forEach(item => {
 });
 
 console.log('Menu items inserted successfully.');
+
+// Sample data for orders
+const orders = [
+	{ customerId: 1, menuItemId: 1, menuItemName: 'Mozzarella Sticks', quantity: 2, orderDate: '2023-10-01' },
+	{ customerId: 1, menuItemId: 2, menuItemName: 'Pepperjack Cheese Poppers', quantity: 1, orderDate: '2023-10-01' },
+	{ customerId: 2, menuItemId: 3, menuItemName: 'Beer Cheese', quantity: 3, orderDate: '2023-10-01' }
+];
+
+// Insert sample data into orders table
+const insertOrder = db.prepare(`
+	INSERT INTO orders (customerId, menuItemId, menuItemName, quantity, orderDate)
+	VALUES (?, ?, ?, ?, ?)
+`);
+
+orders.forEach(order => {
+	insertOrder.run(order.customerId, order.menuItemId, order.menuItemName, order.quantity, order.orderDate);
+});
+
+console.log('Orders inserted successfully.');
 
 db.close();
