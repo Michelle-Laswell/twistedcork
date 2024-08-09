@@ -6,7 +6,7 @@ function openMenu(evt, menuName) {
         x[i].style.display = "none";
     }
     tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) { // Fix the loop to iterate over tablinks
+    for (i = 0; i < x.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" tabcolor", "");
     }
     document.getElementById(menuName).style.display = "block";
@@ -21,7 +21,12 @@ function openMenu(evt, menuName) {
     }
 }
 
-// Shopping Cart Functions
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("myLink").click();
+});
+
+
+// SHOPPING CART FUNCTIONS
 let cart = [];
 
 function addToCart(item, price, quantity) {
@@ -36,46 +41,12 @@ function addToCart(item, price, quantity) {
     updateTotalPrice();
 }
 
-function updateCartItemQuantity(item, quantity) {
-    const existingItem = cart.find(cartItem => cartItem.item === item);
-    if (existingItem) {
-        existingItem.quantity = quantity;
-    }
-    displayCartItems();
-    updateTotalPrice();
-}
-
-// Function to display cart items
-function displayCartItems() {
-    const cartItemsContainer = document.getElementById("cartItems");
-    cartItemsContainer.innerHTML = '';
-    cart.forEach(cartItem => {
-        const cartItemElement = document.createElement('div');
-        cartItemElement.className = 'cart-item';
-        cartItemElement.innerHTML = `
-            <span>${cartItem.item} - $${cartItem.price} x ${cartItem.quantity}</span>
-            <button class="remove-btn" data-item="${cartItem.item}">Remove</button>
-        `;
-        cartItemsContainer.appendChild(cartItemElement);
-    });
-
-    // Add event listeners to remove buttons
-    document.querySelectorAll('.remove-btn').forEach(button => {
-        button.addEventListener('click', function() {
-            const item = this.getAttribute('data-item');
-            removeFromCart(item);
-        });
-    });
-}
-
-// Function to remove item from cart
 function removeFromCart(item) {
     cart = cart.filter(cartItem => cartItem.item !== item);
     displayCartItems();
     updateTotalPrice();
 }
 
-// Function to update total price
 function updateTotalPrice() {
     const totalPriceElement = document.getElementById("totalPrice");
     const subtotal = cart.reduce((total, cartItem) => total + (cartItem.price * cartItem.quantity), 0);
@@ -84,15 +55,21 @@ function updateTotalPrice() {
     totalPriceElement.textContent = `$${totalPrice.toFixed(2)} (including 6% tax)`;
 }
 
-// Function to clear form inputs and checkboxes
+function displayCartItems() {
+    const cartContainer = document.getElementById("cartItems");
+    cartContainer.innerHTML = "";
+    cart.forEach(item => {
+        const itemElement = document.createElement("div");
+        itemElement.innerText = `${item.item} - Quantity: ${item.quantity} - Price: $${(item.price * item.quantity).toFixed(2)}`;
+        cartContainer.appendChild(itemElement);
+    });
+}
+
 function clearForm() {
     const checkboxes = document.querySelectorAll(".food-item input[type='checkbox'], .drink-item input[type='checkbox']");
     checkboxes.forEach(checkbox => {
         checkbox.checked = false;
     });
-
-
-    
 
     const quantityInputs = document.querySelectorAll(".food-item input[type='number'], .drink-item input[type='number']");
     quantityInputs.forEach(input => {
@@ -104,109 +81,144 @@ function clearForm() {
     updateTotalPrice();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("myLink").click();
+document.getElementById("clear").addEventListener("click", function() {
+    clearForm();
+});
 
-    var orderBtn = document.getElementById("orderbtn");
-    var loginModal = document.getElementById("loginModal");
-    var loginFormContainer = document.getElementById("loginFormContainer");
-    var closeModal = document.getElementsByClassName("close")[0];
+// Attach event listeners to all items (both food and drink items)
+document.querySelectorAll('.food-item, .drink-item').forEach(item => {
+    const checkbox = item.querySelector('input[type="checkbox"]');
+    const quantityInput = item.querySelector('input[type="number"]');
+    console.log(item, checkbox);
 
-    orderBtn.addEventListener("click", function(event) {
-        event.preventDefault();
-
-        fetch('loginForm.html')
-            .then(response => response.text())
-            .then(data => {
-                loginFormContainer.innerHTML = data;
-                loginModal.style.display = "block";
-
-                document.getElementById("login").addEventListener("submit", function(event) {
-                    event.preventDefault();
-
-                    var username = document.getElementById("username").value;
-                    var password = document.getElementById("password").value;
-
-                    if (username === "yourUsername" && password === "yourPassword") {
-                        loginModal.style.display = "none";
-
-                        let selectedItems = [];
-                        let checkboxes = document.querySelectorAll("input[type='checkbox']:checked");
-                        checkboxes.forEach(function(checkbox) {
-                            let item = checkbox.value;
-                            let quantityInput = checkbox.parentElement.querySelector("input[type='number']");
-                            let quantity = quantityInput ? parseInt(quantityInput.value) : 1;
-                            selectedItems.push({ item: item, quantity: quantity });
-                        });
-
-                        console.log("Selected Items:", selectedItems);
-                        alert("Order Summary:\n" + selectedItems.map(item => `${item.quantity} x ${item.item}`).join("\n"));
-                    } else {
-                        alert("Invalid login credentials. Please register.");
-                    }
-                });
-
-                document.querySelector(".signup a").addEventListener("click", function(event) {
-                    event.preventDefault();
-
-                    fetch('forms/registrationForm.html')
-                        .then(response => response.text())
-                        .then(data => {
-                            loginFormContainer.innerHTML = data;
-                        })
-                        .catch(error => console.error('Error loading registration form:', error));
-                });
-
-                document.querySelector(".cancelbtn").addEventListener("click", function() {
-                    loginModal.style.display = "none";
-                    clearForm(); // Clear form inputs and checkboxes when cancel button is clicked
-                });
-            })
-            .catch(error => console.error('Error loading login form:', error));
-    });
-
-    closeModal.addEventListener("click", function() {
-        loginModal.style.display = "none";
-    });
-
-    window.addEventListener("click", function(event) {
-        if (event.target == loginModal) {
-            loginModal.style.display = "none";
+    checkbox.addEventListener('change', function() {
+        const itemName = this.value;
+        const itemPrice = parseFloat(this.getAttribute('data-price'));
+        const itemId = parseInt(this.getAttribute('data-id')); // Assuming you have data-id attribute for item ID
+        const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
+        if (this.checked) {
+            addToCart(itemName, itemPrice, quantity, itemId);
+        } else {
+            removeFromCart(itemName);
         }
     });
 
-    const clearBtn = document.getElementById("clear");
-    clearBtn.addEventListener("click", function() {
-        cart = [];
-        displayCartItems();
-        updateTotalPrice();
-    });
-
-    // Attach event listeners to all items (both food and drink items)
-    document.querySelectorAll('.food-item, .drink-item').forEach(item => {
-        const checkbox = item.querySelector('input[type="checkbox"]');
-        const quantityInput = item.querySelector('input[type="number"]');
-
-        checkbox.addEventListener('change', function() {
-            const itemName = this.value;
-            const itemPrice = parseFloat(this.getAttribute('data-price'));
-            const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
-            if (this.checked) {
-                addToCart(itemName, itemPrice, quantity);
-            } else {
-                removeFromCart(itemName);
+    quantityInput.addEventListener('change', function() {
+        const itemName = checkbox.value;
+        const quantity = parseInt(this.value);
+        if (checkbox.checked) {
+            const item = cart.find(item => item.item === itemName);
+            if (item) {
+                item.quantity = quantity;
             }
-        });
-
-        quantityInput.addEventListener('change', function() {
-            const itemName = checkbox.value;
-            const quantity = parseInt(this.value);
-            if (checkbox.checked) {
-                updateCartItemQuantity(itemName, quantity);
-            }
-        });
+            displayCartItems();
+            updateTotalPrice();
+        }
     });
 });
+
+document.getElementById("orderbtn").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    fetch('loginForm.html')
+        .then(response => response.text())
+        .then(data => {
+            const loginFormContainer = document.getElementById("loginFormContainer");
+            loginFormContainer.innerHTML = data;
+            const loginModal = document.getElementById("loginModal");
+            loginModal.style.display = "block";
+
+            document.getElementById("login").addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("pswd").value;
+
+                if (username !== "" && password !== "") {
+                    console.log('Attempting login with:', { email: username, pswd: password });
+
+                    fetch('/api/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: username,
+                            pswd: password                               
+                        })
+                    })
+                    .then(response => {
+                        console.log('Login response status:', response.status);
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Login response data:', data);
+                        if (data.message === 'Login successful') {
+                            alert("Login successful!");
+
+                            fetch('paymentForm.html')
+                                .then(response => response.text())
+                                .then(paymentFormData => {
+                                    console.log('Payment form loaded');
+                                    loginFormContainer.innerHTML = paymentFormData;
+                                    loginModal.style.display = "none"; // Close the login modal
+                                })
+                                .catch(error => {
+                                    console.error('Error loading payment form:', error);
+                                    alert('Error loading payment form');
+                                });
+                        } else {
+                            alert("Failed to login.");
+
+                            fetch('registrationForm.html')
+                                .then(response => response.text())
+                                .then(registrationFormData => {
+                                    loginFormContainer.innerHTML = registrationFormData;
+                                })
+                                .catch(error => {
+                                    console.error('Error loading registration form:', error);
+                                    alert('Error loading registration form');
+                                });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error during login:', error);
+                        alert('Error during login');
+                    });
+                } else {
+                    alert("Invalid login credentials. Please register.");
+                }
+            });
+
+            document.querySelector(".signup a").addEventListener("click", function(event) {
+                event.preventDefault();
+
+                fetch('forms/registrationForm.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        loginFormContainer.innerHTML = data;
+                    })
+                    .catch(error => console.error('Error loading registration form:', error));
+            });
+
+            document.querySelector(".cancelbtn").addEventListener("click", function() {
+                loginModal.style.display = "none";
+                clearForm();
+            });
+        })
+        .catch(error => console.error('Error loading login form:', error));
+});
+
+// Close modal when clicking outside of it
+window.addEventListener("click", function(event) {
+    const loginModal = document.getElementById("loginModal");
+    if (event.target == loginModal) {
+        loginModal.style.display = "none";
+    }
+});
+
+
+
 
 /*
 // Shopping Cart Functions
@@ -310,24 +322,21 @@ document.addEventListener("DOMContentLoaded", function() {
                     event.preventDefault();
 
                     var username = document.getElementById("username").value;
-                    var password = document.getElementById("password").value;
+                    var password = document.getElementById("pswd").value;
 
-                    if (username === "actualUsername" && password === "actualPassword") {
+                    if (username !== "" && password !== "") {
                         loginModal.style.display = "none";
 
                         // Send cart data to the server
-                        fetch('/orders', {
+                        fetch('/api/login', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
                             },
                             body: JSON.stringify({
-                                customerId: 1, // Replace with actual customer ID
-                                cart: cart.map(cartItem => ({
-                                    menuItemId: cartItem.itemId, // Replace with actual menu item ID
-                                    menuItemName: cartItem.item,
-                                    quantity: cartItem.quantity
-                                }))
+                                email: username,
+                                pswd: password                               
+                        
                             })
                         })
                         .then(response => response.json())
@@ -385,6 +394,7 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('.food-item, .drink-item').forEach(item => {
         const checkbox = item.querySelector('input[type="checkbox"]');
         const quantityInput = item.querySelector('input[type="number"]');
+        console.log (item, checkbox);
 
         checkbox.addEventListener('change', function() {
             const itemName = this.value;
@@ -407,5 +417,4 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
-
 */

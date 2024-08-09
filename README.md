@@ -11,6 +11,8 @@ The website consists of three web pages.  Two of those pages are divided into su
 ### REQUIREMENTS
 
 You just need to install node.js, express.
+Run node server.js.
+Then ctrl+ click http://localhost:3000 to get to the home page of the project.
 
 ### PAGES
 
@@ -43,12 +45,9 @@ The "Eat" section will contain weekly specials and the food menu for ordering fo
 
 The "Drink" section will contain happy hour times, drink specials, and drinks for to-go orders and drinks for in-house ordering along with a button to add that item to your cart.  Only drinks that can ben ordered to-go will have an "add" button.
 
-There will be a sign-in button on the menu page which will open up a sign-in form.  The sign-in form will allow you
-to log into your account with your email address and a password.  If you don't currently have an account there will be a link to allow you to open an account.  When this link is clicked a sign-up form will appear so you can enter the necessary information needed to open your account.
+Once you are on the menu page, you can select with menu items and the quantity you want. Those items and their quantities will display in the shopping cart with the total of the order.  Clicking on the order button will open up a login form.  The login form will allow you to log into your account with your email address and a password. Once the email and password are entered into the login form, click on the login button.  If your email and password are in the database holding those credentials then the the payment form will open (It was doing that this morning but now I can't get the payment form to open). If the email and password you enter are not in the database then the registration form will open (I also had that working this morning and now cannot get it to open).  Fill out this form and click the register button.  Your information will be stored in the database and the login form will reopen and you can put in the email and password that you entered on the registration form. 
 
 You will also be able to find information to contact the establishment via phone number, email address, or Facebook page.
-
-There will be a sign-up/log-in section on this page so that you can create an account and provide payment information for ordering food and drink items to-go.
 
 #### EVENTS
 

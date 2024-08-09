@@ -93,8 +93,7 @@ body {
 .registration-container input[type=email],
 .registration-container input[type=password],
 .registration-container input[type=checkbox],
-.checkout-container input[type=text],
-.checkout-container input[type=password] {
+.checkout-container input[type=text] {
     font-size: 16px;
 }
 

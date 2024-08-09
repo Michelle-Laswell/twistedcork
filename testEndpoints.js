@@ -5,7 +5,7 @@ const baseURL = 'http://localhost:3000/api';
 // Function to test the POST /api/menu endpoint
 async function testAddMenuItem() {
   try {
-    const response = await axios.post(`${baseURL}/menu`, {
+    const response = await axios.post(`${baseURL}/menu-items`, {
       name: 'Test Item',
       description: 'Test Description',
       price: 10.99
