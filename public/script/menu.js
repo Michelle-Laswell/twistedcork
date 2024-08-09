@@ -120,7 +120,7 @@ document.querySelectorAll('.food-item, .drink-item').forEach(item => {
 document.getElementById("orderbtn").addEventListener("click", function(event) {
     event.preventDefault();
 
-    fetch('loginForm.html')
+    fetch('forms/loginForm.html')
         .then(response => response.text())
         .then(data => {
             const loginFormContainer = document.getElementById("loginFormContainer");
@@ -128,86 +128,109 @@ document.getElementById("orderbtn").addEventListener("click", function(event) {
             const loginModal = document.getElementById("loginModal");
             loginModal.style.display = "block";
 
-            document.getElementById("login").addEventListener("submit", function(event) {
-                event.preventDefault();
-
-                var username = document.getElementById("username").value;
-                var password = document.getElementById("pswd").value;
-
-                if (username !== "" && password !== "") {
-                    console.log('Attempting login with:', { email: username, pswd: password });
-
-                    fetch('/api/login', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            email: username,
-                            pswd: password                               
-                        })
-                    })
-                    .then(response => {
-                        console.log('Login response status:', response.status);
-                        return response.json();
-                    })
-                    .then(data => {
-                        console.log('Login response data:', data);
-                        if (data.message === 'Login successful') {
-                            alert("Login successful!");
-
-                            fetch('paymentForm.html')
-                                .then(response => response.text())
-                                .then(paymentFormData => {
-                                    console.log('Payment form loaded');
-                                    loginFormContainer.innerHTML = paymentFormData;
-                                    loginModal.style.display = "none"; // Close the login modal
-                                })
-                                .catch(error => {
-                                    console.error('Error loading payment form:', error);
-                                    alert('Error loading payment form');
-                                });
-                        } else {
-                            alert("Failed to login.");
-
-                            fetch('registrationForm.html')
-                                .then(response => response.text())
-                                .then(registrationFormData => {
-                                    loginFormContainer.innerHTML = registrationFormData;
-                                })
-                                .catch(error => {
-                                    console.error('Error loading registration form:', error);
-                                    alert('Error loading registration form');
-                                });
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error during login:', error);
-                        alert('Error during login');
-                    });
-                } else {
-                    alert("Invalid login credentials. Please register.");
-                }
-            });
-
-            document.querySelector(".signup a").addEventListener("click", function(event) {
-                event.preventDefault();
-
-                fetch('forms/registrationForm.html')
-                    .then(response => response.text())
-                    .then(data => {
-                        loginFormContainer.innerHTML = data;
-                    })
-                    .catch(error => console.error('Error loading registration form:', error));
-            });
-
-            document.querySelector(".cancelbtn").addEventListener("click", function() {
-                loginModal.style.display = "none";
-                clearForm();
-            });
+            // Dynamically load forms.js
+            const script = document.createElement('script');
+            script.src = 'path/to/forms.js'; // Update with the correct path to forms.js
+            script.onload = attachLoginFormEventListeners;
+            document.body.appendChild(script);
         })
         .catch(error => console.error('Error loading login form:', error));
 });
+
+// Function to attach event listeners to the login form
+function attachLoginFormEventListeners() {
+    document.getElementById("login-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("pswd").value;
+
+        if (username !== "" && password !== "") {
+            console.log('Attempting login with:', { email: username, pswd: password });
+
+            fetch('/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email: username,
+                    pswd: password                               
+                })
+            })
+            .then(response => {
+                console.log('Login response status:', response.status);
+                return response.json();
+            })
+            .then(data => {
+                console.log('Login response data:', data);
+                if (data.message === 'Login successful') {
+                    alert("Login successful!");
+
+                    fetch('forms/paymentForm.html')
+                        .then(response => response.text())
+                        .then(paymentFormData => {
+                            console.log('Payment form loaded');
+                            const loginFormContainer = document.getElementById("loginFormContainer");
+                            loginFormContainer.innerHTML = paymentFormData;
+                            const loginModal = document.getElementById("loginModal");
+                            loginModal.style.display = "none"; // Close the login modal
+                        })
+                        .catch(error => {
+                            console.error('Error loading payment form:', error);
+                            alert('Error loading payment form');
+                        });
+                } else {
+                    alert("Failed to login.");
+
+                    fetch('forms/registrationForm.html')
+                        .then(response => response.text())
+                        .then(registrationFormData => {
+                            const loginFormContainer = document.getElementById("loginFormContainer");
+                            loginFormContainer.innerHTML = registrationFormData;
+                        })
+                        .catch(error => {
+                            console.error('Error loading registration form:', error);
+                            alert('Error loading registration form');
+                        });
+                }
+            })
+            .catch(error => {
+                console.error('Error during login:', error);
+                alert('Error during login');
+            });
+        } else {
+            alert("Invalid login credentials. Please register.");
+        }
+    });
+
+    document.getElementById("showLoginPasswordCheckbox").addEventListener("change", function() {
+        const passwordInput = document.getElementById("pswd");
+        if (this.checked) {
+            passwordInput.type = "text";
+        } else {
+            passwordInput.type = "password";
+        }
+    });
+
+    document.getElementById("cancelBtn1").addEventListener("click", function() {
+        const loginModal = document.getElementById("loginModal");
+        loginModal.style.display = "none";
+        clearForm();
+    });
+
+    document.querySelector(".signup a").addEventListener("click", function(event) {
+        event.preventDefault();
+
+        fetch('forms/registrationForm.html')
+            .then(response => response.text())
+            .then(data => {
+                const loginFormContainer = document.getElementById("loginFormContainer");
+                loginFormContainer.innerHTML = data;
+            })
+            .catch(error => console.error('Error loading registration form:', error));
+    });
+}
 
 // Close modal when clicking outside of it
 window.addEventListener("click", function(event) {

@@ -26,7 +26,7 @@
 
                 <p>Please fill out this form to create an account.</p>
 
-                <form action="/api/register" method="post" >                                            
+                <form id="registrationForm" action="/api/register" method="post" >                                            
             
                     <label for="firstName">First Name:</label>
                     <input type="text" id="firstName" name="firstName" placeholder="First Name" class="inline" required><br><br>
@@ -45,15 +45,17 @@
                     <input type="checkbox" id="showPasswordCheckbox" onclick="toggleRegistrationPasswordVisibility()"> Show Password<br><br>                    
 
                     <input class="registerbtn" type="submit" value="Register">                   
-                    <button class="cancelbtn" type="button">Cancel</button>
+                    <button id="cancelBtn" class="cancelbtn" type="button">Cancel</button>
                                     
                 </form>
             </div>
         </section>
     </main> 
+
+    <button id="cancelBtn" class="cancelbtn" type="button">Cancel</button>
     
-    <script src="/script/menu.js"></script>
-    <script src="/script/forms.js"></script>
+    <script src="script/menu.js"></script>
+    <script src="script/forms.js"></script>
 
 </body>
 </html>
