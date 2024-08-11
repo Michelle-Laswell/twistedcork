@@ -1,174 +1,206 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Toggle password visibility
+    // Toggle password visibility in the login form
     const showPasswordCheckbox = document.getElementById("showLoginPasswordCheckbox");
     if (showPasswordCheckbox) {
+        console.log("Show Password Checkbox found");
         showPasswordCheckbox.addEventListener("change", function() {
             const passwordField = document.getElementById("pswd");
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
+            if (this.checked) {
+                passwordField.type = 'text';
             } else {
-                passwordField.type = "password";
+                passwordField.type = 'password';
             }
         });
+    } else {
+        console.log("Show Password Checkbox not found");
     }
 
-    // CLEARS FORM WHEN THE CANCEL BUTTON IS CLICKED
-    document.getElementById('cancelBtn1').onclick = function() {
-        var loginForm = document.getElementById('login-form');
-        loginForm.reset(); // Reset the form fields    
-    };
+    // Clear login form fields when the cancel button is clicked
+    const cancelLoginButton = document.getElementById('cancelBtn1');
+    if (cancelLoginButton) {
+        console.log("Cancel Login Button found");
+        cancelLoginButton.onclick = function() {
+            const usernameField = document.getElementById('username');
+            const passwordField = document.getElementById('pswd');
+            const showPasswordCheckbox = document.getElementById('showLoginPasswordCheckbox');
+            
+            if (usernameField && passwordField && showPasswordCheckbox) {
+                usernameField.value = '';
+                passwordField.value = '';
+                showPasswordCheckbox.checked = false;
+            } else {
+                console.log("One or more login form fields not found");
+            }
+        };
+    } else {
+        console.log("Cancel Login Button not found");
+    }
 
-    document.getElementById('cancelBtn').onclick = function() {
-        document.getElementById('registrationForm').reset();
-    };
+    // Clear registration form when the cancel button is clicked
+    const cancelRegistrationButton = document.getElementById('cancelBtn');
+    if (cancelRegistrationButton) {
+        console.log("Cancel Registration Button found");
+        cancelRegistrationButton.onclick = function() {
+            const registrationForm = document.getElementById('registrationForm');
+            if (registrationForm) {
+                registrationForm.reset();
+            } else {
+                console.log("Registration Form not found");
+            }
+        };
+    } else {
+        console.log("Cancel Registration Button not found");
+    }
 
     // Show login form when order button is clicked
     const orderButton = document.getElementById("orderbtn");
     if (orderButton) {
-        orderButton.addEventListener("click", function() {
+        console.log("Order Button found");
+        orderButton.addEventListener("click", function(event) {
+            event.preventDefault();
             document.getElementById("login").style.display = "block";
         });
+    } else {
+        console.log("Order Button not found");
     }
 
     // Handle login form submission
     const loginForm = document.getElementById("login-form");
     if (loginForm) {
+        console.log("Login Form found");
         loginForm.addEventListener("submit", function(event) {
             event.preventDefault();
-            // Perform login validation here
-            const isValidLogin = true; // Replace with actual validation logic
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("pswd").value;
 
-            if (isValidLogin) {
-                document.getElementById("login").style.display = "none";
-                document.getElementById("paymentForm").style.display = "block"; // Show payment form
+            if (username !== "" && password !== "") {
+                fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: username, pswd: password })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Login successful') {
+                        document.getElementById("login").style.display = "none";
+                        fetch('paymentForm.html')
+                            .then(response => response.text())
+                            .then(paymentFormData => {
+                                document.getElementById("loginFormContainer").innerHTML = paymentFormData;
+                            })
+                            .catch(error => console.error('Error loading payment form:', error));
+                    } else {
+                        console.error('Login failed:', data.message);
+                    }
+                })
+                .catch(error => console.error('Error during login:', error));
             } else {
-                alert("Invalid login credentials");
+                alert("Invalid login credentials. Please register.");
             }
         });
-    }
-
-    // Handle cancel button click
-    const cancelButton = document.getElementById("cancelBtn1");
-    if (cancelButton) {
-        cancelButton.addEventListener("click", function() {
-            document.getElementById("login").style.display = "none";
-        });
-    }
-});
-
-// Function to toggle password visibility in the registration form
-function toggleRegistrationPasswordVisibility() {
-    console.log("toggleRegistrationPasswordVisibility called");
-    var x = document.getElementById("pswd");
-    var y = document.getElementById("pswd-repeat");
-    if (x.type === "password" && y.type === "password") {
-        x.type = "text";
-        y.type = "text";
     } else {
-        x.type = "password";
-        y.type = "password";
+        console.log("Login Form not found");
     }
-}
 
-// Add event listeners for the checkboxes
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM fully loaded and parsed");
-
+    // Add event listeners for the registration password visibility checkbox
     const registrationCheckbox = document.getElementById("showRegistrationPasswordCheckbox");
     if (registrationCheckbox) {
-        console.log("Registration checkbox found");
+        console.log("Registration Password Checkbox found");
         registrationCheckbox.addEventListener("change", toggleRegistrationPasswordVisibility);
     } else {
-        console.log("Registration checkbox not found");
+        console.log("Registration Password Checkbox not found");
+    }
+
+    // Function to toggle password visibility in the registration form
+    function toggleRegistrationPasswordVisibility() {
+        const passwordField = document.getElementById("pswd");
+        const repeatPasswordField = document.getElementById("pswd-repeat");
+        const type = passwordField.type === "password" ? "text" : "password";
+        passwordField.type = type;
+        repeatPasswordField.type = type;
     }
 });
 
-/*
-document.getElementById('login-form').addEventListener('submit', async (event) => {
-	event.preventDefault();
-	const email = document.getElementById('username').value;
-	const pswd = document.getElementById('pswd').value;
+/*document.addEventListener("DOMContentLoaded", function() {
+    // Toggle password visibility in the login form
+    const showPasswordCheckbox = document.getElementById("showLoginPasswordCheckbox");
+    if (showPasswordCheckbox) {
+        showPasswordCheckbox.addEventListener("change", function() {
 
-	const response = await fetch('/api/login', {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({ email, pswd })
-	});
-
-	if (response.ok) {
-		const { customerId } = await response.json();
-		const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-		const orderResponse = await fetch('/api/orders', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ cart, customerId })
+/*document.addEventListener("DOMContentLoaded", function() {
+	// Toggle password visibility in the login form
+	const showPasswordCheckbox = document.getElementById("showLoginPasswordCheckbox");
+	if (showPasswordCheckbox) {
+		showPasswordCheckbox.addEventListener("change", function() {
+			const passwordField = document.getElementById("pswd");
+			passwordField.type = passwordField.type === "password" ? "text" : "password";
 		});
+	}
 
-		if (orderResponse.ok) {
-			alert('Order placed successfully!');
-			localStorage.removeItem('cart');
-		} else {
-			alert('Failed to place order.');
-		}
-	} else {
-		alert('Invalid login credentials.');
+	// Clear login form when the cancel button is clicked
+	const cancelLoginButton = document.getElementById('cancelBtn1');
+	if (cancelLoginButton) {
+		cancelLoginButton.onclick = function() {
+			const loginForm = document.getElementById('login-form');
+			loginForm.reset(); // Reset the form fields    
+		};
+	}
+
+	// Clear registration form when the cancel button is clicked
+	const cancelRegistrationButton = document.getElementById('cancelBtn');
+	if (cancelRegistrationButton) {
+		cancelRegistrationButton.onclick = function() {
+			document.getElementById('registrationForm').reset();
+		};
+	}
+
+	// Show login form when order button is clicked
+	const orderButton = document.getElementById("orderbtn");
+	if (orderButton) {
+		orderButton.addEventListener("click", function() {
+			document.getElementById("login").style.display = "block";
+		});
+	}
+
+	// Handle login form submission
+	const loginForm = document.getElementById("login-form");
+	if (loginForm) {
+		loginForm.addEventListener("submit", function(event) {
+			event.preventDefault();
+			// Perform login validation here
+			const isValidLogin = true; // Replace with actual validation logic
+
+			if (isValidLogin) {
+				document.getElementById("login").style.display = "none";
+				document.getElementById("paymentForm").style.display = "block"; // Show payment form
+			} else {
+				alert("Invalid login credentials");
+			}
+		});
+	}
+
+	// Handle cancel button click in the login form
+	if (cancelLoginButton) {
+		cancelLoginButton.addEventListener("click", function() {
+			document.getElementById("login").style.display = "none";
+		});
+	}
+
+	// Add event listeners for the registration password visibility checkbox
+	const registrationCheckbox = document.getElementById("showRegistrationPasswordCheckbox");
+	if (registrationCheckbox) {
+		registrationCheckbox.addEventListener("change", toggleRegistrationPasswordVisibility);
 	}
 });
 
-/*
-// Function to toggle password visibility in the login form
-function toggleLoginPasswordVisibility() {
-    console.log("toggleLoginPasswordVisibility called");
-    var x = document.getElementById("pswd");
-    if (x.type === "password") {
-        x.type = "text";
-    } else {
-        x.type = "password";
-    }
-}
-
 // Function to toggle password visibility in the registration form
 function toggleRegistrationPasswordVisibility() {
-    console.log("toggleRegistrationPasswordVisibility called");
-    var x = document.getElementById("pswd");
-    var y = document.getElementById("pswd-repeat");
-    if (x.type === "password" && y.type === "password") {
-        x.type = "text";
-        y.type = "text";
-    } else {
-        x.type = "password";
-        y.type = "password";
-    }
+	const passwordField = document.getElementById("pswd");
+	const repeatPasswordField = document.getElementById("pswd-repeat");
+	const type = passwordField.type === "password" ? "text" : "password";
+	passwordField.type = type;
+	repeatPasswordField.type = type;
 }
-
-// Add event listeners for the checkboxes
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("DOM fully loaded and parsed");
-    const loginCheckbox = document.getElementById("showLoginPasswordCheckbox");
-    if (loginCheckbox) {
-        console.log("Login checkbox found");
-        loginCheckbox.addEventListener("change", toggleLoginPasswordVisibility);
-    } else {
-        console.log("Login checkbox not found");
-    }
-
-    const registrationCheckbox = document.getElementById("showRegistrationPasswordCheckbox");
-    if (registrationCheckbox) {
-        console.log("Registration checkbox found");
-        registrationCheckbox.addEventListener("change", toggleRegistrationPasswordVisibility);
-    } else {
-        console.log("Registration checkbox not found");
-    }
-});
-
-// CLEARS FORM WHEN THE CANCEL BUTTON IS CLICKED
-document.getElementById('cancelBtn1').onclick = function() {
-    var loginForm = document.getElementById('login-form');
-    loginForm.reset(); // Reset the form fields    
-};
-
-document.getElementById('cancelBtn').onclick = function() {
-    document.getElementById('registrationForm').reset();
-};
 */
