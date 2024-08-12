@@ -115,3 +115,23 @@ app.post('/api/login', (req, res) => {
     }
 });
 
+//Handle registration form submission
+app.post('/api/register', (req, res) => {
+    const { firstName, lastName, email, pswd } = req.body;
+
+    if (!firstName || !lastName || !email || !pswd) {
+        return res.status(400).send({ message: 'All fields are required' });
+    }
+
+    try {
+        const query = 'INSERT INTO customers (firstName, lastName, email, pswd) VALUES (?, ?, ?, ?)';
+        const stmt = db.prepare(query);
+        stmt.run(firstName, lastName, email, pswd);
+
+        res.status(201).send({ message: 'Registration successful' });
+    } catch (err) {
+        console.error('Database error:', err);
+        res.status(500).send({ message: 'Internal server error' });
+    }
+});
+

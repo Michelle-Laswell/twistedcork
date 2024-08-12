@@ -57,9 +57,13 @@ function updateTotalPrice() {
 function displayCartItems() {
     const cartContainer = document.getElementById("cartItems");
     cartContainer.innerHTML = "";
+    cart.forEach(cartItem => {
+        const itemElement = document.createElement("div");
+        itemElement.textContent = `${cartItem.item} - ${cartItem.quantity} x $${cartItem.price.toFixed(2)}`;
+        cartContainer.appendChild(itemElement);
+    });
 }
 
-// The rest of your code remains unchanged
 function clearForm() {
     const checkboxes = document.querySelectorAll(".food-item input[type='checkbox'], .drink-item input[type='checkbox']");
     checkboxes.forEach(checkbox => {
@@ -89,10 +93,9 @@ document.querySelectorAll('.food-item, .drink-item').forEach(item => {
     checkbox.addEventListener('change', function() {
         const itemName = this.value;
         const itemPrice = parseFloat(this.getAttribute('data-price'));
-        const itemId = parseInt(this.getAttribute('data-id')); // Assuming you have data-id attribute for item ID
         const quantity = quantityInput ? parseInt(quantityInput.value) : 1;
         if (this.checked) {
-            addToCart(itemName, itemPrice, quantity, itemId);
+            addToCart(itemName, itemPrice, quantity);
         } else {
             removeFromCart(itemName);
         }
@@ -111,6 +114,39 @@ document.querySelectorAll('.food-item, .drink-item').forEach(item => {
         }
     });
 });
+
+document.getElementById("orderbtn").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    fetch('loginForm.html')
+        .then(response => response.text())
+        .then(data => {
+            const loginFormContainer = document.getElementById("loginFormContainer");
+            loginFormContainer.innerHTML = data;
+            const loginModal = document.getElementById("loginModal");
+            loginModal.style.display = "block";
+        })
+        .catch(error => console.error('Error loading login form:', error));
+});
+
+// Close modal when clicking outside of it
+window.addEventListener("click", function(event) {
+    const loginModal = document.getElementById("loginModal");
+    if (event.target == loginModal) {
+        loginModal.style.display = "none";
+    }
+});
+
+
+
+
+
+
+
+
+
+
+/*trying to open paymentForm.html with valid credentials or open registrationForm.html without valid credentials
 
 document.getElementById("orderbtn").addEventListener("click", function(event) {
     event.preventDefault();
@@ -234,6 +270,7 @@ window.addEventListener("click", function(event) {
         loginModal.style.display = "none";
     }
 });
+*/
 
 /*// SHOPPING CART FUNCTIONS
 let cart = [];
