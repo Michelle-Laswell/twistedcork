@@ -696,7 +696,7 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
     background-color: rgb(104, 31, 92, 0.4);
-    font-weight: 400;
+    font-weight: 500;
 }
 
 
