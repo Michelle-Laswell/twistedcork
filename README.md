@@ -11,7 +11,7 @@ The website consists of three web pages.  Two of those pages are divided into su
 ### REQUIREMENTS
 
 You just need to install node.js, express.
-Run node server.js.
+Navigate to twistedcork/menu-api. Run node server.js .
 Then ctrl+ click http://localhost:3000 to get to the home page of the project.
 
 ### PAGES
