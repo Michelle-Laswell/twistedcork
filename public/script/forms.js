@@ -28,7 +28,7 @@ function initializeEventListeners() {
 		console.log("Show Login Password Checkbox not found");
 	}
 
-	// Toggle password visibility in the registration form
+// Toggle password visibility in the registration form
 	const showRegistrationPasswordCheckbox = document.getElementById("showPasswordCheckbox");
 	if (showRegistrationPasswordCheckbox) {
 		console.log("Show Registration Password Checkbox found");
@@ -37,7 +37,10 @@ function initializeEventListeners() {
 		console.log("Show Registration Password Checkbox not found");
 	}
 
-	// Handle login form submission
+// Initialize event listeners on page load
+document.addEventListener("DOMContentLoaded", initializeEventListeners);
+
+// Handle login form submission
 	const loginForm = document.getElementById("login-form");
 	if (loginForm) {
 		console.log("Login Form found");
@@ -87,7 +90,7 @@ function initializeEventListeners() {
 		console.log("Login Form not found");
 	}
 
-	// Handle registration form submission
+// Handle registration form submission
 	const registrationForm = document.getElementById('registrationForm');
 	if (registrationForm) {
 		registrationForm.addEventListener('submit', async (event) => {
@@ -106,7 +109,13 @@ function initializeEventListeners() {
 				});
 
 				if (response.ok) {
-					window.location.href = 'loginForm.html'; // Redirect to login form
+					const responseData = await response.json();
+					console.log('Response Data:', responseData); // Debugging line
+					if (responseData.message === 'Registration successful') {
+						window.location.href = 'loginForm.html'; // Redirect to login form
+					} else {
+						alert(`Registration failed: ${responseData.message}`);
+					}
 				} else {
 					const errorData = await response.json();
 					alert(`Registration failed: ${errorData.message}`);
@@ -123,6 +132,3 @@ function initializeEventListeners() {
 		}
 	}
 }
-
-// Initialize event listeners on page load
-document.addEventListener("DOMContentLoaded", initializeEventListeners);

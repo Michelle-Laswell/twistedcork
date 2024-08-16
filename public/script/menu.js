@@ -115,6 +115,12 @@ document.querySelectorAll('.food-item, .drink-item').forEach(item => {
     });
 });
 
+// Redirect to loginForm.html when the order button is clicked
+document.getElementById("orderbtn").addEventListener("click", function() {
+    window.location.href = 'loginForm.html';
+});
+
+/*
 document.getElementById("orderbtn").addEventListener("click", function(event) {
     event.preventDefault();
 
@@ -128,14 +134,16 @@ document.getElementById("orderbtn").addEventListener("click", function(event) {
         })
         .catch(error => console.error('Error loading login form:', error));
 });
+*/
 
+/*
 // Close modal when clicking outside of it
 window.addEventListener("click", function(event) {
     const loginModal = document.getElementById("loginModal");
     if (event.target == loginModal) {
         loginModal.style.display = "none";
     }
-});
+});*/
 
 
 

@@ -71,6 +71,7 @@ let menuItems = [
 
 app.get('/api/menu', (req, res) => {
     console.log('GET /api/menu');
+    res.setHeader('Content-Type', 'application/json');
     res.json(menuItems);
 });
 
@@ -80,11 +81,13 @@ app.post('/api/menu', (req, res) => {
     const newItem = req.body;
     if (!newItem || !newItem.name || !newItem.description || !newItem.price) {
         console.error('Invalid item data:', newItem);
+        res.setHeader('Content-Type', 'application/json');
         return res.status(400).send({ message: 'Invalid item data' });
     }
     newItem.id = menuItems.length ? menuItems[menuItems.length - 1].id + 1 : 1; // Ensure unique ID
     menuItems.push(newItem);
     console.log('New item added:', newItem);
+    res.setHeader('Content-Type', 'application/json');
     res.status(201).json(newItem);
 });
 
@@ -95,6 +98,7 @@ app.post('/api/login', (req, res) => {
 
     if (!email || !pswd) {
         console.log('Email or password missing');
+        res.setHeader('Content-Type', 'application/json');
         return res.status(400).send({ message: 'Email and password are required' });
     }
 
@@ -102,6 +106,7 @@ app.post('/api/login', (req, res) => {
         const query = 'SELECT * FROM customers WHERE email = ? AND pswd = ?';
         const customer = db.prepare(query).get(email, pswd);
 
+        res.setHeader('Content-Type', 'application/json');
         if (customer) {
             // Credentials are valid, send success message
             res.status(200).json({ message: 'Login successful' });
@@ -111,6 +116,7 @@ app.post('/api/login', (req, res) => {
         }
     } catch (err) {
         console.error('Database error:', err);
+        res.setHeader('Content-Type', 'application/json');
         res.status(500).send({ message: 'Internal server error' });
     }
 });
@@ -120,6 +126,7 @@ app.post('/api/register', (req, res) => {
     const { firstName, lastName, email, pswd } = req.body;
 
     if (!firstName || !lastName || !email || !pswd) {
+        res.setHeader('Content-Type', 'application/json');
         return res.status(400).send({ message: 'All fields are required' });
     }
 
@@ -128,9 +135,11 @@ app.post('/api/register', (req, res) => {
         const stmt = db.prepare(query);
         stmt.run(firstName, lastName, email, pswd);
 
+        res.setHeader('Content-Type', 'application/json');
         res.status(201).send({ message: 'Registration successful' });
     } catch (err) {
         console.error('Database error:', err);
+        res.setHeader('Content-Type', 'application/json');
         res.status(500).send({ message: 'Internal server error' });
     }
 });
