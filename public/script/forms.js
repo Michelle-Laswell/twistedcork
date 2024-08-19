@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", initializeEventListeners);
 		console.log("Login Form not found");
 	}
 
-// Handle registration form submission
+// Handle registration form submission-original
 	const registrationForm = document.getElementById('registrationForm');
 	if (registrationForm) {
 		registrationForm.addEventListener('submit', async (event) => {
@@ -132,3 +132,4 @@ document.addEventListener("DOMContentLoaded", initializeEventListeners);
 		}
 	}
 }
+

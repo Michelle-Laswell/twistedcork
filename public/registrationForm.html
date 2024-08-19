@@ -35,14 +35,14 @@
                     <input type="text" id="lastName" name="lastName" placeholder="Last Name" class="inline" required><br><br>
 
                     <label for="email">Email Address:</label>
-                    <input type="email" id="email" name="email" placeholder="Enter Email" class="inline" required><br><br>
+                    <input type="email" id="email" name="email" placeholder="Enter Email" class="inline" required autocomplete="current-email"><br><br>
 
                     <label for="pswd">Password:</label>
                     <input type="password" id="pswd" name="pswd" class="inline" required><br><br>
 
                     <label for="pswd-repeat">Repeat Password:</label>
                     <input type="password" id="pswd-repeat" name="pswd-repeat" value="" class="inline" required><br><br>
-                    <input type="checkbox" id="showPasswordCheckbox" onclick="toggleRegistrationPasswordVisibility()"> Show Password<br><br>                    
+                    <input type="checkbox" id="showPasswordCheckbox" onclick="toggleRegistrationPasswordVisibility()">Show Password<br><br>                    
 
                     <input id="registerbtn" class="registerbtn" type="submit" value="Register">                   
                     <input type="reset" id="cancelBtn" class="cancelbtn" value="Cancel">
